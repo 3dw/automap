@@ -1,18 +1,31 @@
 section(ng-cloak='')
   h1.ui.center.aligned.header 選擇一項
-    .sub.header(ng-show="myC") 當前分類：「{{myC}}」
+  
+  h4.ui.center.aligned.header 分類：
+      a.ui.circular.label(ng-repeat="c in catagories",
+        ng-style="{'background-color': c.color}",
+        ng-click="$parent.myC = c.t") {{c.t}}
+
+      a.ui.circular.label(ng-click="myC = undefined") 全部
+
   .ui.divider
   br   
   #main.ui.four.column.doubling.stackable.relaxed.grid.container
-    .column(ng-repeat="f in faqs | orderBy:myOrd", ng-show="(!myC || f.c==myC) && (!key || f.q.indexOf(key)>-1)")
+    .column(ng-repeat="f in faqs | orderBy:myOrd", ng-show="(!myC || f.c == myC) && (!key || f.q.indexOf(key)>-1)")
       .inner.bordered.bottom.right.left
+
         h4.ui.center.aligned.icon.header
-          a(ng-click="$parent.myF=f", href="#ans", ng-href="#ans/{{$index}}")
-            i.circular.icon(ng-class="{orange:$index % 2 == 0, user:$index % 2 == 0, help:$index % 2 == 1}")
+          a(ng-click="$parent.myF=f", 
+          href="#ans", ng-href="#ans/{{$index}}")
+            i.circular.icon(ng-class="{orange: false && $index % 2 == 0, user:$index % 2 == 0, help:$index % 2 == 1}")
             .description(ng-bind-html = "highlightAndMakeBr(f.q,key)" ng-class="{orange:$index % 2 == 0}")
             br
-          a.ui.top.right.attached.tag.label(ng-class="{tag:!myC, ribbon: myC}" ng-show ="!myC" ng-click="$parent.myC=(!myC && f.c)||0")
-            | {{f.c}}          
+
+      a.ui.top.left.attached.ribbon.label(
+        ng-style = "{'background-color': cataColor(f.c)}",
+        ng-click="$parent.myC=(!myC && f.c)||0")
+        | {{f.c}}
+
     .column(ng-show = "!myC")
       .inner.bordered.bottom.right.left
         h4.ui.center.aligned.icon.header
@@ -21,5 +34,5 @@ section(ng-cloak='')
             .description.orange
               | 有其他問題嗎？請聯絡諮詢專線
             br
-          .ui.top.right.attached.tag.label
-            | 其他
+      .ui.top.left.attached.ribbon.label
+        | 其他

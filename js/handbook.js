@@ -49,7 +49,7 @@ app.factory('$hack', function() {
 
                   ans = ans.replace(/<.*noscript>/gm,'')
                           .replace(/&lt;.+&gt;/g,'');
-                   console.log(ans);
+          //         console.log(ans);
 
                    var json;
                      try {json = JSON.parse(ans)} catch (err) { console.log(err)};
@@ -95,6 +95,20 @@ app.factory('$hack', function() {
       {}
     );
 
+
+    $scope.catagories = [
+      {t: '法源', color: '#9ef'},
+      {t: '申請', color: '#f99'},
+      {t: '家庭', color: '#f93'},
+      {t: '交友', color: '#fca'},
+      {t: '計畫', color: '#0f0'},
+      {t: '審議', color: '#fcf'},
+      {t: '資源', color: '#c9c'},
+//      {t: '其他', color: '#999'},
+    ];
+
+
+
     angular.extend($scope, {
       $route: $route,
       highlightAndMakeBr: function(text, search) {
@@ -110,7 +124,7 @@ app.factory('$hack', function() {
         return $scope.current || $scope.here;
       },
       myOrd: function(f){
-        var o = ['法源','申請','交友','資源','生涯','計畫','家庭','審議'].indexOf(f.c);
+        var o = $scope.catagories.map(function(o){return o.t}).indexOf(f.c);
         o = (o==-1) ? 100 : o;
         return o;
       },
@@ -127,6 +141,11 @@ app.factory('$hack', function() {
           }
         };
         return ans;
+      },
+      cataColor: function(n) {
+        return ($scope.catagories.filter(
+          function(o){return o.t == n}
+        )[0] || {}).color || '#999'
       }
     })            
 
@@ -146,16 +165,15 @@ app.factory('$hack', function() {
 
             };
 
-
-    $scope.catagory = $scope.toCatagory($scope.faqs, 'c');    
-
+   
+   /*
+    var catagory = $scope.toCatagory($scope.faqs, 'c');    
     var os = Object.keys($scope.catagory);
-    $scope.catagories = [];
     for (var i = 0; i < os.length; i++) {
       $scope.catagories.push({
         t: os[i],
         n: $scope.catagory[os[i]]
       });
-    };
+    }; */
 
   }
