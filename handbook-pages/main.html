@@ -6,7 +6,8 @@
   <div id="main" class="ui four column doubling stackable relaxed grid container">
     <div ng-repeat="f in faqs | orderBy:myOrd" ng-show="(!myC || f.c == myC) &amp;&amp; (!key || f.q.indexOf(key)&gt;-1)" class="column">
       <div class="inner bordered bottom right left">
-        <h4 class="ui center aligned icon header"><a ng-click="$parent.myF=f" href="#ans" ng-href="#ans/{{$index}}"><i ng-class="{orange: false &amp;&amp; $index % 2 == 0, user:$index % 2 == 0, help:$index % 2 == 1}" class="circular icon"></i>
+        <h4 class="ui center aligned icon header"><a ng-click="$parent.myF=f" href="#ans" ng-href="#ans/{{$index}}"><i ng-class="cataIcon(f.c)" class="circular icon">
+              <!--(ng-class="{orange: false && $index % 2 == 0, user:$index % 2 == 0, help:$index % 2 == 1}")--></i>
             <div ng-bind-html="highlightAndMakeBr(f.q,key)" ng-class="{orange:$index % 2 == 0}" class="description"></div><br/></a></h4>
       </div><a ng-style="{'background-color': cataColor(f.c)}" ng-click="$parent.myC=(!myC &amp;&amp; f.c)||0" class="ui top left attached ribbon label">{{f.c}}</a>
     </div>

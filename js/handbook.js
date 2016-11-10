@@ -97,13 +97,13 @@ app.factory('$hack', function() {
 
 
     $scope.catagories = [
-      {t: '法源', color: '#9ef'},
-      {t: '申請', color: '#f99'},
-      {t: '家庭', color: '#f93'},
-      {t: '交友', color: '#fca'},
-      {t: '計畫', color: '#0f0'},
-      {t: '審議', color: '#fcf'},
-      {t: '資源', color: '#c9c'},
+      {t: '法源', color: '#9ef', icon: 'law'},
+      {t: '申請', color: '#f99', icon: 'edit'},
+      {t: '家庭', color: '#f93', icon: 'home'},
+      {t: '交友', color: '#fca', icon: 'add user'},
+      {t: '計畫', color: '#0f0', icon: 'hourglass half'},
+      {t: '審議', color: '#fcf', icon: 'protect'},
+      {t: '資源', color: '#c9c', icon: 'in cart'},
 //      {t: '其他', color: '#999'},
     ];
 
@@ -147,6 +147,11 @@ app.factory('$hack', function() {
         return ($scope.catagories.filter(
           function(o){return o.t == n}
         )[0] || {}).color || '#999'
+      },
+      cataIcon: function(n) {
+        return ($scope.catagories.filter(
+          function(o){return o.t == n}
+        )[0] || {}).icon || 'user'
       }
     })            
 

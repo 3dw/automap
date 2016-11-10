@@ -17,7 +17,8 @@ section(ng-cloak='')
         h4.ui.center.aligned.icon.header
           a(ng-click="$parent.myF=f", 
           href="#ans", ng-href="#ans/{{$index}}")
-            i.circular.icon(ng-class="{orange: false && $index % 2 == 0, user:$index % 2 == 0, help:$index % 2 == 1}")
+            i.circular.icon(ng-class="cataIcon(f.c)")
+              //(ng-class="{orange: false && $index % 2 == 0, user:$index % 2 == 0, help:$index % 2 == 1}")
             .description(ng-bind-html = "highlightAndMakeBr(f.q,key)" ng-class="{orange:$index % 2 == 0}")
             br
 
