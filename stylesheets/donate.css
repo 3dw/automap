@@ -1,0 +1,63 @@
+/* line 5, ../sass/donate.scss */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+/* line 9, ../sass/donate.scss */
+html {
+  font-size: 16px;
+  font-size: 1.5vmax;
+}
+
+/* line 14, ../sass/donate.scss */
+.ui.container#main {
+  position: relative;
+  top: 8rem;
+}
+
+/* line 19, ../sass/donate.scss */
+.ui.segment {
+  line-height: 160%;
+}
+/* line 21, ../sass/donate.scss */
+.ui.segment p {
+  margin-top: 16px;
+}
+
+/* line 26, ../sass/donate.scss */
+.ui.menu .item.completed {
+  background-color: #dfd;
+  color: #060;
+}
+
+/* line 32, ../sass/donate.scss */
+.circular.law.icon::before {
+  position: relative;
+  left: -3px;
+}
+
+@media screen and (min-width: 780px) {
+  /* line 38, ../sass/donate.scss */
+  .thin-only {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 780px) {
+  /* line 45, ../sass/donate.scss */
+  table#polis-view td {
+    min-width: 16px;
+  }
+  /* line 47, ../sass/donate.scss */
+  table#polis-view td span {
+    width: 0px !important;
+  }
+  /* line 50, ../sass/donate.scss */
+  table#polis-view td i {
+    left: 0px !important;
+  }
+
+  /* line 55, ../sass/donate.scss */
+  .fat-only {
+    display: none !important;
+  }
+}

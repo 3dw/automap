@@ -1,0 +1,52 @@
+@import "compass/CSS3";
+
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+html {
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+
+.print-only {
+	display: none !important;
+}
+
+.highlightedText {
+  background: yellow !important;
+}
+
+a, .pointer {
+	cursor: pointer !important;
+}
+
+
+
+
+.slide {
+  @include transition (1s linear all);
+  position: relative;
+  right: 0px;
+  opacity: 1;
+}
+.slide.ng-hide {
+  right: -100%;
+  right: -100vw;
+  opacity: 0;
+}
+
+.slide2 {
+  @include transition (2s linear all);
+  position: relative;
+  right: 0px;
+  opacity: 1;
+}
+.slide2.ng-hide {
+  right: -100%;
+  right: -100vw;
+  opacity: 0;
+}
+
+

@@ -1,0 +1,32 @@
+
+<div class="ui two column doubling grid">
+  <div class="one column row">
+    <div class="column">
+      <h1 class="ui center aligned header">創新 × 公益
+        <div class="sub header">行動持續中</div>
+      </h1>
+    </div>
+  </div>
+  <div ng-repeat="o in objs" class="column">
+    <div class="ui stacked segment">
+      <h3 class="ui center aligned icon header"><a ng-click="showD=!showD"><i ng-class="o.i" class="circular icon"></i>
+          <div class="content">{{o.t}}
+            <div class="sub header">{{o.p1}}<i ng-hide="showD" class="chevron down icon"></i></div>
+          </div></a>
+        <!--      i.chevron.up.icon(ng-show="showD")-->
+      </h3>
+      <div class="ui divider"></div>
+      <div ng-show="showD" class="ui">
+        <p ng-repeat="p in o.ps">{{p}}</p>
+        <div class="ui divider"></div>
+        <div class="ui bulleted list">
+          <div class="item">募款緣由：{{o.rs[0]}}</div>
+          <div class="item">募款對象：{{o.rs[1]}}</div>
+          <div class="item">捐款去向：{{o.rs[2]}}   </div>
+        </div>
+      </div>
+      <div class="ui divider"></div>
+      <div class="ui three item menu"><a href="#gift" class="item"><i class="gift icon"></i>樂捐</a><a href="mailto:alearn13994229@gmail.com" class="item"><i class="mail outline icon"></i>意見</a><a ng-href="{{o.url}}" target="_blank" class="item"><i class="globe icon"></i>前往</a></div>
+    </div>
+  </div>
+</div>

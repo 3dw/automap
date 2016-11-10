@@ -1,0 +1,126 @@
+doctype html
+html(ng-app='automap', ng-controller='autoCtrl')
+  head
+    meta(charset='UTF-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    
+    meta(property="fb:app_id" content="485195848253155")
+    meta(property='og:title', content='自學地圖')
+    meta(property='og:description', content='匯集各方自學資源的共筆平台，新手必備')
+    meta(property='og:site_name', content='自主學習促進會')
+    meta(property="og:url" content="http://map.alearn.org.tw")
+    meta(property="og:image" content="http://map.alearn.org.tw/images/lead.jpg")
+
+    title(ng-bind-template="{{goban.sectionTitle}}-自學地圖")
+      | 自學地圖
+    link(rel='shortcut icon', href='/favicon.png')
+    link(href='bower_components/goban/goban-ui.css', media='screen, projection', rel='stylesheet', type='text/css')
+    link(rel="stylesheet", href="./bower_components/semantic/dist/semantic.min.css")
+
+
+    link(href='./stylesheets/screen.css', media='screen, projection', rel='stylesheet', type='text/css')
+    link(href='./stylesheets/print.css', media='print', rel='stylesheet', type='text/css')
+    link(href='./stylesheets/index.css', media='screen, projection', rel='stylesheet', type='text/css')
+    | <!--[if IE]><link href='./stylesheets/ie.css', media='screen, projection', rel='stylesheet', type='text/css'><![endif]-->
+
+    style.
+      iframe {
+        background-color: #ccc !important;
+        /* background-image: url("./images/bg-soft.jpg") !important;
+        background-size: 2px 4px !important;
+        background-repeat: repeat; */
+      }
+
+
+  body(ng-keydown='goban.keyDown($event)', ng-style="{height: countHeight() + 'px'}")
+    
+    #fb-root
+      script.
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.7&appId=485195848253155";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+
+    nav.ui.fixed.top.menu(ng-style="{height: navHeight + 'px'}")   
+      a.item(ng-click='hideSideBar = !hideSideBar' title="切換側欄")
+        i.list.layout.icon
+
+      //span.item(ng-clock='' ng-hide="(goban.data && goban.data.length) || !late")
+        | 瀏覽器不支援，無法正常顯示。請
+        a(href="https://www.google.com.tw/chrome/browser/desktop/index.html" target="_blank") 使用Chrome瀏覽器
+        | 再試一次
+
+      .right.menu(ng-show="goban.data && goban.data.length")
+
+        a.ui.item(ng-href='{{goban.data[goban.myJ].url}}', target='_blank' title="以新分頁開啟")
+          i.expand.icon
+
+        a.ui.item.fat-only(ng-click='goban.backupAll(); logData()', title="下載")
+          i.cloud.download.icon
+
+        a.ui.item(href="https://github.com/3dw/automap", title="原始碼")
+          i.github.icon
+  
+        a.ui.item(href='./donate.html' title="樂捐") 
+          i.gift.icon
+
+        .ui.item
+          .fb-share-button(data-href='http://map.alearn.org.tw', data-layout='button', data-size='small', data-mobile-iframe='true')
+            a.fb-xfbml-parse-ignore(target='_blank', href='https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fmap.alearn.org.tw%2F&src=sdkpreparse' title="分享")
+
+    .ui.visible.sidebar.vertical.menu(ng-cloak='', ng-class='{hidden: hideSideBar}', ng-style="{height: countHeight() - navHeight + 'px'}")
+      a.item.header(ng-href='{{goban.path}}{{goban.title}}{{goban.myI}}', target='_blank' ng-show="goban.data && goban.data.length")
+        | 編輯「{{goban.sectionTitle}}」
+        i.edit.icon
+
+      ul.item( ng-show="goban.data && goban.data.length")
+        li(ng-repeat='j in goban.data | toIndex')
+
+          .ui.divider(ng-if='goban.data[j].isFolder')
+          a.goban-folder(ng-if='goban.data[j].isFolder', ng-click='$parent.goban.data[j].isClosed = !goban.data[j].isClosed;', ng-class='{active: goban.myJ == j}')
+            
+            | {{goban.data[j].name || j}}
+            i.folder.icon(ng-show='goban.data[j].isClosed', src='images/isClosed.png')
+            i.folder.open.outline.icon(ng-show='!goban.data[j].isClosed', src='images/isOpen.png')
+
+          a.elem(ng-if='!goban.data[j].isFolder',
+           ng-show=" goban.data[j].pIndex == 'self' || !goban.data[goban.data[j].pIndex].isClosed",
+            ng-class='{active: goban.myJ == j}',
+            ng-click='goban.setJ(j);maybeNewTab($event,j)')
+            .block
+              | {{goban.data[j].name || j}}
+              i.mail.forward.icon(ng-show="goban.data[j].isBlank", title="開新分頁")
+              img.favicon(ng-src='http://www.google.com/s2/favicons?domain={{goban.data[j].url}}',title = "{{goban.data[j].name || j}}")
+      //.item
+        .header 翻頁
+        .menu
+          a.item(ng-show="goban.myI > 0" ng-click ="goban.setI(steps[parseInt(goban.myI)-1].n)")
+            | 上一章：{{steps[goban.myI-1].t}}
+            i.chevron.up.icon
+
+          a.item(ng-show="!goban.myI || goban.myI < steps.length-1" ng-click ="goban.setI(steps[parseInt(goban.myI)+1].n)")
+            | 下一章：{{steps[parseInt(goban.myI)+1].t}}
+            i.chevron.down.icon
+      .item.filler
+        br
+        br
+        br
+      
+            
+    #goban-main.main(ng-style="{height: countHeight() + 'px', width: countWidth(hideSideBar)+'px'}")
+        
+      iframe#myFrame(ng-cloak='', src = "http://map.alearn.org.tw/handbook", ng-class='{loading: goban.pageLoading}', ng-src='{{goban.getCurrentURL()}}', width="100%")
+
+    
+    include ./_components.jade
+    
+    script(src='bower_components/goban/goban.js', type='text/javascript')
+    // JS
+    script(src='./js/index-data.js', type='text/javascript')
+    script(src='./js/index.js', type='text/javascript')
+    
+    include ./_ga.jade

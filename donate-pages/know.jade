@@ -1,0 +1,33 @@
+.ui.two.column.doubling.grid
+  .one.column.row
+    .column
+      h1.ui.center.aligned.header 創新 × 公益
+        .sub.header 行動持續中
+  .column(ng-repeat="o in objs")
+    .ui.stacked.segment
+      h3.ui.center.aligned.icon.header
+        a(ng-click="showD=!showD")
+          i.circular.icon(ng-class="o.i")
+          .content {{o.t}}
+            .sub.header {{o.p1}}
+              i.chevron.down.icon(ng-hide="showD")
+        //      i.chevron.up.icon(ng-show="showD")
+      .ui.divider
+      .ui(ng-show="showD")
+        p(ng-repeat="p in o.ps") {{p}}
+        .ui.divider
+        .ui.bulleted.list
+          .item 募款緣由：{{o.rs[0]}}
+          .item 募款對象：{{o.rs[1]}}
+          .item 捐款去向：{{o.rs[2]}}   
+      .ui.divider
+      .ui.three.item.menu
+        a.item(href="#gift")
+          i.gift.icon
+          | 樂捐
+        a.item(href="mailto:alearn13994229@gmail.com")
+          i.mail.outline.icon
+          | 意見
+        a.item(ng-href="{{o.url}}" target="_blank")
+          i.globe.icon
+          | 前往

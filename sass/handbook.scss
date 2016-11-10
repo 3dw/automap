@@ -1,0 +1,123 @@
+
+@import "compass/CSS3";
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+$rice: hsla(60,75%,83%,1);
+$earth: hsla(60,40%,40%,1);
+$org: #f70;
+$blue: #4183C4;
+
+
+html {
+	font-size: 18px;
+	font-size: 2vm;
+	font-size: 2vmin;
+}
+
+body, #outer {
+	background-color: $earth !important;
+}
+nav {
+	background-color: $rice !important;
+}
+
+section {
+	border-radius: 5px;
+	padding: 3vm;
+	padding: 3vmin;
+//	background-color: white !important;
+	background-color: $rice !important;
+	h1.header {
+		text-shadow: 2px 2px #fcc;
+	}
+	p {
+		font-size: 1.2rem;
+		font-weight: 900;
+	}
+}
+
+
+.description {
+	color: mix($blue,black);	
+}
+
+.orange {
+	color: $org;
+	&.description {
+		color: mix($org,black) !important;
+	}
+}
+
+
+#main {
+	// background-color: $rice;
+	.column {
+		.inner {
+			position: relative;
+			padding: 5px;
+			// min-height: 10em;
+			.icon.header i {
+				@include transition(all 0.3s);
+			}
+			&:hover {
+				.icon.header i {
+					@include transform(rotateY(60deg));
+				}
+			}
+			.description {
+				min-height: 3em;
+			}
+		}
+	}
+}
+
+.ui.segment {
+	line-height: 1.5;
+}
+
+.bordered {
+	border-radius: 0 0 15px 15px;
+	&.right {
+		border-right: 2px solid #aaa;
+	}
+	&.left {
+		border-left: 2px solid #aaa;
+	}
+	&.bottom {
+		border-bottom: 2px solid #aaa;
+	}
+}
+
+.ui.attached.label {
+	top: 4px;
+}
+
+
+.fade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    opacity: 1;
+}
+
+.fade.ng-leave {
+    opacity: 1;
+	@include transition(all 1s ease);   
+}
+.fade.ng-leave-active {
+    opacity: 0;
+}
+.fade.ng-enter {
+	@include transition(all 1s ease);   
+    opacity: 0;
+    @include transform(rotateY(60deg));
+}
+.fade.ng-enter-active {
+    opacity: 1;
+    @include transform(rotateY(0deg));
+}

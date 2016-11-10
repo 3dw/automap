@@ -1,0 +1,29 @@
+section(ng-cloak='')
+  h1.ui.header.center.aligned
+    | {{(faqs | orderBy:myOrd)[$route.current.params.id].q}}
+  //img.ui.small.bordered.image(ng-show="(faqs | orderBy:myOrd)[$route.current.params.id].i" ng-src="{{(faqs | orderBy:myOrd)[$route.current.params.id].i}}", style="display:block; margin-left:auto; margin-right:auto")
+  //i.huge.orange.users.icon(ng-hide="(faqs | orderBy:myOrd)[$route.current.params.id].i", style="display:block; margin-left:auto; margin-right:auto")
+  i.huge.orange.users.icon(style="display:block; margin-left:auto; margin-right:auto")
+  .ui.divider
+  .ui.grid
+    .four.wide.column
+    .eight.wide.column
+      p.description(ng-bind-html = "highlightAndMakeBr((faqs | orderBy:myOrd)[$route.current.params.id].a,key)")
+    .four.wide.column
+    
+    .row
+      .eighteen.wide.right.aligned.column(ng-show="(faqs | orderBy:myOrd)[$route.current.params.id].e")
+        .ui.divider
+        span(ng-repeat = "e in (faqs | orderBy:myOrd)[$route.current.params.id].e.split(' ')")
+          .ui.divider(ng-show="$index")
+          | 參考:&nbsp;&nbsp;
+          a(ng-href = "{{e.split('_')[1]}}")
+            i.globe.icon
+            | {{e.split('_')[0]}}
+
+  span
+    .ui.divider
+    a(ng-click="step=0;myC=0", href="#/")
+      i.angle.left.icon
+      | 回主頁
+      i.big.home.icon

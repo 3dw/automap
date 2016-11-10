@@ -1,0 +1,37 @@
+{
+  "name": "ng-load",
+  "version": "1.0.1",
+  "homepage": "https://github.com/andrefarzat/ng-load",
+  "authors": [
+    "Andre Farzat <andrefarzat@gmail.com>"
+  ],
+  "description": "Angular ngLoad directive",
+  "main": "ng-load.js",
+  "keywords": [
+    "angular",
+    "ngLoad",
+    "ng-load",
+    "directive"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.16"
+  },
+  "_release": "1.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.1",
+    "commit": "0b0e62a9a14bfbdcba5ee68c05bbbdb7d058d6b5"
+  },
+  "_source": "git://github.com/andrefarzat/ng-load.git",
+  "_target": "~1.0.1",
+  "_originalSource": "ng-load",
+  "_direct": true
+}

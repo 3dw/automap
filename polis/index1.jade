@@ -1,0 +1,29 @@
+doctype html
+
+html(ng-app="my_polis")
+  head
+    meta(charset="utf-8")
+    title 統計結果（樣稿）
+    link(rel="stylesheet", href="/stylesheets/polis.css")
+  body(ng-controller = "myCtrl")
+    nav#ctrl-bar
+      a.ctrl(ng-click = "p=0" ng-class="{active:p==0}") 贊成排行
+      a.ctrl(ng-click = "p=1" ng-class="{active:p==1}") 反對排行
+      a.ctrl(ng-click = "p=2" ng-class="{active:p==2}") 爭議排行
+      a.ctrl(ng-href="https://github.com/3dw/automap/tree/gh-pages/polis/{{dataURL}}") 原始資料
+    h1 統計結果（樣稿）
+  
+    
+    table#polis-view(cellspacing="0", cellpadding="0")
+      tr
+        th.polis-th(ng-repeat="t in titlesP" ng-class = "{red : t=='反對人數', orange : t=='贊成率'}")
+          a(ng-bind="t" ng-click = "$parent.p = ($index+2) % 3")
+      tr.polis-row(ng-repeat="d in data | orderBy : ord")
+        td.polis-col(ng-repeat="t in titles" ng-class = "{green: t=='agrees', red : t=='disagrees', orange : t=='agree-ratio'}")
+          span.vertial-bar(ng-hide="t=='comment-body' || t=='agree-ratio' " ng-style="{height: d[t]+'px'}")
+          i(ng-class = "{bar:t =='agrees' || t=='disagrees'}" ng-bind="t=='comment-body' ? '「'+d[t]+'」' : d[t]")
+
+
+
+    script(src = "/bower_components/angular/angular.min.js")
+    script(src = "polis-parser.js")

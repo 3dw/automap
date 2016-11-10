@@ -1,0 +1,66 @@
+doctype html
+html(ng-app='automap')
+  head
+    meta(charset='UTF-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+    meta(property='og:title', content='自學手冊')
+    meta(property='og:site_name', content='自主學習促進會')
+    meta(property='og:image', content='http://map.alearn.org.tw/images/lead.jpg')
+
+    title 自學問答集
+    link(rel="shortcut icon" href="/favicon.png")
+
+
+    link(rel="stylesheet", href="./bower_components/semantic/dist/semantic.min.css")
+    link(rel="stylesheet", href="./stylesheets/contact.css")
+
+    link(href='stylesheets/screen.css', media='screen, projection', rel='stylesheet', type='text/css')
+    link(href='stylesheets/print.css', media='print', rel='stylesheet', type='text/css')
+    link(href='stylesheets/handbook.css', media='screen, projection', rel='stylesheet', type='text/css')
+
+    | <!--[if IE]><link href='./stylesheets/ie.css', media='screen, projection', rel='stylesheet', type='text/css'><![endif]-->
+
+  body(ng-controller='autoCtrl')
+    nav.ui.menu(role='navigation', ng-cloak='')
+
+      .item.fat-only
+        .ui.search
+          .ui.icon.input
+            input.prompt(type="text" placeholder="關鍵字搜詢" ng-model="key" autofocus='')
+            i.search.icon
+
+      a.item(ng-click="step = 0;myC=0", ng-show="step || myC" title="回主頁")
+        i.home.icon
+
+      .right.menu  
+        a.item(href='./contact.html' title="諮詢") 
+          i.phone.icon
+        //a.item(href="https://autolearn.hackpad.com/O8nPcdUoTQ0" title="編輯本頁" target="_blank") 
+          i.edit.icon
+        a.item(href='./donate.html' title="樂捐") 
+          i.gift.icon
+      
+    #outer.ui.segment.container(style="min-height: 100vh; border-bottom: none;")
+
+      ng-view.fade
+
+      //section#allData(ng-hide='1', ng-cloak='')
+        #faqs
+          script(src='https://autolearn.hackpad.com/O8nPcdUoTQ0.js?format=html-notitle')
+          noscript
+            div
+              | View 
+              a(href='https://autolearn.hackpad.com/O8nPcdUoTQ0') 2016自學手冊Json
+              |  on Hackpad.
+
+        
+    include ./_components.jade
+    script(src="https://cdn.jsdelivr.net/ngstorage/0.3.6/ngStorage.min.js")
+
+    // JS
+    
+    script(src='./js/handbook.js', type='text/javascript')
+    script(src='./js/handbook-data.js', type='text/javascript')
+
+    include ./_ga.jade

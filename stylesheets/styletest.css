@@ -1,0 +1,61 @@
+/* line 4, ../sass/styletest.scss */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+/* line 8, ../sass/styletest.scss */
+html {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+/* line 13, ../sass/styletest.scss */
+.print-only {
+  display: none !important;
+}
+
+/* line 17, ../sass/styletest.scss */
+.highlightedText {
+  background: yellow !important;
+}
+
+/* line 21, ../sass/styletest.scss */
+a, .pointer {
+  cursor: pointer !important;
+}
+
+/* line 28, ../sass/styletest.scss */
+.slide {
+  -moz-transition: linear 1s all;
+  -o-transition: linear 1s all;
+  -webkit-transition: linear 1s all;
+  transition: linear 1s all;
+  position: relative;
+  right: 0px;
+  opacity: 1;
+}
+
+/* line 34, ../sass/styletest.scss */
+.slide.ng-hide {
+  right: -100%;
+  right: -100vw;
+  opacity: 0;
+}
+
+/* line 40, ../sass/styletest.scss */
+.slide2 {
+  -moz-transition: linear 2s all;
+  -o-transition: linear 2s all;
+  -webkit-transition: linear 2s all;
+  transition: linear 2s all;
+  position: relative;
+  right: 0px;
+  opacity: 1;
+}
+
+/* line 46, ../sass/styletest.scss */
+.slide2.ng-hide {
+  right: -100%;
+  right: -100vw;
+  opacity: 0;
+}

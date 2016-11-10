@@ -1,0 +1,71 @@
+doctype html
+html(ng-app="donateApp")
+  head
+    meta(charset='UTF-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(property='og:title', content='工作項目與樂捐支持')
+    meta(property="og:site_name" content="工作項目與樂捐支持-自主學習促進會")
+    meta(property="og:url" content="http://map.alearn.org.tw/donate")
+    meta(property="og:image" content="http://map.alearn.org.tw/images/lead.jpg")
+
+    title 工作項目與樂捐支持-自主學習促進會
+
+    link(rel='shortcut icon', href='/favicon.png')
+    link(rel="stylesheet", href="./bower_components/semantic/dist/semantic.min.css")
+    link(rel="stylesheet", href="stylesheets/donate.css")
+    link(href="stylesheets/screen.css", media='screen, projection', rel='stylesheet', type='text/css')
+    link(href='stylesheets/print.css', media='print', rel='stylesheet', type='text/css')
+    | <!--[if IE]><link href='./stylesheets/ie.css', media='screen, projection', rel='stylesheet', type='text/css'><![endif]-->
+    
+    script(language="javascript" type="text/javascript").
+      function resizeIframe(obj) {
+        console.log(obj.style.height);
+        obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+        console.log(obj.style.height);
+      }
+
+  body(ng-controller="donateCtrl")
+    .ui.top.fixed.four.item.menu.thin-only
+      a.item(ng-class = "cumuRoute('know')", href="#/")
+        i.circular.camera.retro.icon
+      a.item(ng-class = "cumuRoute('know')", href="#gift")     
+        i.circular.gift.icon
+      a.item(ng-class = "cumuRoute('know')", href="#notify")
+        i.circular.alarm.outline.icon
+      a.item(ng-class = "cumuRoute('know')", href="#thanks")        
+        i.circular.smile.icon
+
+
+    .ui.top.fixed.menu.fat-only
+      .ui.ordered.four.steps
+        a.step(ng-class = "cumuRoute('know')", href="#")        
+          .content
+            .title
+              i.circular.camera.icon
+            .center.aligned.description 認識
+              
+        a.step(ng-class = "cumuRoute('gift')", href = "#gift")        
+          .content
+            .title
+              i.circular.gift.icon
+            .description 樂捐
+        a.step(ng-class = "cumuRoute('notify')", href = "#notify")
+          .content
+            .title
+              i.circular.alarm.outline.icon
+            .description 通知
+        a.step(ng-class = "cumuRoute('thanks')", href = "#thanks") 
+          .content
+            .title 
+              i.circular.smile.icon     
+            .description 感謝
+      
+    #main.ui.container(ng-cloak="")
+      ng-view
+
+    
+    include ./_components.jade
+
+    script(src = "./js/donate.js")
+
+    include ./_ga.jade

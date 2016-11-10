@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <meta charset="UTF-8">
+  <title>諮詢專線@自學地圖</title>
+
+  <link rel="shortcut icon" href="/favicon.png" />
+  <meta property="og:title" content="自學諮詢專線"/>
+  <meta property="og:site_name" content="自主學習促進會"/>
+  <meta property="og:image" content="http://map.alearn.org.tw/images/automap.jpg"/>
+
+
+  <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+  <!--[if IE]>
+      <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <![endif]-->
+
+  <link rel="stylesheet" href="./bower_components/semantic/dist/semantic.min.css">
+    <link rel="stylesheet" href="./stylesheets/contact.css">
+
+</head>
+
+<body>
+    <div class="ui container main-container two column grid">
+
+              <p class = "ten wide centered column">
+               <a href = "https://sites.google.com/site/alearn13994229/gong-yi-shi-xiang" target = "_blank">樂捐支持「諮詢專線」服務</a> > <a href = "https://sites.google.com/site/alearn13994229/gong-yi-shi-xiang/juan-kuan-fang-ming-lu" target = "_blank">捐款芳名錄</a>
+              </p>
+
+              <div class = "column">
+
+                <h1 class = "lead text-center">Email諮詢</h1>
+
+                <hr>
+
+                <p>
+                  <span class = "name">自主學習促進會</span>
+
+                    <hr/>
+                    我們是非政府組織，請珍惜志工老師的善意。
+                    <hr/>
+
+                    <input type = "checkbox" ng-model = "ok0" />好，我知道了
+                </p>
+
+                  <p ng-show = "ok0">
+                    email: <a href = "mailto:alearn13994229@gmail.com">
+                      alearn13994229@gmail.com</a></p>
+
+
+              </div>
+
+
+              <div class = "column">
+
+                <h1 class = "lead text-center">
+                  電話諮詢
+                </h1>
+
+                  <hr/>
+
+
+                
+                <p><span class = "name">唐光華理事長</span><br>
+                  <i>週一上午9:30-12:00</i>
+                    <hr/>
+                  請只在以上時間聯絡
+                    <hr/>
+                    <input type = "checkbox" ng-model = "ok2" />好，我知道了
+                </p>
+
+                <p ng-show = "ok2">電話：<a href = "tel:0975002749">0975002749</a>
+                </p>
+
+                <hr>
+
+                <p><span class = "name">朱佳仁常務理事</span><br>
+                  <i>週四下午2:00-5:00</i>
+                  <hr/>
+                    請只在以上時間聯絡
+                    <hr/>
+
+                    <input type = "checkbox" ng-model = "ok1" />好，我知道了
+                  </p>
+
+                <p ng-show = "ok1">電話：<a href = "tel:0915165369">0915165369</a>
+                </p>
+
+              </div>
+
+
+              
+
+
+            </div> <!-- COL MD 12 END-->
+    </div> <!-- CONTAINER END -->
+
+
+
+
+<!-- Components  -->
+
+  
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./bower_components/semantic/dist/semantic.min.js"></script>
+    <script src="./bower_components/angular/angular.min.js"></script>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26178243-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+
+
+
+
+
+</html>

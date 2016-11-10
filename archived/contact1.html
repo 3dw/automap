@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="自學諮詢專線">
+    <meta property="og:site_name" content="自主學習促進會">
+    <meta property="og:image" content="http://map.alearn.org.tw/images/lead.jpg">
+    <meta property="og:description" content="從零開始，怎麼申請自學呢？自學諮詢專線">
+    <title>諮詢專線-自主學習促進會</title>
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="stylesheet" href="./bower_components/semantic/dist/semantic.min.css">
+    <link rel="stylesheet" href="./stylesheets/contact.css">
+  </head>
+  <body>
+    <div class="ui steps fat-only no-print">
+      <div ng-class="{active: step == 1}" ng-click="step=1" class="step"><i class="circular users icon"></i>
+        <div class="content">
+          <div class="title">自學申請</div>
+          <div class="description">從零開始，怎麼申請自學呢？</div>
+        </div>
+      </div>
+      <div ng-class="{active: step == 2}" ng-click="step=2" class="step"><i class="circular calendar icon"></i>
+        <div class="content"> 
+          <div class="title">自學計畫</div>
+          <div class="description">如何做自學計畫、寫計畫書？</div>
+        </div>
+      </div>
+      <div ng-class="{active: step == 3}" ng-click="step=3" class="step"><i class="circular law icon"></i>
+        <div class="content"> 
+          <div class="title">學習診斷</div>
+          <div class="description">如何克服學習上遇到的困難？</div>
+        </div>
+      </div>
+    </div>
+    <div class="main">
+      <div ng-show="!step" class="ui tall stacked segment">
+        <h1 class="ui center aligned header">選擇一項</h1>
+        <h2 class="ui center aligned icon header"><a ng-click="step=1"><i class="circular users icon"></i>自學申請</a></h2>
+        <div class="ui grid">
+          <div class="eight wide column">
+            <h2 class="ui center aligned icon header"><a ng-click="step=2"><i class="circular calendar icon"></i>自學計畫</a></h2>
+          </div>
+          <div class="eight wide column">           
+            <h2 class="ui center aligned icon header"><a ng-click="step=3"><i class="circular law icon"></i>學習診斷</a></h2>
+          </div>
+        </div>
+      </div>
+      <div ng-show="step==1" class="ui tall stacked segment">
+        <h1 class="ui header">自學申請</h1>
+        <div class="ui divider"></div>
+        <p>如果您或您的孩子聽過「自學」但不知如何申請，<br>請先參考<a herf="http://map.alearn.org.tw"><自學地圖></a><br>如果需要問人，可與我們聯絡：</p>
+        <div class="ui divider"></div>
+        <div class="ui link cards">
+          <div class="ui card">
+            <div class="image"><img src="./images/auto-learn.jpg"></div>
+            <div class="content">
+              <div class="header">自主學習促進會</div>
+              <div class="meta"><span class="date">諮詢經驗：1991~至今</span></div>
+              <div class="description">有經驗的志工老師會Email回覆您的問題</div>
+              <div class="ui divider"></div>
+              <div class="extra content"><a href="mailto:alearn13994229@gmail.com"><i class="mail outline icon"></i>E-mail信箱：<br>alearn13994229@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="ui card">
+            <div class="image no-print"><img src="./images/tang-ba.jpg"></div>
+            <div class="content">
+              <div class="header">唐光華老師</div>
+              <div class="meta"><span class="date">諮詢經驗：2011~至今</span></div>
+              <div class="description">唐老師接電話的時間是：<br><b>週一上午9:30-12:00。</b>
+                <div class="ui divider"></div>請只在上述時段聯絡<br>
+                <div class="no-print">
+                  <input type="checkbox" ng-model="ok_tb">好，我知道了
+                </div>
+              </div>
+              <div ng-show="ok_tb" class="extra content"><a><i class="call icon"></i>電話：<a href="tel:0975002749">0975002749</a></a></div>
+              <div class="extra content print-only"><a><i class="call icon"></i>電話：<a href="tel:0975002749">0975002749</a></a></div>
+            </div>
+          </div>
+          <div class="ui card">
+            <div class="image no-print"><img src="./images/chia-jen.jpg"></div>
+            <div class="content">
+              <div class="header">朱佳仁老師</div>
+              <div class="meta"><span class="date">諮詢經驗：2011~至今</span></div>
+              <div class="description">朱老師接電話的時間是：<br><b>週四下午2:00-5:00。    </b>
+                <div class="ui divider"></div>請只在上述時段聯絡<br>
+                <div class="no-print">
+                  <input type="checkbox" ng-model="ok_cj">好，我知道了
+                </div>
+              </div>
+              <div ng-show="ok_cj" class="extra content"><a><i class="call icon"></i>電話：<a href="tel:0915165369">0915165369</a></a></div>
+              <div class="extra content print-only"><a><i class="call icon"></i>電話：<a href="tel:0915165369">0915165369    </a></a></div>
+            </div>
+          </div>
+          <div class="ui card print-only">
+            <div class="image qr"><img src="http://chart.apis.google.com/chart?chs=200x200&amp;cht=qr&amp;chld=|1&amp;chl=http%3A%2F%2Fmap.alearn.org.tw%2F"></div>
+            <div class="content">
+              <div class="center aligned header">自學地圖</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ng-show="step==2" class="ui tall stacked segment">
+        <h1 class="ui header">自學計畫</h1>
+        <div class="ui divider"></div>
+        <p>每個人都不一樣，計畫書也沒有標準答案。<br>請先參考<a herf="https://autolearn.hackpad.com/ep/pad/static/t7jK9GT2uyS" _blank><高中自學工作坊記錄></a><br>如果需要問人，可以和我們聯絡：</p>
+        <div class="ui divider"></div>
+        <div class="ui link cards">
+          <div class="ui card">
+            <div class="image"><img src="./images/auto-learn.jpg"></div>
+            <div class="content">
+              <div class="header">自主學習促進會</div>
+              <div class="meta"><span class="date">諮詢經驗：1991~至今</span></div>
+              <div class="description">有經驗的志工老師會Email回覆您的問題</div>
+              <div class="ui divider"></div>
+              <div class="extra content"><a href="mailto:alearn13994229@gmail.com"><i class="mail outline icon"></i>E-mail信箱：<br>alearn13994229@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="ui card print-only">
+            <div class="image qr"><img src="http://chart.apis.google.com/chart?chs=200x200&amp;cht=qr&amp;chld=|1&amp;chl=http%3A%2F%2Fautolearn.hackpad.com%2Fep%2Fpad%2Fstatic%2Ft7jK9GT2uyS"></div>
+            <div class="content">
+              <div class="center aligned header">高中自學工作坊記錄</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ng-show="step==3" class="ui tall stacked segment">
+        <h1 class="ui header">學習診斷</h1>
+        <div class="ui divider"></div>
+        <p>如果在特定的學科上遇到瓶頸，<br>我們可引介相關領域專長的老師做進一步協談：</p>
+        <div class="ui divider"></div>
+        <div class="ui link cards">
+          <div class="ui card">
+            <div class="image"><img src="./images/auto-learn.jpg"></div>
+            <div class="content">
+              <div class="header">自主學習促進會</div>
+              <div class="meta"><span class="date">諮詢經驗：1991~至今</span></div>
+              <div class="description">有經驗的志工老師會Email回覆您的問題</div>
+              <div class="ui divider"></div>
+              <div class="extra content"><a href="mailto:alearn13994229@gmail.com"><i class="mail outline icon"></i>E-mail信箱：<br>alearn13994229@gmail.com</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer ng-show="step" class="ui large breadcrumb"><a ng-class="{active:step==1}" ng-click="step=1" class="section">自學申請</a><i class="right chevron icon divider"></i><a ng-class="{active:step==2}" ng-click="step=2" class="section">自學計畫</a><i class="right chevron icon divider"></i><a ng-class="{active:step==3}" ng-click="step=3" class="section">學習診斷</a></footer>
+    </div>
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./bower_components/semantic/dist/semantic.min.js"></script>
+    <script src="./bower_components/angular/angular.min.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-26178243-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

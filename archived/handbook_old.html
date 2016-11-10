@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html ng-app = "automap">
+<head>
+  <meta charset="UTF-8">
+  <title>自學手冊@自學地圖</title>
+
+  <link rel="shortcut icon" href="/favicon.png" />
+  <meta property="og:title" content="自學地圖"/>
+  <meta property="og:site_name" content="自主學習促進會"/>
+  <meta property="og:image" content="http://map.alearn.org.tw/images/automap.jpg"/>
+
+
+
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+  <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+  <!--[if IE]>
+      <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <![endif]-->
+
+  <link href="stylesheets/handbook_old.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  
+  
+ 
+</head>
+
+
+<body ng-controller = "autoCtrl" >
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation"  ng-show = "page" ng-cloak>
+   <div class="container">
+      <ul class="nav navbar-nav">
+          <li><a id = "contact" href = "#contact" ng-click = "page = 'contact'">☎諮詢</a></li>
+          <li><a href = "#!" ng-click = "page = '!'">心智圖</a></li>
+      	 <li ng-class = "(page == '2014' && 'active') || ''">
+            <a href = "#2014" ng-click = "page = '2014'">手冊</a>
+        </li>
+
+
+         <li class="dropdown" ng-show = "page == '2014'">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            分類<b class="caret"></b></a>
+            
+            <ul class="dropdown-menu" >
+                <li ng-repeat = "c in catagories">
+    	   		        <a href ="#2014" ng-click = "$parent.mySearch = c.t">
+    	   		  	           {{c.t}}<span class = "badge">{{c.n}}</span>
+    	   		        </a>
+                </li>
+            </ul>
+	     </li>   
+      </ul>
+  </div><!-- /.container -->
+</nav>
+
+<nav class="navbar navbar-default navbar-fixed-bottom " role="navigation" ng-show = "page" ng-cloak>
+  <div class= "navbar-inner">
+   <div class="container">
+      <ul class="nav navbar-nav">
+   		
+ 
+   	  	 <li class="dropdown" >
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">朋友<b class="caret"></b></a>
+          <ul class="dropdown-menu" >
+            <li><a target = "_blank" href = "we/index.html">自學2.0</a></li>
+            <li class="divider"></li>            
+            <li><a target = "_blank" href="https://groups.google.com/forum/#!forum/nonschool">非學校教育論壇</a></li>
+            <li class="divider"></li>            
+            <li><a target = "_blank" href="https://autolearn.hackpad.com/HBPv3Tsaf0e">遠距共學團</a></li>
+            <li class="divider"></li>            
+            <li><a target = "_blank" href="https://autolearn.hackpad.com/j0E36eF9Azm">特教專區</a></li>
+            <li class="divider"></li>            
+            <li><a target = "_blank" href = "http://parentparticipatingeducation.blogspot.tw/">親子共學促進會</a></li>
+          </ul>
+        </li> 
+
+
+        <li class="dropdown" >
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">治學<b class="caret"></b></a>
+          <ul class="dropdown-menu" >
+            <li><a target = "_blank" href = "https://autolearn.hackpad.com/dtWUo1b6FIp">為什麼要學習</a></li>
+            <li class="divider"></li>            
+            <li><a target = "_blank" href = "http://www.dfg.cn/big5/chtwh/ssjz/17-lunyu-jsh.htm">結交益友</a></li>
+          </ul>
+        </li>
+        <li class="dropdown" >
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">家長<b class="caret"></b></a>
+          <ul class="dropdown-menu" >
+            <li><a href = "#middleWay" ng-click= "page = 'middleWay'">從替孩子活、隨孩子活、到陪孩子活</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#"  ng-class="dropdown-toggle" data-toggle="dropdown">真好<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+              <li><a href="http://2014littleprince.wix.com/homeschooling">尋找小王子</a></li>
+            <li class="divider"></li>            
+              <li><a href="http://map.alearn.org.tw/presentations/%E6%95%99%E6%94%B9200%E5%B9%B4.html#/">教改200年</a></li>
+            <li class="divider"></li>            
+              <li><a href="https://autolearn.hackpad.com/Y0JolqElcLR">全球化與自主學習</a></li>
+            <li class="divider"></li>            
+              <li><a href="https://autolearn.hackpad.com/eHxKDAIpFhy">如何成為未來職場需要的自由人才</a></li>
+          </li>
+        </ul>        
+        <li class="dropdown" >
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">♡自己<b class="caret"></b></a>
+          <ul class="dropdown-menu" >
+            <li><a target = "_blank" href = "http://bestian.github.io/freemath/%E5%B7%A5%E5%85%B7%E8%BB%9F%E9%AB%94/%E4%B8%80%E8%90%AC%E5%B0%8F%E6%99%82%E5%AE%9A%E5%BE%8B.html">一萬小時定律試算機</a></li>
+            <li class="divider"></li>            
+            <li><a target = "_blank" href = "http://bestian.github.io/freemath/%E5%B7%A5%E5%85%B7%E8%BB%9F%E9%AB%94/styleTester.html">學習風格自我測驗</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" target = "_blank" ng-class="dropdown-toggle" data-toggle="dropdown">申請<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a target = "_blank" href="http://law.chen-wernik.net/regulation">流程與法源</a></li>
+            <li class="divider"></li>            
+            <li><a target = "_blank" href="https://autolearn.hackpad.com/9euGQDfEG5G">自學計畫</a></li>
+            <li class="divider"></li>            
+            <li><a target = "_blank" href="http://www.k12ea.gov.tw/ap/nonschool2.aspx">聯絡各縣市承辦人</a></li>
+          </ul>
+        </li>
+   	  </ul>        
+    </div><!-- .continer -->
+  </div><!-- /.navbar-inner -->
+ </div>
+</nav>
+
+
+
+    
+    <div class="container main-container">
+
+        <div class="row">    
+          <section ng-show = "!page" ng-cloak>      
+            <div class="col-md-12 text-center">
+
+                  <br><br><br><br>
+                  <h1 class = "text-center">自主學習，開展生命旅程</h1> <!-- style= "color: #f9f969" -->
+
+                    <p class = "text-center">
+
+                        <a href = "#2014" ng-click = "page = '2014'"><img src = "images/lead.jpg"></a>
+                    </p>
+
+                    <h1 class = "text-center">
+
+                        <a href = "#2014" ng-click = "page = '2014'">2014完全自學手冊</a>
+                    </h1>
+
+            </div>
+          </section>
+
+          <section ng-show = "page == '!'" ng-cloak>
+            <div class="col-md-12 text-center sample-show-hide">
+                    <p class = "text-center">
+                      <img id = "auto" src="images/automap.jpg" alt="automap" width="800" height="600" usemap="#Map">
+                    </p>
+                </div>
+          </section>
+
+
+
+
+<!-- 2014自學手冊 -->
+
+          <section ng-show = "page == '2014'" ng-cloak>
+
+            <div class="col-md-12 text-center sample-show-hide">
+
+              <h1 class = "lead" ng-show = "viewH()"
+                   ng-bind-html = "highlightAndMakeBr(viewH() && viewH().q)">
+              </h1>
+              <h1 class = "lead" ng-hide = "viewH()">
+                2016自學手冊
+              </h1>
+
+            </div>
+
+            <div class="col-xs-4 col-md-2 col-md-offset-1 sample-show-hide">
+            	<br>
+            	<br>
+            	<ol class="tiny">
+            	 <li ng-repeat = "f in faqs | has:mySearch">
+            	 	<a href="#2014"  	
+          ng-click = "$parent.here = f;
+            	 					 f.focus = true;"
+
+          ng-mouseover = "$parent.current = f;
+                         f.focus = true;"
+
+          ng-mouseout = "$parent.current = '';
+                         f.focus = false;"
+                >
+            	 		{{f.q}}
+            	 	</a>
+
+            	 </li>
+            	</ol>
+              <hr/>
+              <div class = "text-center">
+                  <a href = "https://autolearn.hackpad.com/2014Json-O8nPcdUoTQ0" target = "_blank">編輯本頁
+                      <span ng-show = "faqsS == 'bug'">!</span>                      
+                    </a>
+              </div>
+
+
+            </div>
+
+
+            <div class="col-xs-8 col-md-4 sample-show-hide">
+
+              <div class = "col-md-12" id ="handbook">
+
+                <h1 ng-show = "!viewH()">
+                  <b class = "arrowHead-left"></b>請以左方目錄查詢
+                </h1>
+
+                <img class = "idea" ng-if = "viewH().i"  ng-src = "{{viewH().i}}" />
+
+                <hr/>
+
+                <p ng-show = "viewH()"
+                  ng-bind-html = "highlightAndMakeBr(viewH().a)"></p>
+
+                <span ng-if = "viewH().e">
+                  <hr/>
+                    <i class = "extand">延伸閱讀：
+                      <span ng-repeat = "e in viewH().e.split(' ')">
+                          <span ng-show = "$index"> | </span>
+                          <a ng-href = "{{e.split('_')[1]}}">{{e.split('_')[0]}}</a>
+                      </span>
+                    </i>
+                  </span>
+              </div>
+            </div>
+            
+          </section>
+
+
+
+
+
+
+<!-- 2014自學手冊 END -->
+
+
+            <section ng-show = "page == 'middleWay'" ng-cloak>
+
+                <div class="col-md-10 col-md-offset-1 text-center sample-show-hide" >
+                    <h1>從「替孩子活」、「隨孩子活」到「陪孩子活」</h1><h3>─建立討論文化的另類教育思考</h3>
+                </div>
+
+                <div class="col-md-6 col-md-offset-3 sample-show-hide paper">
+                    <hr>
+
+                    <img class ="speaker" src="http://www.alearn.org.tw/images/teachers/water.jpg"><br> 
+
+                    主講人：李雅卿／北縣種籽親子實驗學苑創辦人、北市自主學習實驗計畫主持人<br>
+                    主持人：陳念萱／滋根協會秘書長<br>
+                    會議紀錄：黃憶楓<br>
+                    講座時間：西元2003年02月21日<br>
+                    <hr>
+
+                        <p>李雅卿：今天要與大家分享的是自己與小孩，隨著台灣教育體制成長的共處經驗。</p>
+
+                        <p>以個人近十年的教改經驗，真的認為不一樣的孩子需要不同的教育機會。我很難說體制外的教育一定就比體制內的教育好，只是另類學校的優勢在於框架比較少，可以做比較多的嘗試，因此比較容易逼近教育本質作思考。個人所參與的種籽學苑、中學階段的自主學習實驗的學生，都得到政府等同公立學校的經費補助，因此也有責任留下各項紀錄，提供主流教育作為對話的切點。</p>
+
+                        <p>我覺得這個系列講座具有它的重要價值：創造一個第一線老師的對話機會，讓另類教育學校的老師有機會出來分享他們真實面對孩子的經驗，並與社會大眾做一場生命的對話。</p>
+
+                        <p>今天我要談的是：從「替孩子活」到「隨孩子活」到「陪孩子活」的轉換思考。</p>
+
+                        <br>
+                        <h2>避免落入兩種極端，才能走出中庸之道</h2>
+                        <hr>
+
+                        <p>我想我們傳統教育比較注重孩子對家族的傳承角色，很難將孩子視為獨立的個體。許多父母對孩子有太多的期望，不但幫孩子安排一切，有的人恨不得幫孩子過這一生。這些父母對孩子有太多愛的操控，反而給了太少的空間讓孩子做自我成長與思考。親子間對應的焦慮與衝突時時出現，以至父母覺得孩子不知感恩、孩子覺得快要悶死！這樣的父母，是「替孩子活」的父母。</p>
+
+                        <p>另外一個極端是目前很多嚮往「自由」又忙碌的父母，他們希望給孩子自由、尊重孩子、對孩子的期望也高，認為孩子從小就應該能為自己負責、應該要獨立，所以事事順著孩子的意，等發現孩子不能達成自己的期望時，又來怪學校、怪孩子，卻沒反省到自己這樣的教養模式，其實會讓孩子非常恐慌。因為孩子不是生下來就有能力獨立、能夠為自己負責的。他們甚至不知道自己還小，只覺得自己永遠沒有辦法達到父母對自己的期望，但在尊重、獨立、自主的大帽子下，又不敢說出來。我發現很多充滿虛無感的孩子大多來自嚮往自由的中產家庭。這樣的家長，我們稱之為「隨孩子活」的父母。</p>
+
+                        <p>這些年來，我覺得比較好的方式是：不要替孩子活但是也不要完全的放任，父母要陪著孩子成長，透過親子間的對話和討論引領孩子。父母心理上接受孩子終將成為獨立的個體，給他們足夠的試誤空間。我發現這樣成長的孩子比較穩定、能夠分辨是非、清楚自己的路。要如何成為這種「陪孩子成長」的父母呢？我相信如何讓自己能夠和孩子好好的討論是很重要。</p>
+
+
+                        <br>
+                        <h2>以情緒同理和界線釐清，建立討論文化</h2>
+                        <hr>
+
+                        <p>『討論文化』指的是人與人間能夠良好對話的文化。當初自己在陪孩子長大時，是從書本與人生經驗中，探討建立這種討論文化的可能性。後來和一些朋友共同推廣家庭裡的討論，辦學時也就把這樣的文化推到校園中。希望讓自己和別人的孩子都有借助成人經驗、討論、對話的成長空間。</p>
+
+                        <p>我們透過實際演練，花了很多的時間在落實『討論文化』與澄清『討論原則』上，我們學校的孩子也透過這樣的討論獲得成人文化的滋養。我們認為人與人之間要有好的討論，『情緒上的同理』是第一步。因為人在充滿情緒（無論是正向情緒或負向情緒）時，他的情緒必須得到接納，否則是不能做任何討論的。</p>
+
+                        <p>坊間很多教導成人同理孩子情緒的書或訓練課程，可是我們發現，有些大人在運用這種技術讓孩子掏心掏肺的回應時，這些大人反而用這樣的『同理心』去控制孩子。這時孩子會變得非常困惑而可憐，因為一個這麼了解我的人卻又充滿對我的操控，不是非常可怕的事嗎？所以不操控孩子，對成人來說，是更重要的前提。</p>
+
+                        <p>怎麼讓自己有能力去做『情緒的瞭解』呢？這種能力是可以培養的，最簡單的方法是用測試性的問法：你看起來好像很（開心、生氣…？），只要大人願意靜下心來聽孩子的回應，就有機會進入孩子的世界。並有往下溝通的可能。</p>
+
+                        <p>接下來要說的是另一個要素：界線。每個人的生活領域裡都有一些自己就可以做決定的範圍，親子、師生間真正需要做的是：界線的釐清。在我們學校中，凡被劃入「個人的事」時，大家只能提供建議，但要尊重他的最後決定；被畫入「共同的事」，就要遵守共同討論出來的規則。只是什麼是個人的事，什麼是共同的事？本身就值得好好的討論了。</p>
+
+                        <p>很多人認為另類學校的學生一定無法無天，其實我發現我們的學生比一般學生更守規矩，因為他們對界線非常清楚，所以願意在共同事務中遵守規範。他們都知道自由本身絕對不是沒有規範的，沒有規範的自由會讓生活場域成為弱肉強食的叢林世界，任何人都難以生活。</p>
+
+                        <p>一般學校的規範不是不好，只是這些規範的產生孩子通常沒有機會參與。如果再不能有溝通、討論的機會，孩子就會心生不滿。我們學校中的規範是孩子參與討論出來的，只要能夠說服其他4個人連署，就可以在生活會議中提案修改原有的規範，當孩子發現溝通可以解決問題時，何必再用拳頭呢？</p>
+
+                        <p>當然規範的建立是需要時間的，共識達到前也會經歷一段時間的混亂，但是一旦熟悉了這樣的文化，之後建立各種的規範都是很快的。種籽當初也是花了兩個禮拜的時間摸索學習，訂出的§1規則就是：不准打人。</p>
+
+                        <p>此外，良好討論的另一要素是：說意見一定要附理由。如果孩子問「為甚麼」？時，大人的回答總是「沒有為什麼，就是這樣」。小孩當然覺得這個大人不講理嘛！一開始很多小孩可能說不清楚他的理由，只有模模糊糊的感覺，這時其他參與討論的成人或大人就要運用一點猜測、等待、支持和引導的本事，讓他試著說出來。透過這樣一步一步問與答的過程，才可以幫助孩子理清楚腦袋的想法。在這種情境中長大的孩子，自然容易清明。</p>
+
+                        <p>此外，還有一個要件就是：討論的結論必須是開放的。否則就是說服而不是討論了。我們的經驗發現，具有良好討論技巧及和溫和的態度會讓討論溫暖一點，但是討論者真心開放的態度才能讓孩子真心接受。</p>
+
+                        <p>以上說的都是一些原則性的東西，希望能跟大家一起討論。</p>
+
+                        <hr>
+
+                        <p>黃理事：想與大家分享的是：本身是標準的中產階級家庭，孩子在成長的過程中爸媽一路伴著他們，本身也是在中產家庭中長大，所以也常在反省是否會扼殺了孩子的天分，如果給他們再多一點的自由不知道會怎樣？</p>
+
+                        <p>家中女孩子一路走來平穩正常，是個與期望中無太多意外的孩子，但是哥哥到國外求學有機會去追尋自己的夢想，想當歌星，也真的輟學兩年去嘗試，現在當然回去上課了，有機會做過去真的想做的事，對自己也是一個相當好的經驗。也常不斷的檢討自己是不是給了太多的期望在孩子身上，也常檢討自己的教育方式，以上是自己的經驗。這是沒有辦法重頭再來過的經驗。</p>
+
+
+                        <p>李雅卿：一個在嚴格安排中長大的孩子，有機會就會想要解放一下，我們學校新生剛進來的前三個月，都會努力去探試學校的界線在哪裡？他們到了這個可以選課的學校，有的人就乾脆通通都不選了。等到孩子發現這個學校的成人都願意和孩子真誠相待，學校的規則也是玩真的，法官團對違規者絕不手軟時，孩子們反而安定下來，把力氣放在自我整理和求知上。</p>
+
+                        <p>聽眾：如果成人原先就不熟悉這樣的討論文化，對孩子會有怎樣的阻礙？該如何克服？</p>
+
+                        <p>李雅卿：我想成人的面子是一個很大的阻礙。成人拉不下面子承認自己的貪心、錯誤…；另一個可能是不知道要怎麼開始，甚至有的大人會害怕孩子…</p>
+
+                        <p>聽眾：其實我跟自主學校的孩子說話真的是會有壓力的，有時我覺得他們的頭腦比我們更清楚…</p>
+
+                        <p>聽眾：體制內很多學生很可惜無法參與這個計畫，現在教育局承認這個實驗計畫是成功了，但是也不再招生了。</p>
+
+                        <p>李雅卿：我們實驗計畫進行迄今至少證明了幾點：</p>
+
+                          <p>一、以政府等同一般公立學校學生的單位成本，是可以辦出自主學習學校的。雖然我們總體開課數是一般學校的兩倍，但是因為行政成本很低，所以政府按學生人數給我們的預算每年都還有些餘額繳庫。</p>
+
+                            <p>二、學生學習成效並不差，這從我們前兩屆學生參加學力檢測的成績可以證明。</p>
+
+                              <p>三、我們學校沒有校園暴力問題，因為可以用討論取得正義、解決問題，何必用拳頭呢？</p>
+
+                                <p>四、一些在國小被認為適應困難的孩子，在我們學校都過得不錯，至少具有自信。雖然還有部份孩子還在轉型的過程，也有價值觀的混亂問題，但至少我們都可以看到未來轉變的可能。</p>
+
+
+                        <p>聽眾：你們學校被限制招生真的很可惜，我特別欣賞你們自主學程的設計，可以讓孩子早一點做他想做的事，而不用讓孩子等到長大了，才能解放去做各種嘗試。雅卿的學校讓學生做了很多進大學的基礎，有些課比大學設計的還要棒，學生也比較有思考力，自覺性比較高，思想也跟一般的小孩比較不一樣。</p>
+
+
+                        <p>李雅卿：我們的老師想過怎麼在體制學校內推廣自主學習的可能？我們認為如果以班群為單位來推廣，讓同一班群的學生共同選課，共同教學，共同訂立公約，是可行的。事實上這個想法已經在一些學校開始實施了。</p>
+
+                        <p>讓孩子活出自己的人生是比讓孩子按部就班的成長似乎看起來困難許多，其實不然。因為這些孩子會創造一些真正有用的方式，來面對生活中的問題。像我們學校的電腦教室到現在都沒有花錢買還原卡，因為孩子覺得買還原卡對他們是一種侮辱，表示自律不足，所以他們用自我管理配合電腦公共服務小組的方式，來處理違規下載的問題。</p>
+
+                        <p>有些人誤以為我們的孩子都是有錢人的小孩，因為他們看起來明亮自信。我們對這個奇怪的認定反省了一下，覺得或許是因為我們的學生有比較多的討論空間，有自己的思考方式、所以看起來明亮自信吧？不過他們對經濟倒是真的很有概念，很會管理金錢，因為這是他們生活的一部份。</p>
+
+                        <p>聽眾：我曾將雅卿學校的討論方式搬回家一樣很受用，是另一種學習的開始，讓我更信任孩子，也對自己更有自信，反而從孩子拿學到更多，彼此的距離更近。</p>
+
+                        <p>李雅卿：台灣的教育多元化是非常有趣的，我在辦種籽的過程中，發現小學生的甜美，在自主學習的中學階段，發現青少年是充滿驚奇的。可惜這些成長中的驚奇和甜美，很多都被抹殺了。</p>
+
+                        <p>現在我們的中學生雖然還沒有進入社會，但是因為我們從未將孩子放在象牙塔中，所以並不擔心。我們實驗計畫的老師因為政府三屆八年、易地辦理的政策，也散佈在不同的學校中。他們都會慢慢地產生影響力。我們實驗計畫的孩子雖然不多，但他們在這六年中過得紮實、有很多反省，也有很多調整，他們真實過活。我真的很好奇這些孩子出了社會會變成怎樣？謝謝大家的參與。</p>
+
+                        <hr>
+
+
+                      <a target = "_blank" href = "https://sites.google.com/site/alearn13994229/us/home-1/ling-lei-jiao-yu"><img class = "book" src = "https://lh6.googleusercontent.com/-8sPumefehps/UZtzyEuihUI/AAAAAAAAAXU/Al-kjTbeJo0/s400/1.jpg"/></a> 
+
+                </div>
+
+              </section>
+
+
+            <section ng-show = "page == 'contact'" ng-cloak>
+
+
+              <div class = "col-md-12 text-center">
+
+                <h1>
+                自學申請流程諮詢@各縣市教育局
+
+                <div class = "gov">
+                  <iframe src="http://www.k12ea.gov.tw/ap/nonschool2.aspx"
+
+                    width = "100%" height = "520">
+                  </iframe>
+                </div>
+
+                </h1>
+
+
+              </div>
+
+
+              <h1 class = "text-center">
+                自學實務諮詢@自主學習促進會
+              </h1>
+
+
+              <div class = "col-md-3 col-md-offset-2 sample-show-hide">
+
+                <h1 class = "lead text-center">Email諮詢</h1>
+                <hr>
+
+
+                <p><span class = "name">自主學習促進會</span><br>
+
+                     請珍惜諮詢志工的善意
+                    <input type = "checkbox" ng-model = "ok0" />好<br>
+
+
+                  <span ng-show = "ok0">
+                    <a href = "mailto:alearn13994229@gmail.com">
+                      alearn13994229@gmail.com</a>
+
+
+                  </span ng-show = "ok0">
+
+                </p>
+
+              </div>
+              <div class = "col-md-4 col-md-offset-1 sample-show-hide">
+
+                <h1 class = "lead text-center">電話諮詢</h1>
+                <hr>
+
+
+
+                <p><span class = "name">朱佳仁理事長</span><br>
+                  <i>週二、四下午2:00-5:00</i>
+                  <br>
+                    請只在以上時間聯絡，勿打擾
+                    <input type = "checkbox" ng-model = "ok1" />好<br>
+
+                    <span ng-show = "ok1">電話：<a href = "tel:0915165369">0915165369</a>
+                    </span>
+                </p>
+
+                <hr>
+
+                <p><span class = "name">唐光華常務監事</span><br>
+                  <i>週一上午9:30-12:00</i>
+                    <br>
+                  請只在以上時間聯絡，勿打擾
+                    <input type = "checkbox" ng-model = "ok2" />好<br>
+
+                <br>
+
+                <span ng-show = "ok2">電話：<a href = "tel:0975002749">0975002749</a>
+                    </span>
+                </p>
+
+              </div>
+
+
+              <p class = "col-md-12 text-center">
+                我們是非營利組織，請<a href = "https://sites.google.com/site/alearn13994229/gong-yi-shi-xiang">捐款支持</a>，讓我們維持並擴大這項「公益免費諮詢」服務
+              </p>
+
+            </section>
+
+            </div>
+          </div>
+
+      </div>
+    </div>
+
+
+
+
+      <div id = "helper" class = "flyign box" ng-show = "page == '!'" ng-cloak>
+        <span id = "help"> Help </span> 
+      </div>
+
+
+
+<map id = "linkmap" name="Map"><area shape="rect" coords="632,182,733,203" target="_blank" alt="彈性" title = "自學最大的特色就是彈性。您可以帶孩子一起組織和創造自己的生命之路。<br /><br />地圖和社群交流的好處在於有一些交流參照和過來人的經驗，可以讓您比較容易起步，以及避開一些可能的危險。">
+
+ <area shape="rect" coords="5,308,112,429" target="_new" alt="寫給新手"
+     title = "親自教養孩子，是父母的美好經驗。<br><br>自學不難，只需要真實的陪伴孩子。<br><br>生命會找到出路。">
+
+ <area shape="rect" coords="633,72,734,95" target="_blank" alt="考慮中"
+  title = "要決定自學之前，難免會經過一段考慮的時間。
+ <br /> <br />
+ 通常是因為對離開學校後，有哪些支持、如何安排有陌生和不安的感覺。
+ <br /> <br />
+ 您可以先申請部份自學、部份在校，來體驗感受。對於自學的安排與未來進路，請看「遠距講座」">
+
+ <area shape="rect" coords="635,95,733,115" target="_blank" alt="準備自學" title = "請參考「自學計畫」的上手指引，和孩子一起討論規畫，來擬定家庭的自學計畫。">
+
+ <area shape="rect" coords="633,115,734,136" target="_blank" alt="申請自學"
+  title = "著手申請是和政府打交道，學校老師可能也沒碰過自學生，你需要自己查更多的資詢幫他瞭解自學。請直接「聯絡各縣市承辦人」，詢問申請事宜。
+  <br /> <br />
+  如果仍有困惑請撥打「諮詢專線」求助">
+
+ <area shape="rect" coords="633,136,734,157" target="_blank" alt="社群交流"
+
+  title = "社群交流是自學生活很重要的一環。「自學2.0」可以讓您快速找到住附近的自學友伴。
+  <br /><br />
+  如果附近還沒人升起旗幟，您就當第一名吧！">
+
+ <area shape="rect" coords="633,159,734,180" target="_blank" alt="創造分享" title = "請在「遠距共學」上分享心得與資源，並參與「開放源碼教材」的計畫">
+
+ 
+  <area shape="rect" coords="342,116,462,161" href="http://www.k12ea.gov.tw/ap/nonschool2.aspx" target="_blank" alt="聯絡各縣市承辦人" title = "行政程序方面的問題，請打電話問各縣市承辦人">
+
+  <area shape="rect" coords="236,162,322,201" href="http://bestian.github.io/shackhand/auto20.html" target="_blank" alt="自學2.0" title = "上互認地圖，自我介紹，讓別的夥伴找到您吧！">
+
+  <area shape="rect" coords="427,330,530,367" href="https://autolearn.hackpad.com/j0E36eF9Azm" target="_blank" alt="特教專區" title = "特教的親師交流互助平台，歡迎提問和分享經驗">
+
+  <area shape="rect" coords="167,490,283,542" href="https://sites.google.com/site/alearn13994229/yuan-ju-jiang-zuo"  target="_blank" alt="遠距講座" title = "透過遠距講座，認識自主學習的各面向">
+
+  <area shape="rect" coords="15,539,162,589" href="https://sites.google.com/site/alearn13994229/us/home-1" target="_blank" alt="出版品義賣" title="想看自學相關的書嗎？點進來就對了">
+
+  <area shape="rect" coords="110,182,207,218" href="https://autolearn.hackpad.com/Nvfs9qJ0Dlx" target="_blank" alt="認識朋友" title="自學不孤單，請積極聯絡可能的友伴，他們很可能也在找尋友伴中">
+
+  <area shape="rect" coords="116,331,213,367" href="https://autolearn.hackpad.com/t7jK9GT2uyS#:h=第二講：如何開拓學習資源" target="_blank" alt="自學資源" title="如何開拓學習資源呢？一點也不難！">
+
+  <area shape="rect" coords="503,484,646,538" href="http://hack.g0v.tw/learn/" target="_blank" alt="公民學校" title = "一小時瞭解自學的新手上路區">
+
+  <area shape="rect" coords="306,269,403,305" href="https://autolearn.hackpad.com/nt4bEoS0pWH" target="_blank" alt="共學團體" title = "和學習需求與地理位置相近的朋友，相互支持吧！">
+
+  <area shape="rect" coords="425,223,508,259" href="http://bestian.github.io/shackhand/auto20.html" target="_blank" alt="自學2.0" title = "自學2.0可以讓您快速找到住附近的自學友伴喲！">
+
+  <area shape="rect" coords="318,74,414,109" href="https://autolearn.hackpad.com/9euGQDfEG5G" target="_blank" alt="自學計畫" title = "撰寫自學計畫書的參考指南">
+
+  <area shape="rect" coords="421,277,513,318" href="https://autolearn.hackpad.com/HBPv3Tsaf0e" target="_blank" alt="遠距共學" title = "遇到問題，在家上網就能向高手達人請益喲！">
+
+  <area shape="rect" coords="311,405,406,448" href="https://autolearn.hackpad.com/9euGQDfEG5G" target="_blank" alt="個別需求" title = "個別的學習問題，皆可尋得適性的協助">
+
+  <area shape="rect" coords="460,432,555,475" href="https://autolearn.hackpad.com/wt9DJQrfy2f" target="_blank" alt="自學協談" title="如有深入的諮詢需求，請約個別諮詢">
+
+  <area shape="rect" coords="463,380,558,423" href="#contact" ng-click = "page = 'contact'" target="_blank" alt="諮詢專線" title="資深自學達人，協助您突破起步的困難。有關行政程序方面的問題，請直接打電話問各縣市承辦人。">
+
+  <area shape="rect" coords="387,502,494,584" href="http://bestian.github.io/freemath/工具軟體/styleTester.html"  target="_blank" alt="測測我的學習風格" title = "每個人擅長的學習都不同，怎麼能用齊一的方式來教呢？">
+  <area shape="rect" coords="342,21,439,67" href="http://www.tpde.edu.tw/ap/nonschool.aspx" target="_blank" alt="流程與法源" title="經過多年的努力，台灣自學已經合法，目前比日本、中國、香港、韓國，對自學都更友善、更開放">
+
+<area shape="rect" coords="502,536,645,589" href="http://math.alearn.org.tw/" target="_blank" alt="開放源碼教材" title = "共創開放源碼、誰都可以使用的教材，提升社群整體的學習資源">
+
+  <area shape="rect" coords="232,217,337,259" href="https://groups.google.com/forum/#!forum/nonschool" target="_blank" alt="台灣非學校教育論壇" title="大的電郵群組，許多討論、資訊、佈告">
+
+  <area shape="rect" coords="104,60,193,103" href="https://sites.google.com/site/alearn13994229/zi-xue-de-tu/homeschool" target="_blank" alt = "申請自學" title = "申請的手續一開始很陌生，熟悉就好了。可以藉寫計畫的時候，整理學習的目標、方針和具體規劃">
+
+  <area shape="rect" coords="15,487,162,537" href="https://sites.google.com/site/alearn13994229/zi-xue-de-tu/chang-jian-wen-ti" target="_blank" alt="常見問題" title = "說不定有您正在思考的問題喲？">
+
+
+  <area shape="rect" coords="665,542,789,585" href="http://www.facebook.com/group.php?gid=101582249890237" target="_blank" alt="English" title = "A Facebook group for homeschooler using English">
+  <area shape="poly" coords="644,457,618,354,642,272,743,270,761,344,753,456" href="https://sites.google.com/site/alearn13994229/gong-yi-shi-xiang" target="_blank" alt="支持公益" title="捐款支持自學社群的公共發展，聚沙成塔吧？">
+
+        </map>
+
+<section id = "allData" ng-hide = "1" ng-cloak>
+  <div id = "faqs">
+    <script src="https://autolearn.hackpad.com/O8nPcdUoTQ0.js?format=html-notitle"></script><noscript><div>View <a href="https://autolearn.hackpad.com/O8nPcdUoTQ0">2014完全自學手冊Json</a> on Hackpad.</div></noscript>
+  </div>
+</section>
+
+
+<!-- Components  -->
+
+  <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="bower_components/angular/angular.min.js" type="text/javascript"></script>
+  <script src="bower_components/angular-animate/angular-animate.js" type="text/javascript"></script>
+
+
+
+<!-- JS  -->
+<script src="javascripts/ngStorage.js" type="text/javascript"></script>
+<script src = "./handbook.js" type="text/javascript" ></script>
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26178243-2', 'alearn.org.tw');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+
+
+
+
+
+</html>

@@ -1,0 +1,12 @@
+/* Welcome to Compass. Use this file to define print styles.
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> */
+/* line 5, ../sass/print.scss */
+.no-print {
+  display: none;
+}
+
+/* line 10, ../sass/print.scss */
+.print-only {
+  display: auto;
+}

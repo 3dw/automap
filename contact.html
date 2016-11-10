@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="contactApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="自學諮詢專線">
+    <meta property="og:site_name" content="自主學習促進會">
+    <meta property="og:url" content="http://map.alearn.org.tw/contact">
+    <meta property="og:image" content="http://map.alearn.org.tw/images/lead.jpg">
+    <meta property="og:description" content="從零開始，怎麼申請自學呢？自學諮詢專線">
+    <title>諮詢專線-自主學習促進會</title>
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="stylesheet" href="./bower_components/semantic/dist/semantic.min.css">
+    <link rel="stylesheet" href="./stylesheets/contact.css"><!--[if IE]><link href='./stylesheets/ie.css', media='screen, projection', rel='stylesheet', type='text/css'><![endif]-->
+  </head>
+  <body ng-controller="myCtrl">
+    <div class="ui steps fat-only no-print"><a ng-class="{active: checkRoute('start')}" href="#start" class="step"><i class="circular users icon"></i>
+        <div class="content">
+          <div class="title">自學申請</div>
+          <div class="description">從零開始，怎麼申請自學呢？</div>
+        </div></a><a ng-class="{active: checkRoute('plan')}" href="#plan" class="step"><i class="circular calendar icon"></i>
+        <div class="content"> 
+          <div class="title">自學計畫</div>
+          <div class="description">如何做自學計畫、寫計畫書？</div>
+        </div></a><a ng-class="{active: checkRoute('consult')}" href="#consult" class="step"><i class="circular law icon"></i>
+        <div class="content"> 
+          <div class="title">學習診斷</div>
+          <div class="description">如何克服學習上遇到的困難？</div>
+        </div></a></div>
+    <div class="main">
+      <div ng-view>   </div>
+      <footer ng-cloak="" style="position:relative; top:10px" class="ui large breadcrumb"><a ng-class="{active:checkRoute('start')}" class="section">自學申請</a><i class="right chevron icon divider"></i><a ng-class="{active:checkRoute('plan')}" class="section">自學計畫</a><i class="right chevron icon divider"></i><a ng-class="{active:checkRoute('consult')}" class="section">學習診斷</a></footer>
+    </div>
+    <!-- Components    -->
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./bower_components/semantic/dist/semantic.min.js"></script>
+    <script src="./bower_components/angular/angular.min.js"></script>
+    <script src="./bower_components/angular-route/angular-route.min.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="./bower_components/fastclick.js"></script><!--[if lt IE 10]><script src="./bower_components/xhr-xdr-adapter/src/xhr-xdr-adapter.js" type="text/javascript"></script><![endif]-->
+    <script src="./global.js"></script>
+    <script src="./js/contact.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-26178243-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

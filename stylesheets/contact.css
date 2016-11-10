@@ -1,0 +1,73 @@
+/* line 4, ../sass/contact.scss */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+/* line 8, ../sass/contact.scss */
+.hidden {
+  display: none !important;
+}
+
+/* line 12, ../sass/contact.scss */
+.main {
+  padding: 25px;
+}
+
+/* line 16, ../sass/contact.scss */
+.circular.law.icon::before {
+  position: relative;
+  left: -3px;
+}
+
+/* line 21, ../sass/contact.scss */
+a, .step:hover {
+  cursor: pointer !important;
+}
+
+/* line 25, ../sass/contact.scss */
+.ui.large.breadcrumb a.active {
+  color: black !important;
+}
+
+/* line 29, ../sass/contact.scss */
+footer {
+  position: relative;
+  left: 25px;
+  top: -5px;
+}
+
+/* line 35, ../sass/contact.scss */
+.ui.card .image.qr {
+  -moz-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+}
+
+@media screen and (max-width: 850px) {
+  /* line 41, ../sass/contact.scss */
+  .thin-only {
+    display: inline-block;
+  }
+
+  /* line 44, ../sass/contact.scss */
+  .fat-only {
+    display: none !important;
+  }
+}
+/* line 49, ../sass/contact.scss */
+.print-only {
+  display: none !important;
+}
+
+@media print {
+  /* line 54, ../sass/contact.scss */
+  .no-print {
+    display: none !important;
+  }
+
+  /* line 58, ../sass/contact.scss */
+  .print-only {
+    display: block !important;
+  }
+}

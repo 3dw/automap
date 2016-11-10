@@ -1,0 +1,21 @@
+
+<section ng-cloak="">
+  <h1 class="ui header center aligned">{{(faqs | orderBy:myOrd)[$route.current.params.id].q}}</h1>
+  <!--img.ui.small.bordered.image(ng-show="(faqs | orderBy:myOrd)[$route.current.params.id].i" ng-src="{{(faqs | orderBy:myOrd)[$route.current.params.id].i}}", style="display:block; margin-left:auto; margin-right:auto")-->
+  <!--i.huge.orange.users.icon(ng-hide="(faqs | orderBy:myOrd)[$route.current.params.id].i", style="display:block; margin-left:auto; margin-right:auto")--><i style="display:block; margin-left:auto; margin-right:auto" class="huge orange users icon"></i>
+  <div class="ui divider"></div>
+  <div class="ui grid">
+    <div class="four wide column"></div>
+    <div class="eight wide column">
+      <p ng-bind-html="highlightAndMakeBr((faqs | orderBy:myOrd)[$route.current.params.id].a,key)" class="description"></p>
+    </div>
+    <div class="four wide column"></div>
+    <div class="row">
+      <div ng-show="(faqs | orderBy:myOrd)[$route.current.params.id].e" class="eighteen wide right aligned column">
+        <div class="ui divider"></div><span ng-repeat="e in (faqs | orderBy:myOrd)[$route.current.params.id].e.split(' ')">
+          <div ng-show="$index" class="ui divider"></div>參考:&nbsp;&nbsp;<a ng-href="{{e.split('_')[1]}}"><i class="globe icon"></i>{{e.split('_')[0]}}</a></span>
+      </div>
+    </div>
+  </div><span>
+    <div class="ui divider"></div><a ng-click="step=0;myC=0" href="#/"><i class="angle left icon"></i>回主頁<i class="big home icon"></i></a></span>
+</section>

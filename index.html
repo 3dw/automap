@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html ng-app="automap" ng-controller="autoCtrl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="fb:app_id" content="485195848253155">
+    <meta property="og:title" content="自學地圖">
+    <meta property="og:description" content="匯集各方自學資源的共筆平台，新手必備">
+    <meta property="og:site_name" content="自主學習促進會">
+    <meta property="og:url" content="http://map.alearn.org.tw">
+    <meta property="og:image" content="http://map.alearn.org.tw/images/lead.jpg">
+    <title ng-bind-template="{{goban.sectionTitle}}-自學地圖">自學地圖</title>
+    <link rel="shortcut icon" href="/favicon.png">
+    <link href="bower_components/goban/goban-ui.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./bower_components/semantic/dist/semantic.min.css">
+    <link href="./stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <link href="./stylesheets/print.css" media="print" rel="stylesheet" type="text/css">
+    <link href="./stylesheets/index.css" media="screen, projection" rel="stylesheet" type="text/css"><!--[if IE]><link href='./stylesheets/ie.css', media='screen, projection', rel='stylesheet', type='text/css'><![endif]-->
+    <style>
+      iframe {
+        background-color: #ccc !important;
+        /* background-image: url("./images/bg-soft.jpg") !important;
+        background-size: 2px 4px !important;
+        background-repeat: repeat; */
+      }
+      
+      
+    </style>
+  </head>
+  <body ng-keydown="goban.keyDown($event)" ng-style="{height: countHeight() + 'px'}">
+    <div id="fb-root">
+      <script>
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.7&appId=485195848253155";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        
+        
+      </script>
+    </div>
+    <nav ng-style="{height: navHeight + 'px'}" class="ui fixed top menu">  <a ng-click="hideSideBar = !hideSideBar" title="切換側欄" class="item"><i class="list layout icon"></i></a>
+      <!--span.item(ng-clock='' ng-hide="(goban.data && goban.data.length) || !late")
+      | 瀏覽器不支援，無法正常顯示。請
+      a(href="https://www.google.com.tw/chrome/browser/desktop/index.html" target="_blank") 使用Chrome瀏覽器
+      | 再試一次
+      
+      -->
+      <div ng-show="goban.data &amp;&amp; goban.data.length" class="right menu"><a ng-href="{{goban.data[goban.myJ].url}}" target="_blank" title="以新分頁開啟" class="ui item"><i class="expand icon"></i></a><a ng-click="goban.backupAll(); logData()" title="下載" class="ui item fat-only"><i class="cloud download icon"></i></a><a href="https://github.com/3dw/automap" title="原始碼" class="ui item"><i class="github icon"></i></a><a href="./donate.html" title="樂捐" class="ui item"> <i class="gift icon"></i></a>
+        <div class="ui item">
+          <div data-href="http://map.alearn.org.tw" data-layout="button" data-size="small" data-mobile-iframe="true" class="fb-share-button"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fmap.alearn.org.tw%2F&amp;src=sdkpreparse" title="分享" class="fb-xfbml-parse-ignore"></a></div>
+        </div>
+      </div>
+    </nav>
+    <div ng-cloak="" ng-class="{hidden: hideSideBar}" ng-style="{height: countHeight() - navHeight + 'px'}" class="ui visible sidebar vertical menu"><a ng-href="{{goban.path}}{{goban.title}}{{goban.myI}}" target="_blank" ng-show="goban.data &amp;&amp; goban.data.length" class="item header">編輯「{{goban.sectionTitle}}」<i class="edit icon"></i></a>
+      <ul ng-show="goban.data &amp;&amp; goban.data.length" class="item">
+        <li ng-repeat="j in goban.data | toIndex">
+          <div ng-if="goban.data[j].isFolder" class="ui divider"></div><a ng-if="goban.data[j].isFolder" ng-click="$parent.goban.data[j].isClosed = !goban.data[j].isClosed;" ng-class="{active: goban.myJ == j}" class="goban-folder">{{goban.data[j].name || j}}<i ng-show="goban.data[j].isClosed" src="images/isClosed.png" class="folder icon"></i><i ng-show="!goban.data[j].isClosed" src="images/isOpen.png" class="folder open outline icon"></i></a><a ng-if="!goban.data[j].isFolder" ng-show=" goban.data[j].pIndex == 'self' || !goban.data[goban.data[j].pIndex].isClosed" ng-class="{active: goban.myJ == j}" ng-click="goban.setJ(j);maybeNewTab($event,j)" class="elem">
+            <div class="block">{{goban.data[j].name || j}}<i ng-show="goban.data[j].isBlank" title="開新分頁" class="mail forward icon"></i><img ng-src="http://www.google.com/s2/favicons?domain={{goban.data[j].url}}" title="{{goban.data[j].name || j}}" class="favicon"></div></a>
+        </li>
+      </ul>
+      <!--.item
+      .header 翻頁
+      .menu
+        a.item(ng-show="goban.myI > 0" ng-click ="goban.setI(steps[parseInt(goban.myI)-1].n)")
+          | 上一章：{{steps[goban.myI-1].t}}
+          i.chevron.up.icon
+      
+        a.item(ng-show="!goban.myI || goban.myI < steps.length-1" ng-click ="goban.setI(steps[parseInt(goban.myI)+1].n)")
+          | 下一章：{{steps[parseInt(goban.myI)+1].t}}
+          i.chevron.down.icon
+      -->
+      <div class="item filler"><br><br><br></div>
+    </div>
+    <div id="goban-main" ng-style="{height: countHeight() + 'px', width: countWidth(hideSideBar)+'px'}" class="main">
+      <iframe id="myFrame" ng-cloak="" src="http://map.alearn.org.tw/handbook" ng-class="{loading: goban.pageLoading}" ng-src="{{goban.getCurrentURL()}}" width="100%"></iframe>
+    </div>
+    <!-- Components    -->
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./bower_components/semantic/dist/semantic.min.js"></script>
+    <script src="./bower_components/angular/angular.min.js"></script>
+    <script src="./bower_components/angular-route/angular-route.min.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="./bower_components/fastclick.js"></script><!--[if lt IE 10]><script src="./bower_components/xhr-xdr-adapter/src/xhr-xdr-adapter.js" type="text/javascript"></script><![endif]-->
+    <script src="./global.js"></script>
+    <script src="bower_components/goban/goban.js" type="text/javascript"></script>
+    <!-- JS-->
+    <script src="./js/index-data.js" type="text/javascript"></script>
+    <script src="./js/index.js" type="text/javascript"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-26178243-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

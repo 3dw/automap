@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>自學2.0</title>
+  <link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" />
+
+<META HTTP-EQUIV="refresh" CONTENT="1;URL=http://we.alearn.org.tw/">
+
+
+<style>
+
+div#redirect {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    left: 25%;
+    top: 25%;
+}
+
+</style>
+
+</head>
+
+
+<body>
+    
+<div id = "redirect">
+
+<img src = "http://www.alearn.org.tw/img/top01.jpg">
+<hr>
+<p>轉址中，請稍候...</p>
+
+</div>
+
+<!--
+    <div class="header-wrapper">
+        <div class="header">
+            <h1 class="mathlogo"><a href="/index.html">freemath自由數學</a></h1>
+            <h2>開放源碼，滿溢人情味。</h2>
+        </div>
+<<<<<<< HEAD
+        <div ng-show="mySearch" ng-bind="(baseHands | toArray | searchBy:mySearch).length + '位'" class="orange active item"></div>
+        <div ng-show="view=='map' &amp;&amp; !mySearch" onclick="alert('點兩次地圖可放大')" class="orange active item fat-only">點兩次地圖可放大</div>
+        <div ng-hide="view=='map'" class="right menu fat-only">
+          <div ng-class="{active: myOrd == 'latlngColumn' &amp;&amp; myRev == 1}" class="item"><a ng-click="myOrd = 'latlngColumn';myRev = 1;">北到南</a></div>
+          <div ng-class="{active: myOrd == 'latlngColumn' &amp;&amp; myRev == 0}" class="item"><a ng-click="myOrd = 'latlngColumn';myRev = 0;">南到北</a></div>
+          <div ng-class="{active: myOrd == 'lastUpdate' &amp;&amp; myRev == 1}" class="item"><a ng-click="myOrd = 'lastUpdate';myRev = 1;">最近更新</a></div>
+        </div>
+      </div>
+      <div id="map" ng-show="step &amp;&amp; view == 'map'" class="skh-map">
+        <leaflet center="taiwanCenter" markers="markers" width="{{fullWidth()}}" height="{{mapHeight()}}" ng-hide="dj"></leaflet>
+      </div>
+      <div id="list" ng-cloak="" ng-show="step &amp;&amp; view !='album' &amp;&amp; view != 'map' &amp;&amp; view!='personal'" infinite-scroll="loadMore()" infinite-scroll-distance="2" class="skh-list">
+        <div class="ui two doubling cards">
+          <div ng-repeat="h in (baseHands | toArray | searchBy:mySearch | orderBy:myOrd:myRev).slice(0,rubber)" class="ui card">
+            <div class="image"><a ng-class="{active: myLastH == h}" ng-click="$parent.myLastH = h; $parent.dj = 1 - dj" ng-dblclick="open('https://www.facebook.com/messages/'+h.id)" target="_blank" class="half"><img ng-src="http://graph.facebook.com/{{h.fbid || h.id || h.username || h.username}}/picture" alt="{{h.name}}" title="{{h.name}}"></a></div>
+            <div class="content"> 
+              <h3 class="ui header">
+                <div ng-show="view == &quot;freetime&quot;" class="sub header freetime"><span ng-bind-html="highlight(h.freetime, mySearch)"></span>有空</div>
+                <div ng-show="view == &quot;play&quot;" class="sub header age"><span ng-show="h.learner_birth" ng-bind-template="{{toAge(h.learner_birth)}}歲"></span><span ng-show="h.child_birth">+ 孩子<span ng-show="h.child_birth2" ng-bind="toAge(h.child_birth2) +' ~'"></span><span ng-bind="toAge(h.child_birth)"></span>歲</span></div>
+                <div ng-show="view == &quot;play&quot;" ng-bind-html="highlight(h.address, mySearch)" class="sub header address"></div>
+                <div ng-show="view==&quot;share&quot;" class="sub header share">分享: <span ng-bind-html="highlight(h.share, mySearch)"></span></div>
+                <div ng-show="view==&quot;share&quot;" class="ui divider"></div>
+                <div ng-show="view==&quot;share&quot;" class="sub header ask">需要: <span ng-bind-html="highlight(h.ask, mySearch)"></span></div>
+                <div class="ui divider"></div>
+                <div class="sub header"><a ng-click="$parent.myLastH = h; $parent.dj = 1 - dj"><span ng-bind-html="highlight(h.note &amp;&amp; h.note.substr(0,50), mySearch)"></span>...</a></div>
+              </h3>
+            </div><br>
+            <div style="float:right" class="ui icon buttons"><a ng-hide="isInBook(h)" ng-click="addToBook(h)" title="加入名簿" class="ui green basic large button"><i class="user add icon">
+                  <!--.pulse--></i></a><a ng-href="http://facebook.com/{{h.fbid || h.id || h.username || h.username}}" target="_blank" title="臉書個人頁" class="ui blue basic large button"><i class="facebook icon"></i></a><a ng-href="http://facebook.com/messages/{{h.fbid || h.id || h.username || h.username}}" target="_blank" title="臉書私訊" class="ui blue basic large button"><i class="comment icon"></i></a>
+              <div ng-click="focusMapOn(h)" title="地圖檢視" class="ui pink basic large button"><i class="map outline icon"></i></div><a ng-show="isInBook(h)" ng-click="removeFromBook(h)" title="從名簿移除" class="ui red basic large button"><i class="user remove icon"></i></a>
+            </div><a ng-show="isInBook(h)" ng-click="$parent.rj=1" class="ui green right corner label"><i class="book icon"></i></a>
+          </div>
+        </div>
+        <div class="thin-only filler"><br><br></div>
+      </div>
+      <!--#album.skh-list(ng-cloak='', ng-show="step && view == 'album'")
+      ul(type='none')
+        li#albumLi(ng-repeat="h in baseHands | toArray | nullToZero:'lastUpdate' |searchBy:mySearch | orderBy:myOrd:myRev ")
+          a(ng-class='{active: myLastH == h}', ng-click='$parent.myLastH = h; $parent.dj = 1 - dj', ng-dblclick="open('https://www.facebook.com/messages/'+h.id)", target='_blank')
+            img(src='img/handshake0.png', ng-src='http://graph.facebook.com/{{h.fbid || h.id || h.username || h.username}}/picture')
+            #progress-bar
+              .bar-inner(ng-style='{width: countBar(h)}')
+      -->
+      <!--#chat-box
+      include ./x-chat.jade
+      
+        
+      -->
+=======
+>>>>>>> origin/gh-pages
+    </div>
+    <div class="main-menu">
+        <ul>
+            <li><a href="/index.html"><span class="icons-home">首頁</span></a></li>
+            <li><a href="/use/index.html"><span class="icons-features">使用</span></a></li>
+            <li><a href="/share/index.html"><span class="icons-share">分享</span></a></li>
+            <li><a href="/join/index.html"><span class="icons-documents">共筆</span></a></li>
+            <li><a href="/support.html"><span class="icons-screenshots">捐助</span></a></li>
+        </ul>
+</div>
+    
+    <div class="main-block">
+        <div class="main">
+ 
+            
+
+	<h3>持續的累積，完全的公益</h3>
+
+	<table width = "100%">
+	<td width = "60%">
+		
+		<img id = "map" src="http://bestian.github.io/freemath/images/mindmap-all.png" width="453" height="391" border="0" usemap="#Map"/ style="float: right; border-radius: 15px;">
+
+		<map name="Map" id="Map">
+  		  <area shape="rect" coords="17,267,105,195" href="https://freemath.hackpad.com/yFfG4O8gKDa" target="_blank" />
+		  <area shape="rect" coords="337,227,445,165" href="https://freemath.hackpad.com/TFdJbbioQcN" target="_blank" />
+		  <area shape="rect" coords="297,267,385,325" href="http://bestian.github.io/freemath/工具軟體" target="_blank" />
+		  <area shape="rect" coords="219,50,296,102" href="http://zh.wikipedia.org/wiki/数学" target="_blank" />
+		  <area shape="rect" coords="300,59,389,119" href="https://www.facebook.com/groups/156709241062806/" target="_blank" />
+		  <area shape="rect" coords="225,131,328,190" href="http://bestian.github.io/freemath/" />
+		  <area shape="rect" coords="212,201,328,262" href="http://math.alearn.org.tw/" target="_blank" />  
+		  <area shape="rect" coords="182,281,279,339" href="http://bestian.github.io/freemath/學習地圖/" target="_blank" />
+		</map>
+
+		</td>
+	<td width = "40%">
+		<h2>
+			<ul>
+				<li><a href = "/about/index.html">緣起</a></li>
+				<li><a href = "/use/step2.html">使用說明</a></li>
+				<li><a href = "http://bestian.github.io/freemath/">線上體驗</a></li>
+				<li><a href = "https://github.com/bestian/freemath/archive/gh-pages.zip">快速下載</a></li>		
+			</ul>
+		</h2>
+
+	</td>
+	</table>
+
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+
+	<iframe src="http://www.facebook.com/plugins/like.php?href=http://math.alearn.org.tw&layout=&show_faces=true&width=260&action=&colorscheme=light" mce_src="http://math.facebook.com/plugins/like.php?href=http://math.alearn.org.tw&layout=&show_faces=true&width=260&action=&colorscheme=light" scrolling='no' frameborder='0' allowTransparency='true' style='border:none; overflow:hidden; width:600px; height:100px'></iframe>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26178243-4', 'alearn.org.tw');
+  ga('send', 'pageview');
+
+</script>
+            
+        </div>
+        <div class="side">            
+
+            <div class="links">
+    
+        <h2>發起心得</h2>
+        <ul>
+
+             <li><a href = "/about/chiajen.html">跟著教材思考--朱佳仁</a> </li>
+
+            <li><a href = "/about/bestian.html">教材不是萬能，沒教材萬萬不能--唐宗浩</a></li>
+
+        </ul>
+
+        <h2>共創與使用心得</h2>
+
+        <ul>
+
+            <li><a href = "mailto:bestian@gmail.com?subject=自由數學Freemath心得&body=您好：">來信分享您的心得，公開在本站上</a></li>
+
+
+        </ul>
+
+        <h2>站外連結</h2>
+        <ul>
+
+            <li><a href = "http://map.alearn.org.tw">自學地圖</a></li>
+
+            <li><a href = "https://www.facebook.com/?q=#/groups/156709241062806/">臉書自學數學團</a></li>
+
+            <li><a href = "http://ncu-csie-snmg.github.io/2013-NCU-CSIE-Website-Design-Competition/git.html">中央資工Github使用說明</a></li>
+        </ul>
+       
+</div>
+
+        </div>
+    </div>
+    <div class="footer-wrapper">
+		<div class="ad">
+    
+        本站公益經營，歡迎
+
+        <a href = "https://sites.google.com/site/alearn13994229/gong-yi-shi-xiang">一起聚沙成塔</a>
+        
+        <br/><br/>
+
+        <ul><h3>感謝共創：</h3>
+
+            <hr>
+            <li><ul>一零二年八月
+                <li>寬廣媽媽分享
+                    <a href="http://bestian.github.io/freemath/教學方法與互動記錄/寬廣媽媽的數學自學記錄.html" target="_blank" onclick="window.open('http://bestian.github.io/freemath/教學方法與互動記錄/寬廣媽媽的親子數學筆記-從加法談起.doc'); window.open('http://bestian.github.io/freemath/教學方法與互動記錄/寬廣媽媽的親子數學筆記廣廣6-8歲.doc');">親子數學手記</a>
+                </li>                
+            </ul></li>
+
+            <hr>
+            <li><ul>一零一年
+                <li>謝姍姍老師分享 <a href = "http://bestian.github.io/freemath/小學階梯/乘法階梯（A~D）.doc"><乘法>單元階梯題組</a>
+                </li>               
+            </ul></li>
+        </ul>
+
+        <hr>
+
+        <ul><h3>感謝樂捐支持研發與釋出：</h3>
+
+        	<hr>
+
+            <li><ul>一零三年二月
+                <li>樂知教育工作坊 樂捐 $NT1,000元</li>
+            </ul></li>
+                
+            <li><ul>一零二年十二月
+                <li>周黛婕女士 樂捐 $NT1,000元</li>
+                <li>慧貞女士 樂捐 $NT1,000元</li>
+            </ul></li>
+
+            <hr>
+            
+            <li><ul>一零二年五月
+                <li>徐富貞女士 樂捐 $NT1,000元</li>
+                <li>慧貞女士 樂捐 $NT1,000元</li>
+            </ul></li>
+
+            <hr>
+
+            <li><ul>一零二年三月
+                <li>Jeffrey Chang先生 樂捐 $NT3,600元</li>
+                <li>慧貞女士 樂捐 $NT2,000元</li>
+            </ul></li>
+
+            <hr>
+
+            <li><ul>一零二年二月
+                <li>何英超先生 樂捐 $NT5,000元</li>
+            </ul></li>
+
+            <hr>
+
+            <li><ul>一零一年七月
+                <li>李四先生 樂捐 $NT50,000元</li>
+            </ul></li>
+
+            <hr>
+
+            <li><ul>一零一年五月
+                <li>鄭明慧女士 樂捐 $NT2,000元</li>
+            </ul></li>
+
+        </ul>
+
+
+	    
+	</div>
+        <div class="footer">
+            自主學習促進會，和您一起守護未來。
+        </div>
+</div>
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
+-->
+
+</body>
+</html>

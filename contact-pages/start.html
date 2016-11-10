@@ -1,0 +1,42 @@
+
+<div ng-cloak="" class="ui tall stacked segment">
+  <h1 class="ui header">自學申請</h1>
+  <div class="ui divider"></div>
+  <p>如果您或您的孩子聽過「自學」但不知如何申請，<br/>請先參考<a href="http://map.alearn.org.tw" target="_blank">&lt;自學地圖&gt;</a><br/>如果需要問人，可與我們聯絡：</p>
+  <div class="ui divider"></div>
+  <div class="ui four doubling stackable cards">
+    <div class="card">
+      <div class="image"><img src="./images/auto-learn.jpg"/></div>
+      <div class="content">
+        <div class="header">自主學習促進會</div>
+        <div class="meta"><span class="date">諮詢經驗：1991~至今</span></div>
+        <div class="description">有經驗的志工老師會Email回覆您的問題</div>
+        <div class="ui divider"></div>
+        <div class="extra content"><a href="mailto:alearn13994229@gmail.com"><i class="mail outline icon"></i>E-mail信箱：<br/>alearn13994229@gmail.com</a>
+          <div class="ui divider"></div><a href="https://www.messenger.com/t/208398025852902/"><i class="facebook icon"></i>臉書專頁私訊</a>
+        </div>
+      </div>
+    </div>
+    <div ng-repeat="t in teachers" class="card">
+      <div class="image no-print"><img ng-src="../images/{{t.img}}" alt="{{t.name}}"/></div>
+      <div class="content">
+        <div ng-bind-template="{{t.name}}老師" class="header"> </div>
+        <div class="meta"><span ng-bind-template="諮詢經驗：{{t.xp}}" class="date"></span></div>
+        <div class="description">{{t.fname || t.name.substr(0,1)}}老師接電話的時間是：<br/>
+          <div ng-repeat="tm in t.times" class="ui large blue left ribbon label"> {{tm}}</div>
+          <div class="ui divider"></div>請只在{{t.times[0]}}<span ng-show="t.times &amp;&amp; t.times.length &gt; 1">等</span>時段聯絡<br/>
+          <div class="no-print"><a ng-click="ok = 1" class="ui green basic button">好，我知道了</a></div>
+        </div>
+        <div ng-hide="ok" class="extra content">確認後即可看到電話號碼</div>
+        <div ng-show="ok" class="extra content"><a><i class="call icon"></i>電話：<a ng-href="tel:{{t.phone}}">{{t.phone}}</a></a></div>
+        <div class="extra content print-only"><a><i class="call icon"></i>電話：<a ng-href="tel:{{t.phone}}">{{t.phone}}</a></a></div>
+      </div>
+    </div>
+    <div class="ui card print-only">
+      <div class="image qr"><img src="http://chart.apis.google.com/chart?chs=200x200&amp;cht=qr&amp;chld=|1&amp;chl=http%3A%2F%2Fmap.alearn.org.tw%2F"/></div>
+      <div class="content">
+        <div class="center aligned header">自學地圖</div>
+      </div>
+    </div>
+  </div>
+</div>

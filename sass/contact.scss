@@ -1,0 +1,62 @@
+@import "compass/CSS3";
+
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.main {
+	padding: 25px;
+}
+
+.circular.law.icon::before {
+	position: relative;
+	left: -3px;
+}
+
+a, .step:hover {
+	cursor: pointer !important;
+}
+
+.ui.large.breadcrumb a.active {
+	color: black !important;
+}
+
+footer {
+	position: relative;
+	left: 25px;
+	top: -5px;
+}
+
+.ui.card .image.qr {
+	@include transform(scale(0.5));
+}
+
+@media screen and (max-width: 850px)  {
+	
+	.thin-only {
+		display: inline-block;
+	}
+	.fat-only {
+		display: none !important;
+	}
+}
+
+.print-only {
+	display: none !important;
+}
+
+@media print {
+	.no-print {
+		display: none !important;
+	}
+
+	.print-only {
+		display: block !important;
+	}
+
+}
