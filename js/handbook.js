@@ -123,10 +123,11 @@ app.factory('$hack', function() {
       viewH: function(){
         return $scope.current || $scope.here;
       },
-      myOrd: function(f){
-        var o = $scope.catagories.map(function(o){return o.t}).indexOf(f.c);
-        o = (o==-1) ? 100 : o;
-        return o;
+      myOrd: function(faq){
+        var id = $scope.faqs.indexOf(faq);
+        var o = $scope.catagories.map(function(o){return o.t}).indexOf(faq.c);
+        o = (o==-1) ? 10000 : o;
+        return o*100 + id;
       },
       toCatagory: function(list,key) {
         var ans = {};
