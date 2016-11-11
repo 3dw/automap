@@ -22,7 +22,7 @@
 
 ### 純資料
 
-* 你可以下載後自己修改維護
+* 你可以下載[http://map.alearn.org.tw/static/api/handbook-data.json](http://map.alearn.org.tw/static/api/handbook-data.json)上的資料後，自行修改維護
 
 
 ## 錯誤回報
