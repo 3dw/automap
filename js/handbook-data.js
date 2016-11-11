@@ -1,17 +1,17 @@
 angular.module("automap")
-  .factory('$handbook', function(){
+  .factory("$handbook", function(){
     return {
-      catagories: [
-        { "t": '法源', color: '#9ef', icon: 'law'},
-        { "t": '申請', color: '#f99', icon: 'edit'},
-        { "t": '家庭', color: '#f93', icon: 'home'},
-        { "t": '交友', color: '#fca', icon: 'add user'},
-        { "t": '計畫', color: '#0f0', icon: 'hourglass half'},
-        { "t": '學校', color: '#cc5', icon: 'student'},
-        { "t": '審議', color: '#fcf', icon: 'protect'},
-        { "t": '資源', color: '#c9c', icon: 'in cart'},
-      ],
-      faqs: [
+        "catagories": [
+          { "t": "法源", "color": "#9ef", "icon": "law"},
+          { "t": "申請", "color": "#f99", "icon": "edit"},
+          { "t": "家庭", "color": "#f93", "icon": "home"},
+          { "t": "交友", "color": "#fca", "icon": "add user"},
+          { "t": "計畫", "color": "#0f0", "icon": "hourglass half"},
+          { "t": "學校", "color": "#cc5", "icon": "student"},
+          { "t": "審議", "color": "#fcf", "icon": "protect"},
+          { "t": "資源", "color": "#c9c", "icon": "in cart"}
+        ],
+        "faqs": [
         { "q" : "不上學，合法嗎？",
           "c" : "法源",          
           "as" : [
@@ -48,12 +48,13 @@ angular.module("automap")
             "h": "https://sites.google.com/site/alearn13994229/a-03/he-zuo-tao-lun-wen-hua"
           }]
         },
-        { "q" : "自學對未來的出路和職場生涯有幫助嗎？",
+        { 
+          "q" : "自學對未來的出路和職場生涯有幫助嗎？",
           "c" : "計畫",
           "as" : [
             "自學是一種脈絡和節奏，內涵很多元。每家的方法不盡相同。",
             "因為可以量身打造，所以可以視自己的情況和能力，安排相關專業社群的接觸，多認識不同圈子、不同年齡層的家長、避免閉車造車，並培養專注和實現目標的習慣，這樣的自學才能對工作能力的發展有很大的幫助。"
-          ],
+          ]
         },
         { "q" : "時間怎麼安排好呢？",
           "c" : "計畫",
