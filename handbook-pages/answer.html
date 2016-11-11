@@ -7,13 +7,13 @@
   <div class="ui grid">
     <div class="four wide column"></div>
     <div class="eight wide column">
-      <p ng-bind-html="highlightAndMakeBr((faqs | orderBy:myOrd)[$route.current.params.id].a,key)" class="description"></p>
+      <p ng-repeat="line in (faqs | orderBy:myOrd)[$route.current.params.id].as" class="description"><span ng-bind-html="highlightAndMakeBr(line, key)"></span></p>
     </div>
     <div class="four wide column"></div>
     <div class="row">
-      <div ng-show="(faqs | orderBy:myOrd)[$route.current.params.id].e" class="eighteen wide right aligned column">
-        <div class="ui divider"></div><span ng-repeat="e in (faqs | orderBy:myOrd)[$route.current.params.id].e.split(' ')">
-          <div ng-show="$index" class="ui divider"></div>參考:&nbsp;&nbsp;<a ng-href="{{e.split('_')[1]}}"><i class="globe icon"></i>{{e.split('_')[0]}}</a></span>
+      <div ng-show="(faqs | orderBy:myOrd)[$route.current.params.id].es[0]" class="eighteen wide right aligned column">
+        <div class="ui divider"></div><span ng-repeat="e in (faqs | orderBy:myOrd)[$route.current.params.id].es">
+          <div ng-show="$index" class="ui divider"></div>參考:&nbsp;&nbsp;<a ng-href="{{e.h}}"><i class="globe icon"></i>{{e.t}}</a></span>
       </div>
     </div>
   </div><span>

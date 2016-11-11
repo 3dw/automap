@@ -8,18 +8,19 @@ section(ng-cloak='')
   .ui.grid
     .four.wide.column
     .eight.wide.column
-      p.description(ng-bind-html = "highlightAndMakeBr((faqs | orderBy:myOrd)[$route.current.params.id].a,key)")
+      p.description(ng-repeat = "line in (faqs | orderBy:myOrd)[$route.current.params.id].as")
+        span(ng-bind-html = "highlightAndMakeBr(line, key)")
     .four.wide.column
     
     .row
-      .eighteen.wide.right.aligned.column(ng-show="(faqs | orderBy:myOrd)[$route.current.params.id].e")
+      .eighteen.wide.right.aligned.column(ng-show="(faqs | orderBy:myOrd)[$route.current.params.id].es[0]")
         .ui.divider
-        span(ng-repeat = "e in (faqs | orderBy:myOrd)[$route.current.params.id].e.split(' ')")
+        span(ng-repeat = "e in (faqs | orderBy:myOrd)[$route.current.params.id].es")
           .ui.divider(ng-show="$index")
           | 參考:&nbsp;&nbsp;
-          a(ng-href = "{{e.split('_')[1]}}")
+          a(ng-href = "{{e.h}}")
             i.globe.icon
-            | {{e.split('_')[0]}}
+            | {{e.t}}
 
   span
     .ui.divider
