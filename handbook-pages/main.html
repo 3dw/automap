@@ -1,7 +1,7 @@
 
 <section ng-cloak="">
   <h1 class="ui center aligned header">選擇一項</h1>
-  <h4 class="ui center aligned header">分類：<a ng-repeat="c in catagories" ng-style="{'background-color': c.color}" ng-click="$parent.myC = c.t" class="ui circular label">{{c.t}}</a><a ng-click="myC = undefined" class="ui circular label">全部</a></h4>
+  <h4 class="ui center aligned header">分類：<a ng-repeat="c in catagories" ng-style="{'background-color': c.color}" ng-click="$parent.myC = c.t" class="ui circular label">{{c.t}}</a><a ng-click="myC = undefined" class="ui circular grey basic label">全部</a></h4>
   <div class="ui divider"></div><br/>
   <div id="main" class="ui four column doubling stackable relaxed grid container">
     <div ng-repeat="f in faqs | orderBy:myOrd" ng-show="(!myC || f.c == myC) &amp;&amp; (!key || f.q.indexOf(key)&gt;-1)" class="column">
