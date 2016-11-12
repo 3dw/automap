@@ -8,7 +8,7 @@ angular.module("automap")
           { "t": "交友", "color": "#fca", "icon": "add user"},
           { "t": "計畫", "color": "#0f0", "icon": "hourglass half"},
           { "t": "學校", "color": "#cc5", "icon": "student"},
-          { "t": "審議", "color": "#fcf", "icon": "protect"},
+          { "t": "審議", "color": "#f66", "icon": "protect"},
           { "t": "資源", "color": "#c9c", "icon": "in cart"}
         ],
         "faqs": [
