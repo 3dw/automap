@@ -1,6 +1,8 @@
 angular.module("automap")
   .factory("$handbook", function(){
     return {
+      /*  請更新 './static/api/handbook-data.json' 上的資料而非此處  */
+
         "catagories": [
           { "t": "法源", "color": "#9ef", "icon": "law"},
           { "t": "申請", "color": "#f99", "icon": "edit"},

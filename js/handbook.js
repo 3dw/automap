@@ -2,8 +2,7 @@
 var app = angular.module("automap",["ngStorage", 'ngRoute', 'ngAnimate']);
 
 app.controller('autoCtrl', 
-    ['$scope', '$filter', '$sce', '$localStorage', '$route',
-     '$hack', '$handbook', autoCtrl]);
+    ['$scope', '$http', '$filter', '$sce', '$localStorage', '$route', '$handbook', autoCtrl]);
 
 app.config(function($routeProvider){
     $routeProvider
@@ -16,49 +15,7 @@ app.config(function($routeProvider){
   }
 )
 
-
-app.factory('$hack', function() {
-    return {        
-          fromTable: function(str) {
-
-                  if (!(str.match(/<tr(.*?)<\/tr>/))) return [];
-
-                  var heads = str.match(/<tr(.*?)<\/tr>/)[0]
-                                .match(/\((.*?)\)/g)
-                                  .map(function(s){return s.replace(/\((.*)\)/g,'"$1"')});
-            //      console.log(heads);
-                  var ans = 
-                          str
-                          .replace(/(.*)<tbody>/g,'[')
-                                .replace(/<\/tbody>(.*)/g,']')
-                          .replace(/<tr(.*?)<\/tr>/,'')
-                                .replace(/<tr>/g,'{')
-                                .replace(/<\/tr>/g,'},\n')
-                                  .replace(/<\/td>/g,'",')
-                                    .replace(/,(\s*)}/g, '}')
-                                    .replace(/,(\s*)]/g, ']')
-                                      .replace(/&amp;/g, '&')
-                                ;
-
-                  var counter = 0;
-                  while(/<td(.*?)>/.exec(ans) !== null) {
-                       ans = ans.replace(/<td(.*?)>/,heads[counter]+' : "');
-                       counter++;
-                       counter = counter % heads.length;
-                  }
-
-                  ans = ans.replace(/<.*noscript>/gm,'')
-                          .replace(/&lt;.+&gt;/g,'');
-          //         console.log(ans);
-
-                   var json;
-                     try {json = JSON.parse(ans)} catch (err) { console.log(err)};
-                   
-                   return json;
-
-        }
-      }
-  }).filter('makeBr', function(){
+app.filter('makeBr', function(){
     return function(str){
       str = str || '';
       return str.replace(/\s/g, '<br>').replace(/&nbsp;/g, '<br>') || '';
@@ -89,12 +46,11 @@ app.factory('$hack', function() {
 ); 
 
 
-  function autoCtrl ($scope, $filter, $sce, $localStorage, $route, $hack, $handbook) {
+  function autoCtrl ($scope, $http, $filter, $sce, $localStorage, $route, $handbook) {
 
     $scope.storage = $localStorage.$default(
       {}
     );
-
 
     $scope.catagories =  $handbook.catagories;
 
@@ -147,30 +103,27 @@ app.factory('$hack', function() {
     })            
 
     var allData = ['faqs'];
+    for (var i = 0; i < allData.length; i++) {
+      var t = allData[i];
+      $scope[t] =  $handbook[t] || $localStorage[t];
+      if (JSON.stringify($localStorage[t]) != JSON.stringify($scope[t])) $scope[t+'S'] = $scope[t+'S'] || 'new';
+      $localStorage[t] = $scope[t] || $localStorage[t] || [];
+    };
 
-            for (var i = 0; i < allData.length; i++) {
-              var t = allData[i];
-          //    var j = $hack.fromTable(
-          //      document.getElementById(t).innerHTML);
-                          // j ||
-              $scope[t] =  $handbook[t] || $localStorage[t];
-           //   $scope[t+'S'] = (!j && 'bug') || '';
 
-              if (JSON.stringify($localStorage[t]) != JSON.stringify($scope[t])) $scope[t+'S'] = $scope[t+'S'] || 'new';
+    $http({
+        method : 'GET',
+        url : './static/api/handbook-data.json'
+    }).then(
+      function(res) {
+          var d = res.data;
+          console.log(d);
+          $scope.faqs = d.faqs;
+          $scope.catagories = d.catagories;
+      }, function(res){
+        console.log(res.statusText)
+      }
+    )
 
-              $localStorage[t] = $scope[t] || $localStorage[t] || [];
-
-            };
-
-   
-   /*
-    var catagory = $scope.toCatagory($scope.faqs, 'c');    
-    var os = Object.keys($scope.catagory);
-    for (var i = 0; i < os.length; i++) {
-      $scope.catagories.push({
-        t: os[i],
-        n: $scope.catagory[os[i]]
-      });
-    }; */
 
   }
