@@ -82,10 +82,11 @@ html(ng-app='automap', ng-controller='autoCtrl')
 
           .ui.divider(ng-if='goban.data[j].isFolder')
           a.goban-folder(ng-if='goban.data[j].isFolder', ng-click='$parent.goban.data[j].isClosed = !goban.data[j].isClosed;', ng-class='{active: goban.myJ == j}')
-            
             | {{goban.data[j].name || j}}
             i.folder.icon(ng-show='goban.data[j].isClosed', src='images/isClosed.png')
             i.folder.open.outline.icon(ng-show='!goban.data[j].isClosed', src='images/isOpen.png')
+
+            span.ui.tiny.green.circular.label(ng-show="goban.data[j].isClosed", ng-bind="countElemsIn(j, goban.data)")
 
           a.elem(ng-if='!goban.data[j].isFolder',
            ng-show=" goban.data[j].pIndex == 'self' || !goban.data[goban.data[j].pIndex].isClosed",
