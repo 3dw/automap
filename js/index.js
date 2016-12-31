@@ -50,16 +50,23 @@ angular.module("automap",["goban"])
 
     //methods
     angular.extend($scope, {
-      maybeNewTab : function(event, j){
+      maybeNewTab: function(event, j){
         console.log(j);
         if (event.ctrlKey || event.metaKey) {
             event.preventDefault();
             window.open($scope.goban.data[j].url);
         }
       },
-      logData : function(){
+      logData: function(){
         console.log($goban.data);
         console.log(JSON.stringify($goban.data));
+      },
+      countElemsIn: function(j, data) {
+        var ans = 0;
+        for (var i = j+1; i < data.length; i++) {
+          if (data[i].isFolder) { break } else { ans++ }
+        }
+        return ans
       }
     });
 

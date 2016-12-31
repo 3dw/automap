@@ -83,6 +83,13 @@ nav.ui.menu {
 .ui.sidebar li {
   margin-top: 6px !important;
 }
+
+.ui.sidebar .ui.green.label {
+    position: relative;
+    top: -.8em;
+    left: -1.2em;
+}
+
 /* line 18, ../sass/index.scss */
 .ui.sidebar li .active {
   text-decoration: underline;

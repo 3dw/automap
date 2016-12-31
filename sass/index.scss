@@ -15,6 +15,12 @@ nav.ui.menu {
   top: $navH;
   li {
     margin-top: 6px !important;
+    .ui.green.label {
+      position: relative;
+      top: -.5em;
+      left: -1em;
+      z-index: -1;
+    }
     .active {
       text-decoration: underline;
     }
