@@ -6,8 +6,8 @@
     { "t": "學校", "color": "#cc5", "icon": "student", "ion": {"icon":"school"}},
     { "t": "交友", "color": "#fca", "icon": "add user", "ion": {"icon":"chatbubbles"}},
     { "t": "計畫", "color": "#0f0", "icon": "hourglass half", "ion": {"icon":"alarm"}},
-    { "t": "資源", "color": "#c9c", "icon": "in cart", "ion": {"icon":"apps"}}
-    { "t": "審議", "color": "#f66", "icon": "protect", "ion": {"icon":"contacts"}},
+    { "t": "資源", "color": "#c9c", "icon": "in cart", "ion": {"icon":"apps"}},
+    { "t": "審議", "color": "#f66", "icon": "protect", "ion": {"icon":"contacts"}}
   ],
   "faqs": [
   { "q" : "不上學，合法嗎？",
@@ -73,7 +73,7 @@
     "as" : [
       "學齡階段的自學，一定要父母的支持和簽字。",
       "如果父母一開始不支持，可能有他們的擔心和顧慮。",
-      "請你先認真聽懂父母在擔心什麼，再來想想如何讓他們瞭解你的處境與需求。",
+      "請你先認真聽懂父母在擔心什麼，再來想想如何讓他們瞭解你的處境與需求。"
     ],
     "es" : []
   },
