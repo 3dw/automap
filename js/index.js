@@ -62,6 +62,8 @@ angular.module("automap",["goban"])
         console.log(JSON.stringify($goban.data));
       },
       countElemsIn: function(j, data) {
+//        console.log(data);
+//        console.log(j);
         var ans = 0;
         for (var i = j+1; i < data.length; i++) {
           if (data[i].isFolder) { break } else { ans++ }
