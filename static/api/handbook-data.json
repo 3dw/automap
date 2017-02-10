@@ -1,9 +1,9 @@
 {
   "catagories": [
-    { "t": "申請", "color": "#9ef", "icon": "law", "ion": {"icon":"color-wand"}},
-    { "t": "支持", "color": "#f93", "icon": "home", "ion": {"icon":"bonfire"}},
-    { "t": "計畫", "color": "#0f0", "icon": "hourglass half", "ion": {"icon":"calendar"}},    
-    { "t": "資源", "color": "#c9c", "icon": "in cart", "ion": {"icon":"construct"}}
+    { "t": "申請", "description": "自學申請的法源與流程", "color": "#9ef", "icon": "law", "ion": {"icon":"color-wand"}},
+    { "t": "支持", "description": "自學的支持力量來自家庭與朋友", "color": "#f93", "icon": "home", "ion": {"icon":"bonfire"}},
+    { "t": "計畫", "description": "做自學計畫時可以想想這些面向", "color": "#0f0", "icon": "hourglass half", "ion": {"icon":"calendar"}},    
+    { "t": "資源", "description": "文化與經濟上的資源", "color": "#c9c", "icon": "in cart", "ion": {"icon":"construct"}}
   ],
   "faqs": [
   { "q" : "不上學，合法嗎？",
