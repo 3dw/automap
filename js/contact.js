@@ -2,24 +2,17 @@
 (function(){
   var myCtrl, app;
   myCtrl = function($scope, $route){
-    var teachers;
-    teachers = [
-      {
-        img: 'yi-ting.jpg',
-        name: '蔡伊婷',
-        xp: '諮詢經驗：2016~至今',
-        times: ['週一下午2:00-4:00'],
-        phone: '0919979804'
-      }, {
-        img: 'chia-jen.jpg',
-        name: '朱佳仁',
-        xp: '2011~至今',
-        times: ['週四下午2:00-5:00'],
-        phone: '0915165369'
-      }
-    ];
+    var phones;
+    phones = [{
+      img: 'yi-ting.jpg',
+      name: '蔡伊婷',
+      topics: ['自學申請', '審議', '法規', '流程', '資源連結轉介'],
+      xp: '諮詢經驗：2016~至今',
+      times: ['週一下午2:00-4:00'],
+      phone: '0919979804'
+    }];
     angular.extend($scope, {
-      teachers: teachers,
+      phones: phones,
       $route: $route
     });
     angular.extend($scope, {
