@@ -11,21 +11,22 @@
   .ui.divider
   .ui.four.doubling.stackable.cards
     include ./contact-email.jade
+    include ./contact-social-media.jade
 
-    .card(ng-repeat="t in teachers")
+    .card(ng-repeat="p in phones")
       .image.no-print
-        img(ng-src = "../images/{{t.img}}" alt = "{{t.name}}")
+        img(ng-src = "../images/{{p.img}}" alt = "{{p.name}}")
       .content
-        .header(ng-bind-template="{{t.name}}老師") 
+        .header(ng-bind-template="{{p.name}}老師") 
         .meta
-          span.date(ng-bind-template="諮詢經驗：{{t.xp}}")
+          span.date(ng-bind-template="諮詢經驗：{{p.xp}}")
         .description
-          | {{t.fname || t.name.substr(0,1)}}老師接電話的時間是：
+          | {{p.fname || p.name.substr(0,1)}}老師接電話的時間是：
           br 
-          .ui.large.blue.left.ribbon.label(ng-repeat="tm in t.times")
+          .ui.large.blue.left.ribbon.label(ng-repeat="tm in p.times")
             |  {{tm}}
           .ui.divider
-          | 請只在{{t.times[0]}}
+          | 請只在{{p.times[0]}}
           span(ng-show="t.times && t.times.length > 1") 等
           | 時段聯絡
           br
@@ -38,12 +39,12 @@
           a
             i.call.icon
             | 電話：
-            a(ng-href = "tel:{{t.phone}}") {{t.phone}}
+            a(ng-href = "tel:{{p.phone}}") {{p.phone}}
         .extra.content.print-only
           a
             i.call.icon
             | 電話：
-            a(ng-href = "tel:{{t.phone}}") {{t.phone}}
+            a(ng-href = "tel:{{p.phone}}") {{p.phone}}
 
 
     .ui.card.print-only
