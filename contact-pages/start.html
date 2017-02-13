@@ -1,7 +1,8 @@
 
 <div ng-cloak="" class="ui tall stacked segment">
-  <h1 class="ui header">自學申請</h1>
+  <h1 class="ui header">{{intro[$route.current.params.step].title}}</h1>
   <div class="ui divider"></div>
+  <p>{{intro[$route.current.params.step].subTitle}}</p>
   <p>如果您或您的孩子聽過「自學」但不知如何申請，<br/>請先參考<a href="http://map.alearn.org.tw" target="_blank">&lt;自學地圖&gt;</a><br/>如果需要問人，可與我們聯絡：</p>
   <div class="ui divider"></div>
   <div class="ui four doubling stackable cards">

@@ -2,7 +2,24 @@
 (function(){
   var myCtrl, app;
   myCtrl = function($scope, $route){
-    var phones;
+    var intro, phones;
+    intro = {
+      start: {
+        title: '自學申請',
+        subTitle: '如果您或您的孩子聽過「自學」但不知如何申請，',
+        urls: []
+      },
+      plan: {
+        title: '學習計畫',
+        subTitle: [],
+        urls: []
+      },
+      consult: {
+        title: '學習方法諮詢',
+        subTitle: '如果在特定的學科上遇到瓶頸，\n我們可引介相關領域專長的老師，做進一步協談：',
+        urls: []
+      }
+    };
     phones = [{
       img: 'yi-ting.jpg',
       name: '蔡伊婷',
@@ -12,8 +29,9 @@
       phone: '0919979804'
     }];
     angular.extend($scope, {
-      phones: phones,
-      $route: $route
+      $route: $route,
+      intro: intro,
+      phones: phones
     });
     angular.extend($scope, {
       checkRoute: function(n){
@@ -25,12 +43,8 @@
   app.config(function($routeProvider){
     return $routeProvider.when("/", {
       templateUrl: "contact-pages/main.html"
-    }).when("/start", {
+    }).when("/:step", {
       templateUrl: "contact-pages/start.html"
-    }).when("/plan", {
-      templateUrl: "contact-pages/plan.html"
-    }).when("/consult", {
-      templateUrl: "contact-pages/consult.html"
     });
   });
 }).call(this);

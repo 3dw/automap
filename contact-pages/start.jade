@@ -1,6 +1,7 @@
 .ui.tall.stacked.segment(ng-cloak='')
-  h1.ui.header 自學申請
+  h1.ui.header {{intro[$route.current.params.step].title}}
   .ui.divider
+  p {{intro[$route.current.params.step].subTitle}}
   p
     | 如果您或您的孩子聽過「自學」但不知如何申請，
     br
