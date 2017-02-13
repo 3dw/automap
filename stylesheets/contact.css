@@ -9,34 +9,39 @@
 }
 
 /* line 12, ../sass/contact.scss */
+p {
+  white-space: pre;
+}
+
+/* line 16, ../sass/contact.scss */
 .main {
   padding: 25px;
 }
 
-/* line 16, ../sass/contact.scss */
+/* line 20, ../sass/contact.scss */
 .circular.law.icon::before {
   position: relative;
   left: -3px;
 }
 
-/* line 21, ../sass/contact.scss */
+/* line 25, ../sass/contact.scss */
 a, .step:hover {
   cursor: pointer !important;
 }
 
-/* line 25, ../sass/contact.scss */
+/* line 29, ../sass/contact.scss */
 .ui.large.breadcrumb a.active {
   color: black !important;
 }
 
-/* line 29, ../sass/contact.scss */
+/* line 33, ../sass/contact.scss */
 footer {
   position: relative;
   left: 25px;
   top: -5px;
 }
 
-/* line 35, ../sass/contact.scss */
+/* line 40, ../sass/contact.scss */
 .ui.card .image.qr {
   -moz-transform: scale(0.5);
   -ms-transform: scale(0.5);
@@ -45,28 +50,28 @@ footer {
 }
 
 @media screen and (max-width: 850px) {
-  /* line 41, ../sass/contact.scss */
+  /* line 50, ../sass/contact.scss */
   .thin-only {
     display: inline-block;
   }
 
-  /* line 44, ../sass/contact.scss */
+  /* line 53, ../sass/contact.scss */
   .fat-only {
     display: none !important;
   }
 }
-/* line 49, ../sass/contact.scss */
+/* line 58, ../sass/contact.scss */
 .print-only {
   display: none !important;
 }
 
 @media print {
-  /* line 54, ../sass/contact.scss */
+  /* line 63, ../sass/contact.scss */
   .no-print {
     display: none !important;
   }
 
-  /* line 58, ../sass/contact.scss */
+  /* line 67, ../sass/contact.scss */
   .print-only {
     display: block !important;
   }

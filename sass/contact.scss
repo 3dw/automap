@@ -9,6 +9,10 @@
 	display: none !important;
 }
 
+p {
+	white-space: pre;
+}
+
 .main {
 	padding: 25px;
 }
@@ -32,8 +36,13 @@ footer {
 	top: -5px;
 }
 
-.ui.card .image.qr {
-	@include transform(scale(0.5));
+.ui.card {
+	.image.qr {
+		@include transform(scale(0.5));
+	}
+	image{
+
+	}
 }
 
 @media screen and (max-width: 850px)  {

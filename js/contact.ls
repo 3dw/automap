@@ -3,18 +3,20 @@ myCtrl = ($scope, $route)!->
     intro =
         start: {
             title: \自學申請
-            subTitle: '如果您或您的孩子聽過「自學」但不知如何申請，'
-            urls: []
+            subTitle: '如果您或您的孩子聽過「自學」但不知如何申請，\n
+                        請先參考自學地圖上的常見問答：'
+            url: 'http://map.alearn.org.tw'
         }
         plan: 
             title: \學習計畫
-            subTitle: []
-            urls: []
+            subTitle: '每個人都不一樣，計畫書也沒有標準答案。 \n
+                        請先參考高中自學工作坊記錄：'
+            url: 'https://autolearn.hackpad.com/ep/pad/static/t7jK9GT2uyS'
         consult:
             title: \學習方法諮詢
             subTitle: '如果在特定的學科上遇到瓶頸，\n
-                      我們可引介相關領域專長的老師，做進一步協談：'
-            urls: []
+                      我們可引介相關領域專長的老師，做進一步協談。'
+            url: ''
 
 
     phones = [

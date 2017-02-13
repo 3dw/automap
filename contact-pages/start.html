@@ -2,65 +2,96 @@
 <div ng-cloak="" class="ui tall stacked segment">
   <h1 class="ui header">{{intro[$route.current.params.step].title}}</h1>
   <div class="ui divider"></div>
-  <p>{{intro[$route.current.params.step].subTitle}}</p>
-  <p>如果您或您的孩子聽過「自學」但不知如何申請，<br/>請先參考<a href="http://map.alearn.org.tw" target="_blank">&lt;自學地圖&gt;</a><br/>如果需要問人，可與我們聯絡：</p>
+  <p>{{intro[$route.current.params.step].subTitle}}<a ng-show="intro[$route.current.params.step].url" ng-href="{{intro[$route.current.params.step].url}}" target="_blank">{{intro[$route.current.params.step].url}}</a><br/>閱讀後，如果需要問人，歡迎與我們聯絡：</p>
   <div class="ui divider"></div>
   <div class="ui four doubling stackable cards">
     <div class="card">
-      <div class="image"><img src="./images/auto-learn.jpg"/></div>
+      <div class="image">
+        <div class="ui four column grid">
+          <div class="column right align"><img src="./images/line.png" class="ui tiny image"/></div>
+          <div class="column"><img src="./images/facebook.png" class="ui tiny image"/></div>
+        </div>
+      </div>
       <div class="content">
-        <div class="header">Email解惑</div>
-        <div class="meta"><span class="date">諮詢經驗：???~至今</span></div>
-        <div class="description">志工夥伴會回覆您的問題</div>
+        <div class="header">社群媒體</div>
+        <!--.metaspan.date 諮詢經驗：???~至今
+        -->
+        <div class="description">志工老師在臉書與Line上回覆您</div>
         <div class="ui divider"></div>
-        <div class="extra content"><a href="mailto:alearn13994229@gmail.com"><i class="mail outline icon"></i>E-mail信箱：<br/>alearn13994229@gmail.com</a>
-          <div class="ui divider"></div>臉書私訊解惑:
-          <ul>
-            <li><a href="https://www.facebook.com/%E8%87%AA%E4%B8%BB%E5%AD%B8%E7%BF%92%E4%BF%83%E9%80%B2%E6%9C%83-208398025852902/"><i class="facebook icon"></i>自主學習促進會</a></li>
-            <li><a href="https://www.facebook.com/homeschooltw/"><i class="facebook icon"></i>台灣在家自學聯盟</a></li>
-          </ul>
+        <div class="description">臉書專頁私訊:
+          <div class="ui list">
+            <div class="item"><a href="https://www.facebook.com/%E8%87%AA%E4%B8%BB%E5%AD%B8%E7%BF%92%E4%BF%83%E9%80%B2%E6%9C%83-208398025852902/"><i class="facebook icon"></i>自主學習促進會</a></div>
+          </div>
+          <div class="item"><a href="https://www.facebook.com/homeschooltw/"><i class="facebook icon"></i>台灣在家自學聯盟</a></div>
+        </div>
+        <div class="ui divider"></div>
+        <!--.description
+        | Line群組:
+        .ui.list
+          a.item
+            img.ui.image.avatar(src = "./images/line.png")
+        
+        
+        -->
+        <div class="ui divider"></div>
+        <div class="description">Line私訊:
+          <div class="ui list">
+            <div class="item"><img src="./images/line.png" class="ui image avatar"/>林睿育老師。Id: maxingarden</div>
+          </div>
         </div>
       </div>
     </div>
     <div class="card">
-      <div class="image"><img src="./images/auto-learn.jpg"/></div>
+      <div class="image"><img src="./images/email.png"/></div>
       <div class="content">
-        <div class="header">社群媒體解惑</div>
-        <div class="meta"><span class="date">諮詢經驗：???~至今</span></div>
-        <div class="description">志工夥伴會回覆您的問題</div>
+        <div class="header">電子郵件</div>
+        <!--.metaspan.date 諮詢經驗：???~至今
+        -->
+        <div class="description">志工老師以Email回覆您</div>
         <div class="ui divider"></div>
-        <div class="description">臉書私訊解惑:
-          <div class="ui list">
-            <div class="ui item"><a href="https://www.facebook.com/%E8%87%AA%E4%B8%BB%E5%AD%B8%E7%BF%92%E4%BF%83%E9%80%B2%E6%9C%83-208398025852902/"><i class="facebook icon"></i>自主學習促進會</a></div>
-            <div class="ui item"><a href="https://www.facebook.com/homeschooltw/"><i class="facebook icon"></i>台灣在家自學聯盟</a></div>
-          </div>
-        </div>
-        <div class="ui divider"></div>
-        <div class="description">Liner群組解惑:</div>
-        <div class="ui divider"></div>
-        <div class="description">Liner私訊解惑:</div>
-      </div>
-    </div>
-    <div ng-repeat="p in phones" class="card">
-      <div class="image no-print"><img ng-src="../images/{{p.img}}" alt="{{p.name}}"/></div>
-      <div class="content">
-        <div ng-bind-template="{{p.name}}老師" class="header"> </div>
-        <div class="meta"><span ng-bind-template="諮詢經驗：{{p.xp}}" class="date"></span></div>
-        <div class="description">{{p.fname || p.name.substr(0,1)}}老師接電話的時間是：<br/>
-          <div ng-repeat="tm in p.times" class="ui large blue left ribbon label"> {{tm}}</div>
-          <div class="ui divider"></div>請只在{{p.times[0]}}<span ng-show="t.times &amp;&amp; t.times.length &gt; 1">等</span>時段聯絡<br/>
-          <div class="no-print"><a ng-click="ok = 1" class="ui green basic button">好，我知道了</a></div>
-        </div>
-        <div ng-hide="ok" class="extra content">確認後即可看到電話號碼</div>
-        <div ng-show="ok" class="extra content"><a><i class="call icon"></i>電話：<a ng-href="tel:{{p.phone}}">{{p.phone}}</a></a></div>
-        <div class="extra content print-only"><a><i class="call icon"></i>電話：<a ng-href="tel:{{p.phone}}">{{p.phone}}</a></a></div>
-      </div>
-    </div>
-    <div class="ui card print-only">
-      <div class="image qr"><img src="http://chart.apis.google.com/chart?chs=200x200&amp;cht=qr&amp;chld=|1&amp;chl=http%3A%2F%2Fmap.alearn.org.tw%2F"/></div>
-      <div class="content">
-        <div class="center aligned header">自學地圖</div>
+        <div class="extra content"><a href="mailto:alearn13994229@gmail.com"><i class="mail outline icon"></i>E-mail信箱：<br/>alearn13994229@gmail.com</a></div>
       </div>
     </div>
   </div>
+  <!--
+  .card(ng-repeat="p in phones")
+    .image.no-print
+      img(ng-src = "../images/{{p.img}}" alt = "{{p.name}}")
+    .content
+      .header(ng-bind-template="{{p.name}}老師") 
+      .meta
+        span.date(ng-bind-template="諮詢經驗：{{p.xp}}")
+      .description
+        | {{p.fname || p.name.substr(0,1)}}老師接電話的時間是：
+        br 
+        .ui.large.blue.left.ribbon.label(ng-repeat="tm in p.times")
+          |  {{tm}}
+        .ui.divider
+        | 請只在{{p.times[0]}}
+        span(ng-show="t.times && t.times.length > 1") 等
+        | 時段聯絡
+        br
+        .no-print
+          a.ui.green.basic.button(ng-click="ok = 1")
+            | 好，我知道了
+      .extra.content(ng-hide="ok")
+        | 確認後即可看到電話號碼
+      .extra.content(ng-show="ok")
+        a
+          i.call.icon
+          | 電話：
+          a(ng-href = "tel:{{p.phone}}") {{p.phone}}
+      .extra.content.print-only
+        a
+          i.call.icon
+          | 電話：
+          a(ng-href = "tel:{{p.phone}}") {{p.phone}}
+  
+  
+  .ui.card.print-only
+    .image.qr
+        img(src = "http://chart.apis.google.com/chart?chs=200x200&cht=qr&chld=|1&chl=http%3A%2F%2Fmap.alearn.org.tw%2F")
+      .content
+              .center.aligned.header 自學地圖
+  -->
 </div>
