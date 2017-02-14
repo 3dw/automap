@@ -9,6 +9,10 @@
 	display: none !important;
 }
 
+a, .step:hover {
+	cursor: pointer !important;
+}
+
 p {
 	white-space: pre;
 }
@@ -22,9 +26,6 @@ p {
 	left: -3px;
 }
 
-a, .step:hover {
-	cursor: pointer !important;
-}
 
 .ui.large.breadcrumb a.active {
 	color: black !important;

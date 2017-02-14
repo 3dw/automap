@@ -4,19 +4,26 @@ myCtrl = ($scope, $route)!->
         start: {
             title: \自學申請
             subTitle: '如果您或您的孩子聽過「自學」但不知如何申請，\n
-                        請先參考自學地圖上的常見問答：'
-            url: 'http://map.alearn.org.tw'
+                        請先參考<自學地圖>上的常見問答：'
+            urls: [
+                {t:\自學地圖, h:\http://map.alearn.org.tw'}
+            ]
         }
         plan: 
             title: \學習計畫
             subTitle: '每個人都不一樣，計畫書也沒有標準答案。 \n
-                        請先參考高中自學工作坊記錄：'
-            url: 'https://autolearn.hackpad.com/ep/pad/static/t7jK9GT2uyS'
+                        請先參考<如何做學習計畫>與<高中自學工作坊>記錄：'
+            urls: [
+                {t:\如何做學習計畫, h:\https://autolearn.hackpad.com/9euGQDfEG5G}
+                {t:\高中自學工作坊, h:\https://autolearn.hackpad.com/ep/pad/static/t7jK9GT2uyS}
+            ]
         consult:
             title: \學習方法諮詢
             subTitle: '如果在特定的學科上遇到瓶頸，\n
-                      我們可引介相關領域專長的老師，做進一步協談。'
-            url: ''
+                        請先參考<如何成為未來職場需要的自由人才>講座記錄：'
+            urls: [
+                {t:\如何成為未來職場需要的自由人才, h:\https://autolearn.hackpad.com/eHxKDAIpFhy}
+            ]
 
 
     phones = [
@@ -47,8 +54,8 @@ myCtrl = ($scope, $route)!->
         checkRoute: (n)->
             return $route
                 and $route.current
-                and $route.current.templateUrl
-                and $route.current.templateUrl.indexOf(n) > -1
+                and $route.current.params.step
+                and $route.current.params.step == n
     }
 
 

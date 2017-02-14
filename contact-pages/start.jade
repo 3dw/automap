@@ -2,18 +2,22 @@
   h1.ui.header {{intro[$route.current.params.step].title}}
   .ui.divider
   p {{intro[$route.current.params.step].subTitle}}
-    a(ng-show="intro[$route.current.params.step].url" ng-href="{{intro[$route.current.params.step].url}}" target="_blank") {{intro[$route.current.params.step].url}}
+    .ui.ordered.list
+      .item(ng-repeat="x in intro[$route.current.params.step].urls")
+        a(ng-href="{{x.h}}" target="_blank")
+          img.favicon(ng-src='http://www.google.com/s2/favicons?domain={{x.h}}', alt = "{{x.t}}")
+          | {{x.t}}
     br
     | 閱讀後，如果需要問人，歡迎與我們聯絡：
   .ui.divider
   .ui.four.doubling.stackable.cards    
-    .card
+    .card(ng-hide = "$route.current.params.step == 'plan'")
       include ./contact-wiselike.jade  
-    .card
+    .card(ng-show = "$route.current.params.step == 'start'")
       include ./contact-social-media.jade
     .card
       include ./contact-email.jade
-    .card
+    .card(ng-show = "$route.current.params.step == 'start'")
       include ./contact-phone.jade
 
     .ui.card.print-only

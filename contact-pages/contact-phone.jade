@@ -1,7 +1,7 @@
 .content
   .header 電話
   .description
-    | 電話問答
+    | 介紹教育局的電話專線，以及本會志工老師
 .image
   img(src = "./images/phone.png")
 .content
@@ -9,14 +9,20 @@
 
     a(href = "http://www.k12ea.gov.tw/ap/nonschool2.aspxhttp://www.k12ea.gov.tw/ap/nonschool2.aspx" target="_blank")
       img.ui.image.avatar(src="./images/MOE.png")
-      | 各縣市教育局實驗教育承辦人
+      | 各縣市教育局承辦人-上班時間均可
+    br
+    span ( 主要領域: 自學申請、法規流程、行政細節 )
     br
     .ui.list
       .item    
         img.ui.image.avatar(src = "./images/yi-ting.jpg")
         a(ng-click="showPhone = true") 蔡伊婷老師-週一下午2-4點
         br
-        span(ng-show="showPhone") 電話號碼(僅週一下午2-4點方便):
+        span ( 主要領域: 自學申請、法規流程、資源轉介 )
+        br
+        span(ng-show="showPhone")
+          br
+          | 電話號碼(僅週一下午2-4點方便):
           br
           | 0919-979-804
 

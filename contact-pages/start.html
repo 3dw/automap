@@ -2,10 +2,14 @@
 <div ng-cloak="" class="ui tall stacked segment">
   <h1 class="ui header">{{intro[$route.current.params.step].title}}</h1>
   <div class="ui divider"></div>
-  <p>{{intro[$route.current.params.step].subTitle}}<a ng-show="intro[$route.current.params.step].url" ng-href="{{intro[$route.current.params.step].url}}" target="_blank">{{intro[$route.current.params.step].url}}</a><br/>閱讀後，如果需要問人，歡迎與我們聯絡：</p>
+  <p>{{intro[$route.current.params.step].subTitle}}
+    <div class="ui ordered list">
+      <div ng-repeat="x in intro[$route.current.params.step].urls" class="item"><a ng-href="{{x.h}}" target="_blank"><img ng-src="http://www.google.com/s2/favicons?domain={{x.h}}" alt="{{x.t}}" class="favicon"/>{{x.t}}</a></div>
+    </div><br/>閱讀後，如果需要問人，歡迎與我們聯絡：
+  </p>
   <div class="ui divider"></div>
   <div class="ui four doubling stackable cards">   
-    <div class="card">
+    <div ng-hide="$route.current.params.step == 'plan'" class="card">
       <div class="content">
         <div class="header">公開問答</div>
         <div class="description">您可看到其他人提的問題和答覆</div>
@@ -14,12 +18,12 @@
       <div class="content">
         <div class="extra content">Wiselike平台:
           <div class="ui list">
-            <div class="item"><img src="./images/wiselike.gif" class="ui small image avatar"/><img src="./images/bestian.jpg" class="ui small image avatar"/><a href="https://wiselike.com/bestian-tang" target="_blank">唐宗浩老師</a></div>
+            <div class="item"><img src="./images/wiselike.gif" class="ui small image avatar"/><img src="./images/bestian.jpg" class="ui small image avatar"/><a href="https://wiselike.com/bestian-tang" target="_blank">唐宗浩老師</a><br/><span>( 主要領域: 數學+資訊+自主能力 )</span></div>
           </div>
         </div>
       </div>
     </div>
-    <div class="card">
+    <div ng-show="$route.current.params.step == 'start'" class="card">
       <div class="content">
         <div class="header">社群媒體</div>
         <div class="description">志工老師在臉書與Line上回覆您</div>
@@ -64,16 +68,16 @@
         <div class="extra content"><a href="mailto:alearn13994229@gmail.com"><i class="mail outline icon"></i>E-mail信箱：<br/>alearn13994229@gmail.com</a></div>
       </div>
     </div>
-    <div class="card">
+    <div ng-show="$route.current.params.step == 'start'" class="card">
       <div class="content">
         <div class="header">電話</div>
-        <div class="description">電話問答</div>
+        <div class="description">介紹教育局的電話專線，以及本會志工老師</div>
       </div>
       <div class="image"><img src="./images/phone.png"/></div>
       <div class="content">
-        <div class="extra content"><a href="http://www.k12ea.gov.tw/ap/nonschool2.aspxhttp://www.k12ea.gov.tw/ap/nonschool2.aspx" target="_blank"><img src="./images/MOE.png" class="ui image avatar"/>各縣市教育局實驗教育承辦人</a><br/>
+        <div class="extra content"><a href="http://www.k12ea.gov.tw/ap/nonschool2.aspxhttp://www.k12ea.gov.tw/ap/nonschool2.aspx" target="_blank"><img src="./images/MOE.png" class="ui image avatar"/>各縣市教育局承辦人-上班時間均可</a><br/><span>( 主要領域: 自學申請、法規流程、行政細節 )</span><br/>
           <div class="ui list">
-            <div class="item">   <img src="./images/yi-ting.jpg" class="ui image avatar"/><a ng-click="showPhone = true">蔡伊婷老師-週一下午2-4點</a><br/><span ng-show="showPhone">電話號碼(僅週一下午2-4點方便):<br/>0919-979-804</span></div>
+            <div class="item">   <img src="./images/yi-ting.jpg" class="ui image avatar"/><a ng-click="showPhone = true">蔡伊婷老師-週一下午2-4點</a><br/><span>( 主要領域: 自學申請、法規流程、資源轉介 )</span><br/><span ng-show="showPhone"><br/>電話號碼(僅週一下午2-4點方便):<br/>0919-979-804</span></div>
           </div>
         </div>
         <!--.ui.list
