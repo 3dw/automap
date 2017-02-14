@@ -2,12 +2,31 @@
 
 一個自學者的起手指南
 
-## 起手指南是什麼
-
-對一件事陌生不知如何上手時，可以快速建立概念與行動方向的輔助工具。
-
-
 # 參與
+
+1. clone this repo
+
+2. use lite-server
+
+        npm install -g lite-server
+
+        lite-sever
+
+3. use jade
+
+        npm install -g jade
+
+4. use livescript
+
+        npm install -g livescript
+        
+5. use compass
+
+        gem install compass
+        
+        compass watch
+
+# 應用API
 
 ## API
 
