@@ -14,7 +14,11 @@
     .ui.list
       .item    
         img.ui.image.avatar(src = "./images/yi-ting.jpg")
-        a() 蔡伊婷老師
+        a(ng-click="showPhone = true") 蔡伊婷老師-週一下午2-4點
+        br
+        span(ng-show="showPhone") 電話號碼(僅週一下午2-4點方便):
+          br
+          | 0919-979-804
 
 
   //.ui.list
