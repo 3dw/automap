@@ -6,9 +6,13 @@
     br
     | 閱讀後，如果需要問人，歡迎與我們聯絡：
   .ui.divider
-  .ui.four.doubling.stackable.cards
-    include ./contact-social-media.jade
-    include ./contact-email.jade
+  .ui.four.doubling.stackable.cards    
+    .card
+      include ./contact-wiselike.jade  
+    .card
+      include ./contact-social-media.jade
+    .card
+      include ./contact-email.jade
 
   //
     .card(ng-repeat="p in phones")

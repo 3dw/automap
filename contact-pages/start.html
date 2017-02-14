@@ -4,8 +4,22 @@
   <div class="ui divider"></div>
   <p>{{intro[$route.current.params.step].subTitle}}<a ng-show="intro[$route.current.params.step].url" ng-href="{{intro[$route.current.params.step].url}}" target="_blank">{{intro[$route.current.params.step].url}}</a><br/>閱讀後，如果需要問人，歡迎與我們聯絡：</p>
   <div class="ui divider"></div>
-  <div class="ui four doubling stackable cards">
+  <div class="ui four doubling stackable cards">   
     <div class="card">
+      <div class="content">
+        <div class="header">公開問答</div>
+        <div class="description">您可看到其他人提的問題和答覆</div>
+      </div>
+      <div class="image"><img src="./images/overflow.jpg"/></div>
+      <div class="content">
+        <div class="extra content"><img src="./images/wiselike.gif" class="ui small image avatar"/>wiselike平台<br/><a href="https://wiselike.com/bestian-tang" target="_blank">唐宗浩老師</a></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="content">
+        <div class="header">社群媒體</div>
+        <div class="description">志工老師在臉書與Line上回覆您</div>
+      </div>
       <div class="image">
         <div class="ui four column grid">
           <div class="column right align"><img src="./images/line.png" class="ui tiny image"/></div>
@@ -13,11 +27,6 @@
         </div>
       </div>
       <div class="content">
-        <div class="header">社群媒體</div>
-        <!--.metaspan.date 諮詢經驗：???~至今
-        -->
-        <div class="description">志工老師在臉書與Line上回覆您</div>
-        <div class="ui divider"></div>
         <div class="description">臉書專頁私訊:
           <div class="ui list">
             <div class="item"><a href="https://www.facebook.com/%E8%87%AA%E4%B8%BB%E5%AD%B8%E7%BF%92%E4%BF%83%E9%80%B2%E6%9C%83-208398025852902/"><i class="facebook icon"></i>自主學習促進會</a></div>
@@ -42,13 +51,12 @@
       </div>
     </div>
     <div class="card">
-      <div class="image"><img src="./images/email.png"/></div>
       <div class="content">
         <div class="header">電子郵件</div>
-        <!--.metaspan.date 諮詢經驗：???~至今
-        -->
         <div class="description">志工老師以Email回覆您</div>
-        <div class="ui divider"></div>
+      </div>
+      <div class="image"><img src="./images/email.png"/></div>
+      <div class="content">
         <div class="extra content"><a href="mailto:alearn13994229@gmail.com"><i class="mail outline icon"></i>E-mail信箱：<br/>alearn13994229@gmail.com</a></div>
       </div>
     </div>
