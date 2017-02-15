@@ -6,7 +6,7 @@ myCtrl = ($scope, $route)!->
             subTitle: '如果您或您的孩子聽過「自學」但不知如何申請，\n
                         請先參考<自學地圖>上的常見問答：'
             urls: [
-                {t:\自學地圖, h:\http://map.alearn.org.tw'}
+                {t:\自學地圖, h:\http://map.alearn.org.tw}
             ]
         }
         plan: 
