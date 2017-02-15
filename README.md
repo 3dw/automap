@@ -4,23 +4,55 @@
 
 # 參與
 
-1. clone this repo
 
-2. use lite-server
+##參與版本控制
+
+歡迎協作，請先：
+
+1. 註冊一個Github帳號，並將帳號e-mail至bestian@gmail.com
+2. bestian會邀你進本專案並開協作權限，請找到「接受邀請」的鈕按下去
+3. 按watch訂閱所有本專案的議題討論(新議題會自動e-mail給你)
+4. 請修改README.md，試著提交變更上傳
+
+----
+
+* **更多問題**與**錯誤回報**，使用github免費提供的[議題區issues](https://github.com/3dw/handbook/issues)功能，以便分類匯整
+
+* 在[議題區issues](https://github.com/3dw/handbook/issues)所提出的問題與答案都會利用Email傳給大家
+
+
+##校對環境(不必寫程式)
+
+1. 以github的方法，複製(clone)本專案
+
+2. 下載並安裝[node.js](https://nodejs.org/en/)。這會同時安裝它的套件管理器npm
+
+3. 安裝 lite-server
 
         npm install -g lite-server
 
+4. 在專案根目錄，鍵入
+
         lite-sever
 
-3. use jade
+即可測試
+
+目前校對中的諮詢頁面，位於http://127.0.0.1:3000/contact.html
+
+
+##開發環境
+
+除以上1~4外，再：
+
+5. use jade
 
         npm install -g jade
 
-4. use livescript
+6. use livescript
 
         npm install -g livescript
         
-5. use compass
+7. use compass
 
         gem install compass
         
