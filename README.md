@@ -21,22 +21,25 @@
 
 ##校對環境(不必寫程式)
 
-1. 以github的方法，複製(clone)本專案
+1. 下載安裝github桌機的程式
 
-2. 下載並安裝[node.js](https://nodejs.org/en/)。這會同時安裝它的套件管理器npm
+2. 在[本網頁](https://github.com/3dw/automap)上，複製(clone)本專案到自己的電腦上
 
-3. 安裝 lite-server
+3. 下載並安裝[node.js](https://nodejs.org/en/)。這會同時安裝它的套件管理器npm
+
+4. 安裝「lite-server」。在命令列(window系統則是在node command prompt)輸入
 
         npm install -g lite-server
 
-4. 在專案根目錄，鍵入
+5. 在專案根目錄，鍵入
 
         lite-sever
 
 即可開啟本地伺服器。
 開啟本地伺服器後，鍵入網址即可測試。
-例如，目前校對中的諮詢頁面，位於http://127.0.0.1:3000/contact.html
-
+例如
+* 目前校對中的諮詢頁面，位於http://127.0.0.1:3000/contact.html
+* 首頁是 http://127.0.0.1:3080/
 
 ##開發環境
 
