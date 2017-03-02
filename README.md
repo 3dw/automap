@@ -22,8 +22,7 @@
 
 ##校對環境(不必寫程式)
 
-1. 下載安裝github桌機的程式
-
+1. 下載安裝[github桌機的程式](https://desktop.github.com/)
 2. 在[本網頁](https://github.com/3dw/automap)上，複製(clone)本專案到自己的電腦上
 
 3. 下載並安裝[node.js](https://nodejs.org/en/)。這會同時安裝它的套件管理器npm
