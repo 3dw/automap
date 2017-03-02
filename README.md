@@ -9,7 +9,8 @@
 歡迎協作，請先：
 
 1. 註冊一個Github帳號，並將帳號e-mail至bestian@gmail.com
-2. bestian會邀你進本專案並開協作權限，請找到「接受邀請」的鈕按下去
+2. bestian會邀你進本專案並開協作權限，請找到「接受邀請」的鈕按下去。接受邀請的按鈕在:
+        https://github.com/3dw
 3. 按watch訂閱所有本專案的議題討論(新議題會自動e-mail給你)
 
 ----
