@@ -5,11 +5,13 @@
 .image
   .ui.four.column.grid
     .column.right.align
-      img.ui.tiny.image(src = "./images/line.png")
+      a(ng-click="soc = 'line'")
+        img.ui.tiny.image(src = "./images/line.png")
     .column
-      img.ui.tiny.image(src = "./images/facebook.png")
+      a(ng-click="soc = 'facebook'")
+        img.ui.tiny.image(src = "./images/facebook.png")
 .content
-  .description
+  .description(ng-hide="soc == 'line'")
     | 臉書專頁私訊:
     .ui.list
       .item
@@ -28,9 +30,8 @@
       a.item
         img.ui.image.avatar(src = "./images/line.png")
 
-
   .ui.divider
-  .description
+  .description(ng-hide="soc == 'facebook'")
     | Line私訊:
     .ui.list
       .item

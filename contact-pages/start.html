@@ -30,12 +30,12 @@
       </div>
       <div class="image">
         <div class="ui four column grid">
-          <div class="column right align"><img src="./images/line.png" class="ui tiny image"/></div>
-          <div class="column"><img src="./images/facebook.png" class="ui tiny image"/></div>
+          <div class="column right align"><a ng-click="soc = 'line'"><img src="./images/line.png" class="ui tiny image"/></a></div>
+          <div class="column"><a ng-click="soc = 'facebook'"><img src="./images/facebook.png" class="ui tiny image"/></a></div>
         </div>
       </div>
       <div class="content">
-        <div class="description">臉書專頁私訊:
+        <div ng-hide="soc == 'line'" class="description">臉書專頁私訊:
           <div class="ui list">
             <div class="item"><a href="https://www.facebook.com/%E8%87%AA%E4%B8%BB%E5%AD%B8%E7%BF%92%E4%BF%83%E9%80%B2%E6%9C%83-208398025852902/"><i class="facebook icon"></i>自主學習促進會</a></div>
           </div>
@@ -48,10 +48,9 @@
           a.item
             img.ui.image.avatar(src = "./images/line.png")
         
-        
         -->
         <div class="ui divider"></div>
-        <div class="description">Line私訊:
+        <div ng-hide="soc == 'facebook'" class="description">Line私訊:
           <div class="ui list">
             <div class="item"><img src="./images/line.png" class="ui image avatar"/><img src="./images/ruei-yui.jpg" class="ui image avatar"/>林睿育老師。Id: maxingarden<br/><span>( 主要領域: 藝術、文學、團體與個人自學 )</span><br/></div>
           </div>

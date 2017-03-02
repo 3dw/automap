@@ -21,6 +21,10 @@ p {
 	padding: 25px;
 }
 
+i.circular.icon {
+	box-shadow: 0 0 0 0.1em rgba(0,0,120,.8) inset
+}
+
 .circular.law.icon::before {
 	position: relative;
 	left: -3px;
