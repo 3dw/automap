@@ -53,7 +53,7 @@
       }
     });
   };
-  app = angular.module('contactApp', ['ngRoute']).controller('myCtrl', ['$scope', '$route', myCtrl]);
+  app = angular.module('contactApp', ['ngRoute', 'ngAnimate']).controller('myCtrl', ['$scope', '$route', myCtrl]);
   app.config(function($routeProvider){
     return $routeProvider.when("/", {
       templateUrl: "contact-pages/main.html"

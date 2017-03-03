@@ -60,7 +60,7 @@ myCtrl = ($scope, $route)!->
 
 
 
-app = angular.module('contactApp',['ngRoute'])
+app = angular.module('contactApp',['ngRoute', 'ngAnimate'])
     .controller('myCtrl', ['$scope','$route', myCtrl])
 
 app.config(($routeProvider)->

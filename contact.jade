@@ -33,16 +33,16 @@ html(ng-app="contactApp")
         
       
       a.step(ng-class = "{active: checkRoute('consult')}", href="#consult")
-          i.circular.law.icon
+          i.circular.law.icon.fade
           .content 
             .title 學習診斷
             .description 如何克服學習上遇到的困難？
         
 
     .main
-      div(ng-view)    
+      di.slide(ng-view)
 
-      footer.ui.large.breadcrumb(ng-cloak='', style="position:relative; top:10px")
+      footer.ui.large.breadcrumb.thin-only(ng-cloak='')
         a.section(ng-class="{active:checkRoute('start')}", href="#start")
           | 自學申請
         i.right.chevron.icon.divider
