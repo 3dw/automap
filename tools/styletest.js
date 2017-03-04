@@ -4,7 +4,7 @@
   app = angular.module('styleApp', ['ngAnimate']);
   app.controller('myCtrl', [
     '$scope', '$sce', '$animate', function($scope, $sce, $animate){
-      angular.extend($scope, {
+      var x = JSON.stringify({
         qs: [
           {
             t: '回想一下，你是如何學習新事物的，試著避開選擇像肢體類的技術學習，如騎腳踏車。你比較偏好從：（可複選）',
@@ -104,6 +104,8 @@
           num: 0
         }
       });
+      console.log(x)
+      angular.extend($scope, JSON.parse(x));
       angular.extend($scope, {
         countVARK: function(){
           var ans, i, l, vark;
