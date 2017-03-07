@@ -9,21 +9,8 @@
   </p>
   <div class="ui divider"></div>
   <div class="ui three stackable cards">   
-    <div ng-hide="$route.current.params.step !== 'consult'" class="card">
-      <div class="content">
-        <div class="header">公開問答</div>
-        <div class="description">您可看到其他人提的問題和答覆</div>
-      </div>
-      <div class="image"><img src="./images/overflow.jpg"/></div>
-      <div class="content">
-        <div class="extra content">Wiselike平台:
-          <div class="ui list">
-            <div class="item"><a href="https://wiselike.com/audrey-tang" target="_blank"> <img src="./images/wiselike.gif" class="ui small image avatar"/><img src="./images/audrey.jpg" class="ui small image avatar"/>唐鳳數位政委</a><br/><span>(領域: 互動系統、程式語言、計算語言)</span></div>
-            <div class="item"><a href="https://wiselike.com/bestian-tang" target="_blank"><img src="./images/wiselike.gif" class="ui small image avatar"/><img src="./images/bestian.jpg" class="ui small image avatar"/>唐宗浩資訊長</a><br/><span>(領域: 數學、資訊、自主能力)</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!--.card(ng-hide = "$route.current.params.step !== 'consult'")include ./contact-wiselike.jade  
+    -->
     <div ng-show="$route.current.params.step == 'start'" class="card">
       <div class="content">
         <div class="header">社群媒體</div>

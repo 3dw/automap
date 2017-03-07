@@ -11,7 +11,7 @@
     | 閱讀後，如果需要問人，歡迎與我們聯絡：
   .ui.divider
   .ui.three.stackable.cards    
-    .card(ng-hide = "$route.current.params.step !== 'consult'")
+    //.card(ng-hide = "$route.current.params.step !== 'consult'")
       include ./contact-wiselike.jade  
     .card(ng-show = "$route.current.params.step == 'start'")
       include ./contact-social-media.jade
