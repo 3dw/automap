@@ -1,0 +1,44 @@
+.content
+  .header 社群媒體
+  .description
+    | 志工老師在臉書與Line上回覆您
+.image
+  .ui.four.column.grid
+    .column.right.align
+      a(ng-click="soc = 'line'")
+        img.ui.tiny.image(src = "./images/line.png")
+    .column
+      a(ng-click="soc = 'facebook'")
+        img.ui.tiny.image(src = "./images/facebook.png")
+.content
+  .description(ng-hide="soc == 'line'")
+    | 臉書專頁私訊:
+    .ui.list
+      .item
+        a(href="https://www.facebook.com/%E8%87%AA%E4%B8%BB%E5%AD%B8%E7%BF%92%E4%BF%83%E9%80%B2%E6%9C%83-208398025852902/")
+          i.facebook.icon
+          | 自主學習促進會
+     .item
+        a(href="https://www.facebook.com/homeschooltw/")
+          i.facebook.icon
+          | 台灣在家自學聯盟
+
+  .ui.divider
+  //.description
+    | Line群組:
+    .ui.list
+      a.item
+        img.ui.image.avatar(src = "./images/line.png")
+
+  .ui.divider
+  .description(ng-hide="soc == 'facebook'")
+    | Line私訊:
+    .ui.list
+      .item
+        img.ui.image.avatar(src = "./images/line.png")
+        img.ui.image.avatar(src = "./images/ruei-yui.jpg")
+        | 林睿育老師。Id: maxingarden
+        br
+        span (領域: 藝術、文學、團體與個人自學)
+        br
+        

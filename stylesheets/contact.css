@@ -1,42 +1,68 @@
-/* line 4, ../sass/contact.scss */
+/* line 5, ../sass/contact.scss */
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
 
-/* line 8, ../sass/contact.scss */
+/* line 9, ../sass/contact.scss */
 .hidden {
   display: none !important;
 }
 
-/* line 12, ../sass/contact.scss */
+/* line 13, ../sass/contact.scss */
+.ui.header {
+  color: rgba(100, 0, 120, 0.8);
+  font-weight: bold;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* line 19, ../sass/contact.scss */
+a, .step:hover {
+  cursor: pointer !important;
+}
+
+/* line 23, ../sass/contact.scss */
+p {
+  white-space: pre;
+}
+
+/* line 27, ../sass/contact.scss */
 .main {
   padding: 25px;
 }
 
-/* line 16, ../sass/contact.scss */
+/* line 31, ../sass/contact.scss */
+i.circular.icon {
+  box-shadow: 0 0 0 0.1em rgba(100, 0, 120, 0.8) inset;
+}
+
+/* line 35, ../sass/contact.scss */
 .circular.law.icon::before {
   position: relative;
   left: -3px;
 }
 
-/* line 21, ../sass/contact.scss */
-a, .step:hover {
-  cursor: pointer !important;
+/* line 40, ../sass/contact.scss */
+.ui.large.breadcrumb {
+  position: fixed;
+  left: 33vw;
+  top: -1.5vh;
+  margin: 0 auto;
+  padding: 4px 0;
 }
 
-/* line 25, ../sass/contact.scss */
+/* line 47, ../sass/contact.scss */
 .ui.large.breadcrumb a.active {
   color: black !important;
 }
 
-/* line 29, ../sass/contact.scss */
+/* line 51, ../sass/contact.scss */
 footer {
   position: relative;
   left: 25px;
   top: -5px;
 }
 
-/* line 35, ../sass/contact.scss */
+/* line 58, ../sass/contact.scss */
 .ui.card .image.qr {
   -moz-transform: scale(0.5);
   -ms-transform: scale(0.5);
@@ -44,30 +70,84 @@ footer {
   transform: scale(0.5);
 }
 
-@media screen and (max-width: 850px) {
-  /* line 41, ../sass/contact.scss */
+@media screen and (min-width: 850px) {
+  /* line 67, ../sass/contact.scss */
   .thin-only {
-    display: inline-block;
+    display: none !important;
   }
 
-  /* line 44, ../sass/contact.scss */
+  /* line 70, ../sass/contact.scss */
+  .fat-only {
+    display: inherit;
+  }
+}
+@media screen and (max-width: 850px) {
+  /* line 76, ../sass/contact.scss */
+  .ui.large.breadcrumb {
+    position: absolute;
+    display: block;
+    left: 0;
+    padding: 1em;
+  }
+
+  /* line 82, ../sass/contact.scss */
+  .thin-only {
+    display: inherit;
+  }
+
+  /* line 85, ../sass/contact.scss */
   .fat-only {
     display: none !important;
   }
 }
-/* line 49, ../sass/contact.scss */
+/* line 90, ../sass/contact.scss */
 .print-only {
   display: none !important;
 }
 
 @media print {
-  /* line 54, ../sass/contact.scss */
+  /* line 95, ../sass/contact.scss */
   .no-print {
     display: none !important;
   }
 
-  /* line 58, ../sass/contact.scss */
+  /* line 99, ../sass/contact.scss */
   .print-only {
     display: block !important;
   }
+}
+/* line 105, ../sass/contact.scss */
+.slide {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 2px 0;
+}
+
+/* line 112, ../sass/contact.scss */
+.slide.ng-enter,
+.slide.ng-leave {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+/* line 117, ../sass/contact.scss */
+.slide.ng-enter {
+  left: 100%;
+}
+
+/* line 120, ../sass/contact.scss */
+.slide.ng-enter-active {
+  left: 0;
+}
+
+/* line 123, ../sass/contact.scss */
+.slide.ng-leave {
+  left: 0;
+}
+
+/* line 126, ../sass/contact.scss */
+.slide.ng-leave-active {
+  left: -100%;
 }

@@ -1,35 +1,121 @@
 
 <div ng-cloak="" class="ui tall stacked segment">
-  <h1 class="ui header">自學申請</h1>
+  <h1 class="ui header">{{intro[$route.current.params.step].title}}</h1>
   <div class="ui divider"></div>
-  <p>如果您或您的孩子聽過「自學」但不知如何申請，<br/>請先參考<a href="http://map.alearn.org.tw" target="_blank">&lt;自學地圖&gt;</a><br/>如果需要問人，可與我們聯絡：</p>
+  <p>{{intro[$route.current.params.step].subTitle}}
+    <div class="ui ordered list">
+      <div ng-repeat="x in intro[$route.current.params.step].urls" class="item"><a ng-href="{{x.h}}" target="_blank"><img ng-src="http://www.google.com/s2/favicons?domain={{x.h}}" alt="{{x.t}}" class="favicon"/>{{x.t}}</a></div>
+    </div><br/>閱讀後，如果需要問人，歡迎與我們聯絡：
+  </p>
   <div class="ui divider"></div>
-  <div class="ui four doubling stackable cards">
-    <div class="card">
-      <div class="image"><img src="./images/auto-learn.jpg"/></div>
+  <div class="ui three stackable cards">   
+    <div ng-hide="$route.current.params.step == 'consult'" class="card">
       <div class="content">
-        <div class="header">自主學習促進會</div>
-        <div class="meta"><span class="date">諮詢經驗：1991~至今</span></div>
-        <div class="description">有經驗的志工老師會Email回覆您的問題</div>
-        <div class="ui divider"></div>
-        <div class="extra content"><a href="mailto:alearn13994229@gmail.com"><i class="mail outline icon"></i>E-mail信箱：<br/>alearn13994229@gmail.com</a>
-          <div class="ui divider"></div><a href="https://www.messenger.com/t/208398025852902/"><i class="facebook icon"></i>臉書專頁私訊</a>
+        <div class="header">共同筆記</div>
+        <div class="description">您可看到其他人的問題和答覆</div>
+      </div>
+      <div class="image"><img src="./images/overflow.jpg"/></div>
+      <div class="content">
+        <div class="extra content">Hackpad平台:
+          <div class="ui list">
+            <div class="item"><a href="https://autolearn.hackpad.com/FAQ-U5CsVU4DleL" target="_blank"> <img src="./images/hackpad.png" class="ui small image avatar"/>自學FAQ</a><br/><span>(領域: 自學申請、常見問答)</span></div>
+            <div class="item"><a href="https://freemath.hackpad.com/FAQ-VMHKCmL6DDp" target="_blank"><img src="./images/hackpad.png" class="ui small image avatar"/><img src="./images/bestian.jpg" class="ui small image avatar"/>自由數學FAQ</a><br/><span>(領域: 數學、自主能力)</span></div>
+          </div>
         </div>
       </div>
     </div>
-    <div ng-repeat="t in teachers" class="card">
-      <div class="image no-print"><img ng-src="../images/{{t.img}}" alt="{{t.name}}"/></div>
+    <!--.card(ng-hide = "$route.current.params.step !== 'consult'")include ./contact-wiselike.jade  
+    -->
+    <div ng-show="$route.current.params.step == 'start'" class="card">
       <div class="content">
-        <div ng-bind-template="{{t.name}}老師" class="header"> </div>
-        <div class="meta"><span ng-bind-template="諮詢經驗：{{t.xp}}" class="date"></span></div>
-        <div class="description">{{t.fname || t.name.substr(0,1)}}老師接電話的時間是：<br/>
-          <div ng-repeat="tm in t.times" class="ui large blue left ribbon label"> {{tm}}</div>
-          <div class="ui divider"></div>請只在{{t.times[0]}}<span ng-show="t.times &amp;&amp; t.times.length &gt; 1">等</span>時段聯絡<br/>
-          <div class="no-print"><a ng-click="ok = 1" class="ui green basic button">好，我知道了</a></div>
+        <div class="header">社群媒體</div>
+        <div class="description">志工老師在臉書與Line上回覆您</div>
+      </div>
+      <div class="image">
+        <div class="ui four column grid">
+          <div class="column right align"><a ng-click="soc = 'line'"><img src="./images/line.png" class="ui tiny image"/></a></div>
+          <div class="column"><a ng-click="soc = 'facebook'"><img src="./images/facebook.png" class="ui tiny image"/></a></div>
         </div>
-        <div ng-hide="ok" class="extra content">確認後即可看到電話號碼</div>
-        <div ng-show="ok" class="extra content"><a><i class="call icon"></i>電話：<a ng-href="tel:{{t.phone}}">{{t.phone}}</a></a></div>
-        <div class="extra content print-only"><a><i class="call icon"></i>電話：<a ng-href="tel:{{t.phone}}">{{t.phone}}</a></a></div>
+      </div>
+      <div class="content">
+        <div ng-hide="soc == 'line'" class="description">臉書專頁私訊:
+          <div class="ui list">
+            <div class="item"><a href="https://www.facebook.com/%E8%87%AA%E4%B8%BB%E5%AD%B8%E7%BF%92%E4%BF%83%E9%80%B2%E6%9C%83-208398025852902/"><i class="facebook icon"></i>自主學習促進會</a></div>
+          </div>
+          <div class="item"><a href="https://www.facebook.com/homeschooltw/"><i class="facebook icon"></i>台灣在家自學聯盟</a></div>
+        </div>
+        <div class="ui divider"></div>
+        <!--.description
+        | Line群組:
+        .ui.list
+          a.item
+            img.ui.image.avatar(src = "./images/line.png")
+        
+        -->
+        <div class="ui divider"></div>
+        <div ng-hide="soc == 'facebook'" class="description">Line私訊:
+          <div class="ui list">
+            <div class="item"><img src="./images/line.png" class="ui image avatar"/><img src="./images/ruei-yui.jpg" class="ui image avatar"/>林睿育老師。Id: maxingarden<br/><span>(領域: 藝術、文學、團體與個人自學)</span><br/></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="content">
+        <div class="header">電子郵件</div>
+        <div class="description">志工老師以Email回覆您</div>
+      </div>
+      <div class="image"><img src="./images/email.png"/></div>
+      <div class="content">
+        <div class="extra content"><a href="mailto:alearn13994229@gmail.com"><i class="mail outline icon"></i>E-mail信箱：<br/>alearn13994229@gmail.com</a></div>
+      </div>
+    </div>
+    <div ng-show="$route.current.params.step == 'start'" class="card">
+      <div class="content">
+        <div class="header">電話</div>
+        <div class="description">介紹教育局的電話專線，以及本會志工老師</div>
+      </div>
+      <div class="image"><img src="./images/phone.png"/></div>
+      <div class="content">
+        <div class="extra content"><a href="http://www.k12ea.gov.tw/ap/nonschool2.aspxhttp://www.k12ea.gov.tw/ap/nonschool2.aspx" target="_blank"><img src="./images/MOE.png" class="ui image avatar"/>各縣市教育局承辦人-上班時間均可</a><br/><span>(領域: 自學申請、法規流程、行政細節)</span><br/>
+          <div class="ui list">
+            <div class="item">   <img src="./images/yi-ting.jpg" class="ui image avatar"/><a ng-click="showPhone = true">蔡伊婷老師-週一下午2-4點</a><br/><span>(領域: 自學申請、法規流程、資源轉介)</span><br/><span ng-show="showPhone"><br/>電話號碼(僅週一下午2-4點方便):<br/>0919-979-804</span></div>
+          </div>
+        </div>
+        <!--.ui.list
+        .item(ng-repeat="p in phones")
+          .image.no-print
+            img(ng-src = "../images/{{p.img}}" alt = "{{p.name}}")
+          .content
+            .header(ng-bind-template="{{p.name}}老師") 
+            .meta
+              span.date(ng-bind-template="諮詢經驗：{{p.xp}}")
+            .description
+              | {{p.fname || p.name.substr(0,1)}}老師接電話的時間是：
+              br 
+              .ui.large.blue.left.ribbon.label(ng-repeat="tm in p.times")
+                |  {{tm}}
+              .ui.divider
+              | 請只在{{p.times[0]}}
+              span(ng-show="t.times && t.times.length > 1") 等
+              | 時段聯絡
+              br
+              .no-print
+                a.ui.green.basic.button(ng-click="ok = 1")
+                  | 好，我知道了
+            .extra.content(ng-hide="ok")
+              | 確認後即可看到電話號碼
+            .extra.content(ng-show="ok")
+              a
+                i.call.icon
+                | 電話：
+                a(ng-href = "tel:{{p.phone}}") {{p.phone}}
+            .extra.content.print-only
+              a
+                i.call.icon
+                | 電話：
+                a(ng-href = "tel:{{p.phone}}") {{p.phone}}
+        -->
       </div>
     </div>
     <div class="ui card print-only">

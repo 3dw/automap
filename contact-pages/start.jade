@@ -1,55 +1,30 @@
 .ui.tall.stacked.segment(ng-cloak='')
-  h1.ui.header 自學申請
+  h1.ui.header {{intro[$route.current.params.step].title}}
   .ui.divider
-  p
-    | 如果您或您的孩子聽過「自學」但不知如何申請，
+  p {{intro[$route.current.params.step].subTitle}}
+    .ui.ordered.list
+      .item(ng-repeat="x in intro[$route.current.params.step].urls")
+        a(ng-href="{{x.h}}" target="_blank")
+          img.favicon(ng-src='http://www.google.com/s2/favicons?domain={{x.h}}', alt = "{{x.t}}")
+          | {{x.t}}
     br
-    | 請先參考
-    a(href="http://map.alearn.org.tw" target="_blank") &lt;自學地圖&gt;
-    br
-    | 如果需要問人，可與我們聯絡：
+    | 閱讀後，如果需要問人，歡迎與我們聯絡：
   .ui.divider
-  .ui.four.doubling.stackable.cards
-    include ./contact-email.jade
-
-
-    .card(ng-repeat="t in teachers")
-      .image.no-print
-        img(ng-src = "../images/{{t.img}}" alt = "{{t.name}}")
-      .content
-        .header(ng-bind-template="{{t.name}}老師") 
-        .meta
-          span.date(ng-bind-template="諮詢經驗：{{t.xp}}")
-        .description
-          | {{t.fname || t.name.substr(0,1)}}老師接電話的時間是：
-          br 
-          .ui.large.blue.left.ribbon.label(ng-repeat="tm in t.times")
-            |  {{tm}}
-          .ui.divider
-          | 請只在{{t.times[0]}}
-          span(ng-show="t.times && t.times.length > 1") 等
-          | 時段聯絡
-          br
-          .no-print
-            a.ui.green.basic.button(ng-click="ok = 1")
-              | 好，我知道了
-        .extra.content(ng-hide="ok")
-          | 確認後即可看到電話號碼
-        .extra.content(ng-show="ok")
-          a
-            i.call.icon
-            | 電話：
-            a(ng-href = "tel:{{t.phone}}") {{t.phone}}
-        .extra.content.print-only
-          a
-            i.call.icon
-            | 電話：
-            a(ng-href = "tel:{{t.phone}}") {{t.phone}}
-
+  .ui.three.stackable.cards    
+    .card(ng-hide = "$route.current.params.step == 'consult'")
+      include ./contact-hackpad.jade  
+    //.card(ng-hide = "$route.current.params.step !== 'consult'")
+      include ./contact-wiselike.jade  
+    .card(ng-show = "$route.current.params.step == 'start'")
+      include ./contact-social-media.jade
+    .card
+      include ./contact-email.jade
+    .card(ng-show = "$route.current.params.step == 'start'")
+      include ./contact-phone.jade
 
     .ui.card.print-only
       .image.qr
           img(src = "http://chart.apis.google.com/chart?chs=200x200&cht=qr&chld=|1&chl=http%3A%2F%2Fmap.alearn.org.tw%2F")
         .content
-                .center.aligned.header 自學地圖
+          .center.aligned.header 自學地圖
 

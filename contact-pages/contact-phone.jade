@@ -1,0 +1,62 @@
+.content
+  .header 電話
+  .description
+    | 介紹教育局的電話專線，以及本會志工老師
+.image
+  img(src = "./images/phone.png")
+.content
+  .extra.content
+
+    a(href = "http://www.k12ea.gov.tw/ap/nonschool2.aspxhttp://www.k12ea.gov.tw/ap/nonschool2.aspx" target="_blank")
+      img.ui.image.avatar(src="./images/MOE.png")
+      | 各縣市教育局承辦人-上班時間均可
+    br
+    span (領域: 自學申請、法規流程、行政細節)
+    br
+    .ui.list
+      .item    
+        img.ui.image.avatar(src = "./images/yi-ting.jpg")
+        a(ng-click="showPhone = true") 蔡伊婷老師-週一下午2-4點
+        br
+        span (領域: 自學申請、法規流程、資源轉介)
+        br
+        span(ng-show="showPhone")
+          br
+          | 電話號碼(僅週一下午2-4點方便):
+          br
+          | 0919-979-804
+
+
+  //.ui.list
+    .item(ng-repeat="p in phones")
+      .image.no-print
+        img(ng-src = "../images/{{p.img}}" alt = "{{p.name}}")
+      .content
+        .header(ng-bind-template="{{p.name}}老師") 
+        .meta
+          span.date(ng-bind-template="諮詢經驗：{{p.xp}}")
+        .description
+          | {{p.fname || p.name.substr(0,1)}}老師接電話的時間是：
+          br 
+          .ui.large.blue.left.ribbon.label(ng-repeat="tm in p.times")
+            |  {{tm}}
+          .ui.divider
+          | 請只在{{p.times[0]}}
+          span(ng-show="t.times && t.times.length > 1") 等
+          | 時段聯絡
+          br
+          .no-print
+            a.ui.green.basic.button(ng-click="ok = 1")
+              | 好，我知道了
+        .extra.content(ng-hide="ok")
+          | 確認後即可看到電話號碼
+        .extra.content(ng-show="ok")
+          a
+            i.call.icon
+            | 電話：
+            a(ng-href = "tel:{{p.phone}}") {{p.phone}}
+        .extra.content.print-only
+          a
+            i.call.icon
+            | 電話：
+            a(ng-href = "tel:{{p.phone}}") {{p.phone}}
