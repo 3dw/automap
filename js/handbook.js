@@ -48,6 +48,7 @@ app.filter('makeBr', function(){
 
   function autoCtrl ($scope, $http, $filter, $sce, $localStorage, $route, $handbook) {
 
+
     $scope.storage = $localStorage.$default(
       {}
     );
@@ -58,6 +59,7 @@ app.filter('makeBr', function(){
 
     angular.extend($scope, {
       $route: $route,
+      feedback: false,
       highlightAndMakeBr: function(text, search) {
         text = $filter('makeBr')(text);
               if (!search) {
@@ -99,6 +101,19 @@ app.filter('makeBr', function(){
         return ($scope.catagories.filter(
           function(o){return o.t == n}
         )[0] || {}).icon || 'user'
+      },
+      feed: function(x,q) {
+        console.log(x);
+        console.log(q);
+        var cell = x ? 'A2' : 'C2';
+        $http({
+            method : 'POST',
+            url: "https://ethercalc.org/_/test-74",
+            dataType: 'application/json',
+            processData: false,
+            //data: { "command" : 'append' + '???'}
+            data: { "command": 'set ' + cell + ' text t ' + x + q}
+        }); 
       }
     })            
 

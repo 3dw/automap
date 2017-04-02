@@ -26,8 +26,8 @@ nav {
 
 section {
 	border-radius: 5px;
-	padding: 3vm;
-	padding: 3vmin;
+	padding: 2vm;
+	padding: 2vmin;
 //	background-color: white !important;
 	background-color: $rice !important;
 	h1.header {
@@ -42,7 +42,10 @@ section {
 
 .description {
 	color: mix($blue,black);
-	// white-space: pre;	
+	white-space: pre;	
+	height: 4em;
+	line-height: 2em;
+	overflow: auto;
 }
 
 .orange {
