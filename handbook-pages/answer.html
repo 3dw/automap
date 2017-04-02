@@ -5,17 +5,26 @@
   <!--i.huge.orange.users.icon(ng-hide="(faqs | orderBy:myOrd)[$route.current.params.id].i", style="display:block; margin-left:auto; margin-right:auto")--><i style="display:block; margin-left:auto; margin-right:auto" class="huge orange users icon"></i>
   <div class="ui divider"></div>
   <div class="ui grid">
-    <div class="four wide column"></div>
-    <div class="eight wide column">
-      <p ng-repeat="line in (faqs | orderBy:myOrd)[$route.current.params.id].as" class="description"><span ng-bind-html="highlightAndMakeBr(line, key)"></span></p>
+    <div class="row">
+      <div class="column">
+        <p ng-repeat="line in (faqs | orderBy:myOrd)[$route.current.params.id].as" ng-bind-html="highlightAndMakeBr(line, key)" class="description"></p>
+      </div>
     </div>
-    <div class="four wide column"></div>
     <div class="row">
       <div ng-show="(faqs | orderBy:myOrd)[$route.current.params.id].es[0]" class="eighteen wide right aligned column">
         <div class="ui divider"></div><span ng-repeat="e in (faqs | orderBy:myOrd)[$route.current.params.id].es">
           <div ng-show="$index" class="ui divider"></div>參考:&nbsp;&nbsp;<a ng-href="{{e.h}}"><i class="globe icon"></i>{{e.t}}</a></span>
       </div>
     </div>
-  </div><span>
+  </div><span ng-init="feedback=false">
+    <div class="ui divider"></div>
+    <h3 ng-hide="feedback" class="ui center aligned header">這對您有幫助嗎？
+      <div class="ui buttons">
+        <button ng-click="feedback=true; feed(true, (faqs | orderBy:myOrd)[$route.current.params.id].q)" class="ui green button">有</button>
+        <div class="or"></div>
+        <button ng-click="feedback=true; feed(false, (faqs | orderBy:myOrd)[$route.current.params.id].q)" class="ui red button">沒有 </button>
+      </div>
+    </h3>
+    <h3 ng-show="feedback" class="ui center aligned header">感謝您的意見回報！</h3>
     <div class="ui divider"></div><a ng-click="step=0;myC=0" href="#/"><i class="angle left icon"></i>回主頁<i class="big home icon"></i></a></span>
 </section>
