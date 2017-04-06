@@ -105,15 +105,38 @@ app.filter('makeBr', function(){
       feed: function(x,q) {
         console.log(x);
         console.log(q);
+
         var cell = x ? 'A2' : 'C2';
+
         $http({
-            method : 'POST',
-            url: "https://ethercalc.org/_/test-74",
-            dataType: 'application/json',
-            processData: false,
-            //data: { "command" : 'append' + '???'}
-            data: { "command": 'set ' + cell + ' text t ' + x + q}
-        }); 
+        method : 'GET',
+        url : 'https://ethercalc.org/handbook-feedback.csv'
+          }).then(
+            function(res) {
+                var time = new Date().toString();
+                var d = res.data;
+                console.log(d);
+                cell_lenth = d.split("\n").length;
+                console.log(cell_lenth);
+                var url = 'https://ethercalc.org/_/handbook-feedback';
+                my_post( 'A' + cell_lenth, time);
+                my_post( 'B' + cell_lenth, 'website');
+                my_post( 'C' + cell_lenth, x);
+                my_post( 'D' + cell_lenth, q);
+                function my_post(cell,text) {
+                  $http({
+                    method : 'POST',
+                    url: url,
+                    dataType: 'application/json',
+                    processData: false,
+                    //data: { "command" : 'append' + '???'}
+                    data: { "command": 'set ' + cell + ' text t ' + text}
+                  });
+                }
+            }, function(res){
+              console.log(res.statusText)
+            }
+        ) 
       }
     })            
 
