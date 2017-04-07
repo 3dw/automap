@@ -1,7 +1,7 @@
 .ui.tall.stacked.segment(ng-cloak='')
   h1.ui.header {{intro[$route.current.params.step].title}}
   .ui.divider
-  p {{intro[$route.current.params.step].subTitle}}
+  h3.ui.header {{intro[$route.current.params.step].subTitle}}
     .ui.ordered.list
       .item(ng-repeat="x in intro[$route.current.params.step].urls")
         a(ng-href="{{x.h}}" target="_blank")
