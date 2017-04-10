@@ -14,14 +14,14 @@
       },
       plan: {
         title: '學習計畫',
-        subTitle: '每個人都不一樣，計畫書也沒有標準答案。 \n請先參考<如何做學習計畫>與<高中自學工作坊>記錄：',
+        subTitle: '每個人都不一樣，計畫書也沒有標準答案。 \n請先參考<如何做學習計畫>與<第一次申請高中自學就上手>工作坊記錄：',
         urls: [
           {
             t: '如何做學習計畫',
-            h: 'https://autolearn.hackpad.com/9euGQDfEG5G'
+            h: 'https://paper.dropbox.com/doc/5UjmL5UYMDnep8mNkEMt0'
           }, {
-            t: '高中自學工作坊',
-            h: 'https://autolearn.hackpad.com/ep/pad/static/t7jK9GT2uyS'
+            t: '第一次申請高中自學就上手',
+            h: 'https://paper.dropbox.com/doc/TPnCOtOK70l3hGH63AHzQ'
           }
         ]
       },
@@ -30,7 +30,7 @@
         subTitle: '如果在特定的學科上遇到瓶頸，\n請先參考<如何成為未來職場需要的自由人才>講座記錄：',
         urls: [{
           t: '如何成為未來職場需要的自由人才',
-          h: 'https://autolearn.hackpad.com/eHxKDAIpFhy'
+          h: 'https://paper.dropbox.com/doc/RbEVa09jhkx3D0wdVYcp2'
         }]
       }
     };
