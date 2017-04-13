@@ -16,7 +16,7 @@ section(ng-cloak='')
         span(ng-repeat = "e in (faqs | orderBy:myOrd)[$route.current.params.id].es")
           .ui.divider(ng-show="$index")
           | 參考:&nbsp;&nbsp;
-          a(ng-href = "{{e.h}}")
+          a(ng-href = "{{e.h}}" target="_blank")
             i.globe.icon
             | {{e.t}}
 
