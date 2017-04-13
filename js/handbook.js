@@ -129,7 +129,6 @@ app.filter('makeBr', function(){
                     url: url,
                     dataType: 'application/json',
                     processData: false,
-                    //data: { "command" : 'append' + '???'}
                     data: { "command": 'set ' + cell + ' text t ' + text}
                   });
                 }
