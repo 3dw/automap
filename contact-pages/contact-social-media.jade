@@ -11,6 +11,15 @@
       a(ng-click="soc = 'facebook'")
         img.ui.tiny.image(src = "./images/facebook.png")
 .content
+  .description
+    | Line群組: 
+    .ui.list
+      .item
+        img.ui.image(src = "./images/line_QR_autolearn.jpg")
+        br
+        | line加好友 〉 行動條碼 〉 掃描此條碼
+        
+  .ui.divider
   .description(ng-hide="soc == 'line'")
     | 臉書專頁私訊:
     .ui.list
@@ -23,12 +32,6 @@
           i.facebook.icon
           | 台灣在家自學聯盟
 
-  .ui.divider
-  //.description
-    | Line群組:
-    .ui.list
-      a.item
-        img.ui.image.avatar(src = "./images/line.png")
 
   .ui.divider
   .description(ng-hide="soc == 'facebook'")
