@@ -13,7 +13,7 @@
     <div class="row">
       <div ng-show="(faqs | orderBy:myOrd)[$route.current.params.id].es[0]" class="eighteen wide right aligned column">
         <div class="ui divider"></div><span ng-repeat="e in (faqs | orderBy:myOrd)[$route.current.params.id].es">
-          <div ng-show="$index" class="ui divider"></div>參考:&nbsp;&nbsp;<a ng-href="{{e.h}}"><i class="globe icon"></i>{{e.t}}</a></span>
+          <div ng-show="$index" class="ui divider"></div>參考:&nbsp;&nbsp;<a ng-href="{{e.h}}" target="_blank"><i class="globe icon"></i>{{e.t}}</a></span>
       </div>
     </div>
   </div><span ng-init="feedback=false">
