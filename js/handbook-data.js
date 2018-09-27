@@ -92,7 +92,7 @@ angular.module("automap")
             "您可以在自學地圖上尋找在地的自學社團，也可以上自學2.0互助地圖登錄自己和尋找夥伴，彼此認識。"
           ],
           "es": [{
-            "h": "http://map.alearn.org.tw/we/",
+            "h": "http://we.map.alearn.org.tw/",
             "t": "自學2.0互助地圖"
           }]
         },
