@@ -82,7 +82,7 @@ angular.module("automap")
             "交友圈可能很多元，往往還能更長久，不會因為在學校的畢業或重新分班就被拆散。"
           ],
           "es": [{
-            "h": "http://map.alearn.org.tw/we/",
+            "h": "http://we.alearn.org.tw/",
             "t": "自學2.0互助地圖"
           }]
         },
