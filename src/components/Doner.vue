@@ -36,7 +36,7 @@
               a(href= "https://docs.google.com/forms/d/e/1FAIpQLSfJ2qMK4_S-3vj5b6U4qQOH101XAbNVNx2mbSaWn8eIozEm1g/viewform" target="_blank") 表單連結
               | 並允許https加密通訊）
             .ui.divider
-            a(href="#thanks")
+            router-link(to="/doner/thanks")
               | 感謝您
               i.chevron.right.icon
       .ui.divider

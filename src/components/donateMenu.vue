@@ -10,7 +10,7 @@
       router-link.item(to="/doner/thanks", exect="")
         i.circular.smile.icon
           .ui.top.fixed.menu.fat-only
-    .ui.ordered.four.steps
+    .ui.ordered.four.steps.fat-only
       router-link.step(to="/donate", exect="")        
         .content
           .title
