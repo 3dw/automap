@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: '',
+  name: 'contact',
   data () {
     return {
     }

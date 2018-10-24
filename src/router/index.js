@@ -5,6 +5,8 @@ import Ans from '@/components/Ans'
 import Short from '@/components/Short'
 import Contact from '@/components/Contact'
 import Inner from '@/components/Inner'
+import Donate from '@/components/Donate'
+import Doner from '@/components/Doner'
 
 Vue.use(Router)
 
@@ -34,6 +36,16 @@ export default new Router({
       path: '/inner/:step',
       name: 'Inner',
       component: Inner
+    },
+    {
+      path: '/donate',
+      name: 'Donate',
+      component: Donate
+    },
+    {
+      path: '/doner/:step',
+      name: 'Doner',
+      component: Doner
     }
   ]
 })

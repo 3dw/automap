@@ -1,6 +1,17 @@
 <template lang="jade">
   #app
-    nav.ui.fixed.top.labeled.icon.inverted.menu
+    nav.ui.fixed.top.inverted.menu.thin-only
+      router-link.item(to="/", exact='') 
+        | FAQ
+      router-link.item(to="/short", exact='') 
+        | 認識
+      router-link.item(to="/contact", exact='')
+        | 諮詢
+      router-link.item(to="/donate", exect="")
+        | 樂捐
+      a.item(href="https://3dw.github.io/handbook/", target="_blank")
+        | App下載
+    nav.ui.fixed.top.labeled.icon.inverted.menu.fat-only
       router-link.item(to="/", exact='') 
         i.home.icon
         | 自學FAQ
@@ -10,6 +21,12 @@
       router-link.item(to="/contact", exact='')
         i.assistive.listening.systems.icon
         | 諮詢專線
+      router-link.item(to="/donate", exect="")
+        i.gift.icon
+        | 樂捐支持
+      a.item(href="https://3dw.github.io/handbook/", target="_blank")
+        i.phone.icon
+        | App下載
     main
       router-view(:myKey="myKey")
 </template>
@@ -39,7 +56,7 @@ body {
 
 main {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 .print-only {
@@ -88,7 +105,7 @@ a, button, .clickable {
 }
 
 .router-link-active {
-  background-color: #339 !important;
+  background-color: #acf !important;
 }
 
 .invisible {
