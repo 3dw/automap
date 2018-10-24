@@ -37,6 +37,10 @@
           router-link.item(to='/style', exact='')
             i.tasks.icon
             | 學習風格自我測試
+      .right.item.fat-only
+        a(href="https://github.com/3dw/automap/" target="_blank" title="View it on Github")
+          i.github.icon
+        iframe(src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fmap.alearn.org.tw&layout=button_count&size=small&mobile_iframe=true&appId=485195848253155&width=77&height=20" width="77" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media")
 
     main
       router-view(:myKey="myKey")

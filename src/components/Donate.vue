@@ -25,15 +25,15 @@
               .item 捐款去向：{{o.rs[2]}}   
           .ui.divider
           .ui.three.item.menu
-            a.item(href="#gift")
-              i.gift.icon
-              | 樂捐
+            a.item(:href="o.url" target="_blank")
+              i.globe.icon
+              | 認識
             a.item(href="mailto:alearn13994229@gmail.com")
               i.mail.outline.icon
               | 意見
-            a.item(:href="o.url" target="_blank")
-              i.globe.icon
-              | 前往
+            router-link.item(to="/doner/gift")
+              i.gift.icon
+              | 樂捐
  
 </template>
 
