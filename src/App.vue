@@ -1,18 +1,27 @@
-<template>
-  <div id="app">
-    <header>
-      <span>Vue.js PWA</span>
-    </header>
-    <main>
-      <img src="./assets/logo.png" alt="Vue.js PWA">
-      <router-view></router-view>
-    </main>
-  </div>
+<template lang="jade">
+  #app
+    nav.ui.fixed.top.labeled.icon.inverted.menu
+      router-link.item(to="/", exact='') 
+        i.home.icon
+        | 自學FAQ
+      router-link.item(to="/short", exact='') 
+        i.comments.icon
+        | 認識自學
+      router-link.item(to="/contact", exact='')
+        i.assistive.listening.systems.icon
+        | 諮詢專線
+    main
+      router-view(:myKey="myKey")
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  data () {
+    return {
+      myKey: ''
+    }
+  }
 }
 </script>
 
@@ -30,25 +39,40 @@ body {
 
 main {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 100px;
 }
 
-header {
-  margin: 0;
-  height: 56px;
-  padding: 0 16px 0 24px;
-  background-color: #35495E;
-  color: #ffffff;
+a, button, .clickable {
+  cursor: pointer !important;
 }
 
-header span {
-  display: block;
-  position: relative;
-  font-size: 20px;
-  line-height: 1;
-  letter-spacing: .02em;
-  font-weight: 400;
-  box-sizing: border-box;
-  padding-top: 16px;
+@media screen and (max-width: 600px) {
+  .fat-only {
+    display: none !important;
+  }
+  .button {
+    max-width: 100% !important;
+  }
 }
+
+@media screen and (max-width: 991px) {
+  .fater-only {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  .thin-only {
+    display: none !important;
+  }
+}
+
+.router-link-active {
+  background-color: #339 !important;
+}
+
+.invisible {
+  color: transparent !important;
+}
+
 </style>
