@@ -42,6 +42,26 @@ main {
   margin-top: 100px;
 }
 
+.print-only {
+  visibility: hidden !important;
+  display: none !important;
+}
+
+@media print {
+  .no-print {
+    visibility: hidden !important;
+    display: none !important;
+    height: 0 !important;
+  }
+  .print-only {
+    visibility: visible !important;
+    display: block !important;
+  }
+  img, div, .card, .column {
+    page-break-inside: avoid !important;
+  }
+}
+
 a, button, .clickable {
   cursor: pointer !important;
 }
