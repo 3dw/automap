@@ -6,6 +6,9 @@ import router from './router'
 import SuiVue from 'semantic-ui-vue'
 import '@babel/polyfill'
 
+var VueResource = require('vue-resource')
+Vue.use(VueResource)
+
 require('semantic-ui-css/semantic.css')
 
 Vue.use(SuiVue)
