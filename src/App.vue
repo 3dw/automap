@@ -9,8 +9,8 @@
         | 諮詢
       router-link.item(to="/donate", exect="")
         | 樂捐
-      a.item(href="https://3dw.github.io/handbook/", target="_blank")
-        | App下載
+      router-link.item(to="/app", exect="")
+        | App
     nav.ui.fixed.top.labeled.icon.inverted.menu.fat-only
       router-link.item(to="/", exact='') 
         i.home.icon
@@ -24,9 +24,20 @@
       router-link.item(to="/donate", exect="")
         i.gift.icon
         | 樂捐支持
-      a.item(href="https://3dw.github.io/handbook/", target="_blank")
+      router-link.item(to="/app", exect="")
         i.phone.icon
         | App下載
+      .ui.simple.dropdown.item.fat-only
+        i.angle.double.down.icon
+        | 小工具
+        .menu
+          router-link.item(to='/Khr10', exact='')
+            i.hourglass.half.icon
+            | 一萬小時試算機
+          router-link.item(to='/style', exact='')
+            i.tasks.icon
+            | 學習風格自我測試
+
     main
       router-view(:myKey="myKey")
 </template>
@@ -51,7 +62,12 @@ body {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+}
+
+p {
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 main {

@@ -7,6 +7,10 @@ import Contact from '@/components/Contact'
 import Inner from '@/components/Inner'
 import Donate from '@/components/Donate'
 import Doner from '@/components/Doner'
+import App from '@/components/App'
+import Khr10 from '@/components/Khr10'
+import Style from '@/components/Style'
+import Auto4 from '@/components/Auto4'
 
 Vue.use(Router)
 
@@ -46,6 +50,26 @@ export default new Router({
       path: '/doner/:step',
       name: 'Doner',
       component: Doner
+    },
+    {
+      path: '/app',
+      name: 'App',
+      component: App
+    },
+    {
+      path: '/khr10',
+      name: 'Khr10',
+      component: Khr10
+    },
+    {
+      path: '/style',
+      name: 'Style',
+      component: Style
+    },
+    {
+      path: '/auto4',
+      name: 'Auto4',
+      component: Auto4
     }
   ]
 })

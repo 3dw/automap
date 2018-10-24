@@ -2,7 +2,7 @@
   .hello
     h1 認識自學
     .ui.grid
-      .ui.four.column.doubling.row
+      .ui.two.column.doubling.row
         .column
           section.ui.segment
             h2 自學短講
@@ -29,7 +29,36 @@
                 | 自學2.0
               a.item(href="https://docs.google.com/spreadsheets/d/1BbdFTBmHNehZIRoqpzaFmd1E5HE2qTdvnaQUWnB5m50/edit", target="_blank")
                 img(src="http://www.google.com/s2/favicons?domain=https://docs.google.com/spreadsheets/d/1BbdFTBmHNehZIRoqpzaFmd1E5HE2qTdvnaQUWnB5m50/edit")
+                | 自學社團普查結果
+              a.item(href="https://docs.google.com/forms/d/e/1FAIpQLSdWQf1xFlugOLL1cQwlMc-od06wHSTLLwlpjYTqli5bHAHgcw/viewform", target="_blank")
+                img(src="http://www.google.com/s2/favicons?domain=https://docs.google.com/forms/d/e/1FAIpQLSdWQf1xFlugOLL1cQwlMc-od06wHSTLLwlpjYTqli5bHAHgcw/viewform")
                 | 自學社團普查
+        .column
+          section.ui.segment        
+            h2 認識自己
+            .ui.ordered.list
+              router-link.item(to='/Khr10', exact='')
+                i.hourglass.half.icon
+                | 一萬小時試算機
+              router-link.item(to='/style', exact='')
+                i.tasks.icon
+                | 學習風格自我測試
+              router-link.item(to='/auto4', exact='')
+                i.tasks.icon
+                | 學習自律四階段
+        .column
+          section.ui.segment        
+            h2 開放教材
+            .ui.ordered.list
+              a.item(href="https://docs.google.com/spreadsheets/d/15FKNUNb_MIh7Pl0VaNgUmOuDmFGEQ_IJB1WJ5sobFYU/edit?usp=sharing", target="_blank")
+                img(src="http://www.google.com/s2/favicons?domain=https://docs.google.com/spreadsheets/d/15FKNUNb_MIh7Pl0VaNgUmOuDmFGEQ_IJB1WJ5sobFYU/edit?usp=sharing")
+                | 開放教材普查結果
+              a.item(href="https://docs.google.com/forms/d/e/1FAIpQLSdI57nznV3O1crEuyCUwg7cWhwnaqzVs5y2Zwv0v3du_ql7ew/viewform", target="_blank")
+                img(src="http://www.google.com/s2/favicons?domain=https://docs.google.com/forms/d/e/1FAIpQLSdI57nznV3O1crEuyCUwg7cWhwnaqzVs5y2Zwv0v3du_ql7ew/viewform")
+                | 開放教材普查
+
+
+                
  
 </template>
 
