@@ -1,6 +1,6 @@
 <template lang="jade">
   .hello
-    section.ui.segment
+    section.ui.segment.container
       h1.ui.header.center.aligned
         | {{myQ.q}}
       i.huge.orange.users.icon(style="display:block; margin-left:auto; margin-right:auto")
