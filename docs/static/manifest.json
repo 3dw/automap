@@ -9,7 +9,17 @@
     },
     {
       "src": "/static/img/icons/android-chrome-512x512.png",
-      "sizes": "512x512",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/img/icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/img/icons/ios-appicon-1024-1024.png",
+      "sizes": "1024x1024",
       "type": "image/png"
     }
   ],
