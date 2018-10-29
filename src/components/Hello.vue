@@ -28,7 +28,7 @@
       .column(ng-show = "!myC")
         .inner.bordered.bottom.right.left
           h4.ui.center.aligned.icon.header
-            a(href="http://map.alearn.org.tw/contact.html", target="_blank")
+            a(href="http://map.alearn.org.tw/#/contact", target="_blank")
               i.circular.phone.icon.orange
               .description.orange
                 | 有其他問題嗎？請聯絡諮詢專線
