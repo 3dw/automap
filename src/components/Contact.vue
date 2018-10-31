@@ -2,6 +2,7 @@
   .hello
     .ui.tall.stacked.segment
       h1.ui.center.aligned.header 歡迎，請做好準備
+      h3.ui.center.aligned.header 選擇您想諮詢的項目
       h2.ui.center.aligned.icon.header      
         router-link.item(to="/inner/start", exact='')
           i.circular.users.icon

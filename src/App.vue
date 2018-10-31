@@ -21,12 +21,6 @@
       router-link.item(to="/contact", exact='')
         i.assistive.listening.systems.icon
         | 諮詢專線
-      router-link.item(to="/donate", exect="")
-        i.gift.icon
-        | 樂捐支持
-      router-link.item(to="/app", exect="")
-        i.phone.icon
-        | App下載
       .ui.simple.dropdown.item.fat-only
         i.angle.double.down.icon
         | 小工具
@@ -37,10 +31,18 @@
           router-link.item(to='/style', exact='')
             i.tasks.icon
             | 學習風格自我測試
-      .right.item.fat-only
-        a(href="https://github.com/3dw/automap/" target="_blank" title="View it on Github")
-          i.github.icon
-        iframe(src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fmap.alearn.org.tw&layout=button_count&size=small&mobile_iframe=true&appId=485195848253155&width=77&height=20" width="77" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media")
+          router-link.item(to="/app", exect="")
+            i.mobile.icon
+            | 自學手冊App  
+      .right.menu.fat-only
+        router-link.item(to="/donate", exect="")
+          i.gift.icon
+          | 樂捐支持
+        router-link.item(to="/books", exect="")
+          i.book.icon
+          | 出版品義賣
+        .item
+          iframe(src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fmap.alearn.org.tw&layout=button_count&size=small&mobile_iframe=true&appId=485195848253155&width=77&height=20" width="77" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media")
 
     main
       router-view(:myKey="myKey")
@@ -124,7 +126,7 @@ a, button, .clickable {
   }
 }
 
-.router-link-active {
+.router-link-active, .router-link-active::after {
   background-color: #acf !important;
 }
 

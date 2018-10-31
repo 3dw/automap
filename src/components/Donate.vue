@@ -7,17 +7,17 @@
         .column
           h1.ui.center.aligned.header 創新 × 公益
             .sub.header 行動持續中
-      .column(v-for="o in objs")
+      .column(v-for="(o, index) in objs")
         .ui.stacked.segment
           h3.ui.center.aligned.icon.header
-            a(@click="showD=!showD")
+            a(@click="showIndex = index")
               i.circular.icon(v-bind:class="o.i")
               .content {{o.t}}
                 .sub.header {{o.p1}}
-                  i.chevron.down.icon(v-show="!showD")
+                  i.chevron.down.icon
           .ui.divider
-          .ui(v-show="showD")
-            p(ng-repeat="p in o.ps") {{p}}
+          .ui(v-show="showIndex == index")
+            p(v-for="p in o.ps") {{p}}
             .ui.divider
             .ui.bulleted.list
               .item 募款緣由：{{o.rs[0]}}
@@ -48,7 +48,7 @@ export default {
   },
   data () {
     return {
-      showD: false,
+      showIndex: -1,
       objs: [
         {
           t: '自學法制化',

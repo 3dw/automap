@@ -123,7 +123,7 @@
 
 <script>
 export default {
-  name: 'app',
+  name: 'auto4',
   data () {
     return {
     }

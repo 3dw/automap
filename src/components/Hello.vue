@@ -3,11 +3,11 @@
     section
       h1.ui.center.aligned.header 選擇一項 
       h4.ui.center.aligned.header 分類：
-          a.ui.circular.label(v-for="c in catagories",
+        .ui.small.buttons
+          button.ui.button(v-for="c in catagories",
             v-bind:style="{'background-color': c.color}",
-            @click="myC = c.t") {{c.t}}
-
-          a.ui.circular.grey.basic.label(@click="myC = undefined") 全部
+            @click="myC = c.t", :title="c.description") {{c.t}}
+          button.ui.button(@click="myC = undefined") 全部
     .ui.divider
     br   
     #main.ui.two.column.doubling.stackable.relaxed.grid.container
@@ -89,7 +89,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss" scoped>
+<style scoped>
 h1, h2 {
   font-weight: normal;
 }
@@ -100,15 +100,15 @@ a {
 
 .bordered {
   border-radius: 0 0 15px 15px;
-  &.right {
+}
+.bordered.right {
     border-right: 2px solid #aaa;
   }
-  &.left {
-    border-left: 2px solid #aaa;
-  }
-  &.bottom {
-    border-bottom: 2px solid #aaa;
-  }
+.bordered.left {
+  border-left: 2px solid #aaa;
+}
+.bordered.bottom {
+  border-bottom: 2px solid #aaa;
 }
 
 </style>

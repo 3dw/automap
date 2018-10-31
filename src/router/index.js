@@ -11,6 +11,7 @@ import App from '@/components/App'
 import Khr10 from '@/components/Khr10'
 import Style from '@/components/Style'
 import Auto4 from '@/components/Auto4'
+import Books from '@/components/Books'
 
 Vue.use(Router)
 
@@ -70,6 +71,11 @@ export default new Router({
       path: '/auto4',
       name: 'Auto4',
       component: Auto4
+    },
+    {
+      path: '/books',
+      name: 'Books',
+      component: Books
     }
   ]
 })
