@@ -76,7 +76,7 @@ export default {
   },
   mounted () {
     // GET /someUrl
-    this.$http.get('http://map.alearn.org.tw/static/api/handbook-data.json').then(response => {
+    this.$http.get('https://map.alearn.org.tw/static/api/handbook-data.json').then(response => {
       this.handbook = response.body
       this.catagories = this.handbook.catagories
       this.faqs = this.handbook.faqs
