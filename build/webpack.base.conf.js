@@ -48,6 +48,10 @@ module.exports = {
           loader : 'jade-loader',
       },
       {
+        test: /\.scss$/,
+        loader: 'sass-loader',
+      },
+      {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test')]
