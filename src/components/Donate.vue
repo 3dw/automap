@@ -1,12 +1,11 @@
 <template lang="jade">
   .hello
     donate-menu
-
     .ui.two.column.doubling.grid
       .one.column.row
         .column
           h1.ui.center.aligned.header 創新 × 公益
-            .sub.header 行動持續中
+            .sub.header 歡迎捐贈發票→電子發票捐贈愛心碼：9806
       .column(v-for="(o, index) in objs")
         .ui.stacked.segment
           h3.ui.center.aligned.icon.header

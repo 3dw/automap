@@ -14,7 +14,7 @@
     nav.ui.fixed.top.labeled.icon.inverted.menu.fat-only
       router-link.item(to="/", exact='') 
         i.home.icon
-        | 自學FAQ
+        | 自學問答集
       router-link.item(to="/short", exact='') 
         i.comments.icon
         | 認識自學
