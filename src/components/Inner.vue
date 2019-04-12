@@ -58,7 +58,8 @@
               a(href="https://we.alearn.org.tw/", target="_blank") 
                   img(src="https://www.google.com/s2/favicons?domain=http://we.alearn.org.tw/")
                   | 自學2.0 
-
+                  br
+                  | (登入自學2.0有聊聊視窗可以詢問)
             .description(v-show="soc == 'line'")
               | Line群組: 
               .ui.list
