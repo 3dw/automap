@@ -41,9 +41,12 @@
           .content
             .header 社群媒體
             .description
-              | 志工老師在臉書與Line上回覆您
+              | 志工老師在社群媒體上回覆您
           .image
             .ui.four.column.grid
+              .column.right.align
+                a(@click="soc = 'auto20'")
+                  img.ui.tiny.image(src = "../assets/auto20.png")
               .column.right.align
                 a(@click="soc = 'line'")
                   img.ui.tiny.image(src = "../assets/line.png")
@@ -51,7 +54,12 @@
                 a(@click="soc = 'facebook'")
                   img.ui.tiny.image(src = "../assets/facebook.png")
           .content
-            .description(v-show="soc !== 'facebook'")
+            .description(v-show="soc == 'auto20'")
+              a(href="https://we.alearn.org.tw/", target="_blank") 
+                  img(src="https://www.google.com/s2/favicons?domain=http://we.alearn.org.tw/")
+                  | 自學2.0 
+
+            .description(v-show="soc == 'line'")
               | Line群組: 
               .ui.list
                 .item
@@ -60,7 +68,7 @@
                   | line加好友 〉 行動條碼 〉 掃描此條碼
                   
             .ui.divider
-            .description(v-show="soc !== 'line'")
+            .description(v-show="soc == 'facebook'")
               | 臉書專頁私訊:
               .ui.list
                 .item
@@ -104,13 +112,13 @@
               .ui.list
                 .item    
                   img.ui.image.avatar(src = "../assets/yi-ting.jpg")
-                  a(@click="showPhone = true") 蔡伊婷老師-週一下午2-4點
+                  a(@click="showPhone = true") 蔡伊婷老師-週五晚上7-9點
                   br
                   span (領域: 自學申請、法規流程、資源轉介)
                   br
-                  span(ng-show="showPhone")
+                  span(v-show="showPhone")
                     br
-                    | 電話號碼(僅週一下午2-4點方便):
+                    | 電話號碼(僅週五晚上7-9點方便):
                     br
                     | 0919-979-804
         .ui.card.print-only
@@ -126,7 +134,8 @@ export default {
   data () {
     return {
       step: 'start',
-      soc: 'line',
+      soc: 'auto20',
+      showPhone: false,
       intro: {
         start: {
           title: '自學申請',
