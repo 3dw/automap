@@ -1,6 +1,9 @@
 <template lang="jade">
   .chats(v-bind:class = "{ full : isFull, mini: isMini }")
     #menu.ui.inverted.menu
+      .item.ui.form
+        .ui.input
+          input(v-model="key", placeholder="搜索")
       .right.menu
         a.item(v-if="!isFull" @click="isFull = true; isMini = false")
           i.comments.icon
@@ -11,7 +14,7 @@
           | 縮小
     #box
       .ui.list
-        .item(v-for="c in chats.slice(chats.length - 5, chats.length)")
+        .item(v-for="c in fil(chats).slice(fil(chats).length - 5, fil(chats).length)")
           router-link(:to="'/flag/'+c.id")
             img.ui.avatar(:src="c.photoURL || 'http://graph.facebook.com/' + c.id + '/picture'", alt="^_^")
           span {{c.n}} : {{c.t}}
@@ -45,6 +48,7 @@ export default {
   data () {
     return {
       msg: '',
+      key: '',
       isFull: false,
       isMini: true
     }
@@ -71,6 +75,10 @@ export default {
     },
     loginGoogle: function () {
       this.$emit('loginGoogle')
+    },
+    fil: function (list) {
+      var k = this.key
+      return list.filter(function (o) { return o.t.indexOf(k) > -1 || !k })
     }
   }
 }
@@ -158,5 +166,9 @@ export default {
 /*    bottom: 0; */
     left: 0;
     width: 100%;
+  }
+
+  input {
+    width: 110px !important
   }
 </style>
