@@ -43,18 +43,87 @@
           | 出版品義賣
         .item
           iframe(src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fmap.alearn.org.tw&layout=button_count&size=small&mobile_iframe=true&appId=485195848253155&width=77&height=20" width="77" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media")
-
+    chatbox(:id="id", :user="user", :photoURL="photoURL", @loginFB="loginFB", @loginGoogle="loginGoogle")
     main
       transition(name='fade', mode='out-in')
         router-view(:myKey="myKey")
 </template>
 
 <script>
+import { handsRef } from './firebase'
+import firebase from 'firebase/app'
+import mix from './mixins/mix.js'
+import Chatbox from './components/Chatbox'
+
 export default {
   name: 'app',
+  mixins: [mix],
+  components: { Chatbox },
   data () {
     return {
-      myKey: ''
+      myKey: '',
+      user: '',
+      token: '',
+      id: '',
+      provider: '',
+      photoURL: ''
+    }
+  },
+  firebase: {
+    hands: handsRef
+  },
+  methods: {
+    loginFB: function () {
+      var vm = this
+      var provider = new firebase.auth.FacebookAuthProvider()
+      firebase.auth().signInWithPopup(provider).then(function (result) {
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        vm.provider = 'facebook'
+        vm.token = result.credential.accessToken
+        // The signed-in user info.
+        vm.user = result.user
+        vm.id = result.user.uid.split(':')[1]
+        for (var i = 0; i < vm.hands.length; i++) {
+          if (vm.hands[i].id === vm.id) {
+            vm.center = vm.hands[i].latlngColumn.split(',')
+            vm.zoom = 13
+          }
+        }
+        // ...
+      }).catch(function (error) {
+        var errorCode = error.code
+        var errorMessage = error.message
+        console.log(errorCode + errorMessage)
+      })
+    },
+    loginGoogle: function () {
+      var vm = this
+      var provider = new firebase.auth.GoogleAuthProvider()
+      firebase.auth().signInWithPopup(provider).then(function (result) {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        vm.provider = 'google'
+        vm.token = result.credential.accessToken
+        // The signed-in user info.
+        vm.id = result.user.uid
+        vm.user = result.user
+        vm.photoURL = vm.user.photoURL
+        for (var i = 0; i < vm.hands.length; i++) {
+          if (vm.hands[i].id === vm.id) {
+            vm.center = vm.hands[i].latlngColumn.split(',')
+            vm.zoom = 13
+          }
+        }
+        // ...
+      }).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code
+        var errorMessage = error.message
+        // The email of the user's account used.
+        var email = error.email
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential
+        console.log(errorCode + errorMessage + email + credential)
+      })
     }
   }
 }
