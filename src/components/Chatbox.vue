@@ -155,6 +155,7 @@ export default {
 
   .ui.list {
     position: absolute;
+/*    bottom: 0; */
     left: 0;
     width: 100%;
   }
