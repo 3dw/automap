@@ -11,7 +11,7 @@
           | 縮小
     #box
       .ui.list
-        .item(v-for="c in chats")
+        .item(v-for="c in chats.slice(chats.length - 5, chats.length)")
           router-link(:to="'/flag/'+c.id")
             img.ui.avatar(:src="c.photoURL || 'http://graph.facebook.com/' + c.id + '/picture'", alt="^_^")
           span {{c.n}} : {{c.t}}
