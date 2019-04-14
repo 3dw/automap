@@ -17,6 +17,7 @@
         .item(v-for="c in fil(chats).slice(fil(chats).length - 5, fil(chats).length)")
           router-link(:to="'/flag/'+c.id")
             img.ui.avatar(:src="c.photoURL || 'http://graph.facebook.com/' + c.id + '/picture'", alt="^_^")
+          a(@click = "key = c.l") [{{c.l}}]
           span {{c.n}} : {{c.t}}
           span.gray(v-show="isFull") &nbsp;&nbsp;-{{ countDateDiff(c.time) }}
         .item(v-if="id")
@@ -24,6 +25,23 @@
             .field
               img.ui.avatar(:src="photoURL || 'http://graph.facebook.com/' + id + '/picture'")
               input#input(v-model="msg" placeholder="在想什麼嗎?" autofocus)
+            .inline.fields
+              .field
+                .ui.radio.checkbox
+                  input(type='radio', name='label', v-model="label", value="諮詢" checked='checked == "諮詢"')
+                  label 諮詢
+              .field
+                .ui.radio.checkbox
+                  input(type='radio', name='label', v-model="label", value="故障", checked='checked == "故障"')
+                  label 故障
+              .field
+                .ui.radio.checkbox
+                  input(type='radio', name='label', v-model="label", value="找伴", checked='checked == "找伴"')
+                  label 找伴
+              .field
+                .ui.radio.checkbox
+                  input(type='radio', name='label', value="閒聊", checked='checked == "閒聊"')
+                  label 閒聊
               a.ui.green.small.button(@click="addChat") 留言
         .item(v-else) 
           .ui.big.buttons(v-if="!user")
@@ -50,7 +68,8 @@ export default {
       msg: '',
       key: '',
       isFull: false,
-      isMini: true
+      isMini: true,
+      label: ''
     }
   },
   firebase: {
@@ -62,6 +81,7 @@ export default {
         id: this.id,
         n: this.user.providerData[0].displayName,
         t: this.msg,
+        l: this.label,
         photoURL: this.photoURL || '',
         time: (new Date()).getTime()
       }
@@ -78,7 +98,7 @@ export default {
     },
     fil: function (list) {
       var k = this.key
-      return list.filter(function (o) { return o.t.indexOf(k) > -1 || !k })
+      return list.filter(function (o) { return (o.t + o.l).indexOf(k) > -1 || !k })
     }
   }
 }
