@@ -45,8 +45,8 @@ export default {
   data () {
     return {
       msg: '',
-      isFull: false,
-      isMini: true
+      isFull: true,
+      isMini: false
     }
   },
   firebase: {
