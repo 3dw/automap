@@ -263,4 +263,18 @@ a, button, .clickable {
   color: transparent !important;
 }
 
+.red.note {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  font-size: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+}
+
 </style>

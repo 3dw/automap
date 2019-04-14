@@ -6,8 +6,12 @@ import router from './router'
 import SuiVue from 'semantic-ui-vue'
 import VueResource from 'vue-resource'
 import '@babel/polyfill/noConflict'
+import './firebase'
+import VueFire from 'vuefire'
 
 Vue.use(VueResource)
+
+Vue.use(VueFire)
 
 require('semantic-ui-css/semantic.css')
 Vue.use(SuiVue)
