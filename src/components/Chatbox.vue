@@ -1,7 +1,7 @@
 <template lang="jade">
   .chats(v-bind:class = "{ full : isFull, mini: isMini }")
     #menu.ui.inverted.menu
-      .item.ui.form
+      .item.ui.form(v-if="isFull")
         .ui.input
           input(v-model="key", placeholder="搜索")
       .right.menu
@@ -17,7 +17,7 @@
         .item(v-for="c in fil(chats).slice(fil(chats).length - 5, fil(chats).length)")
           router-link(:to="'/flag/'+c.id")
             img.ui.avatar(:src="c.photoURL || 'http://graph.facebook.com/' + c.id + '/picture'", alt="^_^")
-          a(@click = "key = c.l") [{{c.l}}]
+          a(@click = "key = c.l" v-bind:class = "c.l") [{{c.l}}]
           span {{c.n}} : {{c.t}}
           span.gray(v-show="isFull") &nbsp;&nbsp;-{{ countDateDiff(c.time) }}
         .item(v-if="id")
@@ -26,22 +26,11 @@
               img.ui.avatar(:src="photoURL || 'http://graph.facebook.com/' + id + '/picture'")
               input#input(v-model="msg" placeholder="在想什麼嗎?" autofocus)
             .inline.fields
-              .field
+              .field(v-for = "l in labels")
                 .ui.radio.checkbox
-                  input(type='radio', name='label', v-model="label", value="諮詢" checked='checked == "諮詢"')
-                  label 諮詢
-              .field
-                .ui.radio.checkbox
-                  input(type='radio', name='label', v-model="label", value="故障", checked='checked == "故障"')
-                  label 故障
-              .field
-                .ui.radio.checkbox
-                  input(type='radio', name='label', v-model="label", value="找伴", checked='checked == "找伴"')
-                  label 找伴
-              .field
-                .ui.radio.checkbox
-                  input(type='radio', name='label', value="閒聊", checked='checked == "閒聊"')
-                  label 閒聊
+                  input(type='radio', name='l', v-model="label", :value="l" checked='checked == l')
+                  label
+                    a(@click="label=l", v-bind:class="l") {{l}}
               a.ui.green.small.button(@click="addChat") 留言
         .item(v-else) 
           .ui.big.buttons(v-if="!user")
@@ -69,7 +58,8 @@ export default {
       key: '',
       isFull: false,
       isMini: true,
-      label: ''
+      label: '閒聊',
+      labels: ['諮詢', '故障', '找伴', '閒聊']
     }
   },
   firebase: {
@@ -106,6 +96,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+  .諮詢 { background-color: yellow }
+  .找伴 { background-color: lightgreen }
+  .故障 { background-color: pink }
+  .閒聊 { background-color: white }
+
   .chats {
     position: fixed;
     z-index: 999999;
@@ -183,6 +179,7 @@ export default {
 
   .ui.list {
     position: absolute;
+    top: 1em;
 /*    bottom: 0; */
     left: 0;
     width: 100%;
