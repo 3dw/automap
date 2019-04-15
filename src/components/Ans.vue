@@ -1,9 +1,10 @@
 <template lang="jade">
   .hello
     section.ui.segment.container
-      h1.ui.header.center.aligned
-        | {{myQ.q}}
-      i.huge.orange.users.icon(style="display:block; margin-left:auto; margin-right:auto")
+      router-link(to="/")
+        h1.ui.header.center.aligned
+          | {{myQ.q}}
+        i.huge.orange.users.icon(style="display:block; margin-left:auto; margin-right:auto")
       .ui.divider
       .ui.grid
         .row
@@ -11,7 +12,7 @@
             p.description(v-for = "line in myQ.as" v-html = "highlightAndMakeBr(line, myKey)")
         
         .row
-          .eighteen.wide.right.aligned.column(v-show="myQ.es[0]")
+          .eighteen.wide.right.aligned.column(v-show="myQ.es && myQ.es[0]")
             .ui.divider
             span(v-for = "(e,index) in myQ.es")
               .ui.divider(v-show="index")

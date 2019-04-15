@@ -1,7 +1,7 @@
 <template lang="jade">
   .chats(v-bind:class = "{ full : isFull, mini: isMini }")
     #menu.ui.inverted.menu
-      .item.ui.form(v-if="isFull")
+      .item.ui.form(v-show="isFull")
         .ui.input
           input(v-model="key", placeholder="搜索")
       .right.menu
