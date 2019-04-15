@@ -23,6 +23,15 @@
           span.gray(v-show="isFull") &nbsp;&nbsp;-
             vue-markdown 
               |{{ countDateDiff(c.time) }}
+        .item.preview(v-if="p.t")
+          router-link(:to="'/flag/'+p.id")
+            img.ui.avatar(:src="p.photoURL || 'http://graph.facebook.com/' + p.id + '/picture'", alt="^_^")
+          a(@click = "key = p.l" v-bind:class = "p.l") [{{p.l}}]
+          vue-markdown
+            | {{p.n}} : {{p.t}}
+          span.gray(v-show="isFull") &nbsp;&nbsp;-
+            vue-markdown 
+              |{{ countDateDiff(p.time) }}
         .item(v-if="id")
           .ui.form
             .field
@@ -34,7 +43,9 @@
                   input(type='radio', name='l', v-model="label", :value="l" checked='checked == l')
                   label
                     a(@click="label=l", v-bind:class="l") {{l}}
-              a.ui.green.small.button(@click="addChat") 留言
+              .ui.button.group
+                a.ui.blue.small.button(@click="preview") 預覽
+                a.ui.green.small.button(@click="addChat") 留言
         .item(v-else) 
           .ui.big.buttons(v-if="!user")
             button.ui.blue.button(@click="loginFB")
@@ -59,6 +70,7 @@ export default {
   props: ['id', 'user', 'photoURL'],
   data () {
     return {
+      p: '',
       msg: '',
       key: '',
       isFull: false,
@@ -71,6 +83,17 @@ export default {
     chats: chatsRef
   },
   methods: {
+    preview: function () {
+      var o = {
+        id: this.id,
+        n: this.user.providerData[0].displayName,
+        t: this.msg,
+        l: this.label,
+        photoURL: this.photoURL || '',
+        time: (new Date()).getTime()
+      }
+      this.p = o
+    },
     addChat: function () {
       var o = {
         id: this.id,
@@ -117,6 +140,10 @@ export default {
     overflow: visible;
     border: 1px solid black;
     background-color: white;
+  }
+
+  .item.preview {
+    opacity: 0.86;
   }
 
   .chats.full {
