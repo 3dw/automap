@@ -14,22 +14,22 @@
           | 縮小
     #box
       .ui.list
-        .item(v-for="c in fil(chats).slice(fil(chats).length - 5, fil(chats).length)")
-          .ui(v-show = "!c.edit") 
+        .item(v-for="(c, idx) in fil(chats).slice(fil(chats).length - 5, fil(chats).length)" v-bind:key="c.t")
+          .ui(v-show = "edit !== c") 
               router-link(:to="'/flag/'+c.id")
                 img.ui.avatar(:src="c.photoURL || 'http://graph.facebook.com/' + c.id + '/picture'", alt="^_^")
               a(@click = "key = c.l" v-bind:class = "c.l") [{{c.l}}]
-              a(@click = "c.edit = true", v-show="c.id == id")
-                i.edit.icon
+              a(@click = "edit = c", v-show="c.id == id")
+                i.edit.icon(title = "edit")
               vue-markdown
                 | {{c.n}} : {{c.t}}
               span.gray(v-show="isFull") &nbsp;&nbsp;-
                 vue-markdown 
                   |{{ countDateDiff(c.time) }}
-          .ui.form(v-show="c.edit")
+          .ui.form(v-show="edit == c")
             .ui.input
-              input#input(v-model="c.t" placeholder="更新")
-              a.ui.green.small.button(@click="c.edit = false") 更新
+              input#input(v-model="c.t", placeholder="更新")
+              a.ui.green.small.button(@click="edit = ''; updateChat(c)") 更新
 
         .item.preview(v-if="p.t")
           router-link(:to="'/flag/'+p.id")
@@ -81,6 +81,7 @@ export default {
       p: '',
       msg: '',
       key: '',
+      edit: '',
       isFull: false,
       isMini: true,
       label: '閒聊',
@@ -102,6 +103,19 @@ export default {
         time: (new Date()).getTime()
       }
       this.p = o
+    },
+    updateChat: function (c) {
+      var o = {
+        id: c.id,
+        n: c.n,
+        t: c.t,
+        l: c.l,
+        photoURL: c.photoURL || '',
+        time: (new Date()).getTime()
+      }
+      chatsRef.child(c['.key']).set(
+        o
+      )
     },
     addChat: function () {
       var o = {
@@ -125,7 +139,9 @@ export default {
     },
     fil: function (list) {
       var k = this.key
-      return list.filter(function (o) { return (o.t + o.l).indexOf(k) > -1 || !k })
+      return list.filter(function (o) { return (o.t + o.l).indexOf(k) > -1 || !k }).map(function (o) {
+        o.edit = false; return o
+      })
     }
   }
 }
