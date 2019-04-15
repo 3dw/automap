@@ -15,14 +15,22 @@
     #box
       .ui.list
         .item(v-for="c in fil(chats).slice(fil(chats).length - 5, fil(chats).length)")
-          router-link(:to="'/flag/'+c.id")
-            img.ui.avatar(:src="c.photoURL || 'http://graph.facebook.com/' + c.id + '/picture'", alt="^_^")
-          a(@click = "key = c.l" v-bind:class = "c.l") [{{c.l}}]
-          vue-markdown
-            | {{c.n}} : {{c.t}}
-          span.gray(v-show="isFull") &nbsp;&nbsp;-
-            vue-markdown 
-              |{{ countDateDiff(c.time) }}
+          .ui(v-show = "!c.edit") 
+              router-link(:to="'/flag/'+c.id")
+                img.ui.avatar(:src="c.photoURL || 'http://graph.facebook.com/' + c.id + '/picture'", alt="^_^")
+              a(@click = "key = c.l" v-bind:class = "c.l") [{{c.l}}]
+              a(@click = "c.edit = true", v-show="c.id == id")
+                i.edit.icon
+              vue-markdown
+                | {{c.n}} : {{c.t}}
+              span.gray(v-show="isFull") &nbsp;&nbsp;-
+                vue-markdown 
+                  |{{ countDateDiff(c.time) }}
+          .ui.form(v-show="c.edit")
+            .ui.input
+              input#input(v-model="c.t" placeholder="更新")
+              a.ui.green.small.button(@click="c.edit = false") 更新
+
         .item.preview(v-if="p.t")
           router-link(:to="'/flag/'+p.id")
             img.ui.avatar(:src="p.photoURL || 'http://graph.facebook.com/' + p.id + '/picture'", alt="^_^")
@@ -89,6 +97,7 @@ export default {
         n: this.user.providerData[0].displayName,
         t: this.msg,
         l: this.label,
+        edit: false,
         photoURL: this.photoURL || '',
         time: (new Date()).getTime()
       }
@@ -215,6 +224,7 @@ export default {
 /*    bottom: 0; */
     left: 0;
     width: 100%;
+    padding-left: 1em; 
   }
 
   input {
