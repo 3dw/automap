@@ -9,11 +9,11 @@ import '@babel/polyfill/noConflict'
 import './firebase'
 import VueFire from 'vuefire'
 import VueMarkdown from 'vue-markdown'
+import VueLocalStorage from 'vue-localstorage'
 
 Vue.use(VueMarkdown)
-
+Vue.use(VueLocalStorage)
 Vue.use(VueResource)
-
 Vue.use(VueFire)
 
 require('semantic-ui-css/semantic.css')

@@ -1,14 +1,14 @@
 <template lang="jade">
   .chats(v-bind:class = "{ full : isFull, mini: isMini }")
-    #menu.ui.inverted.menu
+    #menu.ui.inverted.big.menu
       .item.ui.form(v-show="isFull")
         .ui.input
           input(v-model="key", placeholder="搜索")
       .right.menu
-        a.item(v-if="!isFull" @click="isFull = true; isMini = false")
+        a.item(v-if="!isFull" @click="isFull = true; isMini = false; reCount()")
           i.comments.icon
           | 聊聊
-          .red.note {{ chats.length }}
+          .red.note(v-show = "chats.length > read") {{ chats.length - read }}
         a.item(v-if="!isMini" @click="isFull = false; isMini = true")
           i.compress.icon
           | 縮小
@@ -82,6 +82,7 @@ export default {
       msg: '',
       key: '',
       edit: '',
+      read: 0,
       isFull: false,
       isMini: true,
       label: '閒聊',
@@ -142,7 +143,14 @@ export default {
       return list.filter(function (o) { return (o.t + o.l).indexOf(k) > -1 || !k }).map(function (o) {
         o.edit = false; return o
       })
+    },
+    reCount: function () {
+      this.read = this.chats.length
+      this.$localStorage.set('read', this.read)
     }
+  },
+  mounted () {
+    this.read = this.$localStorage.get('read') || 0
   }
 }
 </script>
