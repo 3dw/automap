@@ -18,8 +18,11 @@
           router-link(:to="'/flag/'+c.id")
             img.ui.avatar(:src="c.photoURL || 'http://graph.facebook.com/' + c.id + '/picture'", alt="^_^")
           a(@click = "key = c.l" v-bind:class = "c.l") [{{c.l}}]
-          span {{c.n}} : {{c.t}}
-          span.gray(v-show="isFull") &nbsp;&nbsp;-{{ countDateDiff(c.time) }}
+          vue-markdown
+            | {{c.n}} : {{c.t}}
+          span.gray(v-show="isFull") &nbsp;&nbsp;-
+            vue-markdown 
+              |{{ countDateDiff(c.time) }}
         .item(v-if="id")
           .ui.form
             .field
@@ -47,10 +50,12 @@
 
 import { chatsRef } from '../firebase'
 import mix from '../mixins/mix.js'
+import VueMarkdown from 'vue-markdown'
 
 export default {
   name: 'chats',
   mixins: [mix],
+  components: { VueMarkdown },
   props: ['id', 'user', 'photoURL'],
   data () {
     return {

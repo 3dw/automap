@@ -8,6 +8,9 @@ import VueResource from 'vue-resource'
 import '@babel/polyfill/noConflict'
 import './firebase'
 import VueFire from 'vuefire'
+import VueMarkdown from 'vue-markdown'
+
+Vue.use(VueMarkdown)
 
 Vue.use(VueResource)
 
