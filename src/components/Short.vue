@@ -2,6 +2,10 @@
   .hello
     h1 認識自學
     .ui.grid
+      .ui.row
+        .column
+          h2 非學校型態實驗教育學生概況
+          img#main(src = "/static/img/非學校型態實驗教育學生概況.png")
       .ui.two.column.doubling.row
         .column
           section.ui.segment
@@ -84,5 +88,10 @@ export default {
 
 a {
   font-size: 1.5rem !important;
+}
+
+#main {
+  width: 66%;
+  height: 400px;
 }
 </style>
