@@ -8,7 +8,7 @@
         .item(v-for="x in intro[step].urls")
           a(:href="x.h" target="_blank")
             img.favicon(:src="'http://www.google.com/s2/favicons?domain='+x.h", :alt = "x.t")
-            | {{x.t}}              
+            | {{x.t}}
       br
       | 閱讀後，如果需要問人，歡迎與我們聯絡：
       .ui.divider
@@ -25,7 +25,7 @@
                 | Dropbox Paper平台:
                 .ui.list
                   .item
-                    a(href="https://paper.dropbox.com/doc/FAQ-uRxprtmzs7BCoYifBF7hO") 
+                    a(href="https://paper.dropbox.com/doc/FAQ-uRxprtmzs7BCoYifBF7hO")
                       img.ui.small.image.avatar(src = "../assets/dropbox.png")
                       | 自學FAQ
                     br
@@ -33,7 +33,7 @@
                   .item
                   a(href="https://paper.dropbox.com/doc/FAQ-irXzLX9hfJWPEMP9xkSye" target="_blank")
                     img.ui.small.image.avatar(src = "../assets/dropbox.png")
-                    img.ui.small.image.avatar(src = "../assets/bestian.jpg") 
+                    img.ui.small.image.avatar(src = "../assets/bestian.jpg")
                     | 自由數學FAQ
                   br
                   span (領域: 數學、自主能力)
@@ -55,19 +55,19 @@
                   img.ui.tiny.image(src = "../assets/facebook.png")
           .content
             .description(v-show="soc == 'auto20'")
-              a(href="https://we.alearn.org.tw/", target="_blank") 
+              a(href="https://we.alearn.org.tw/", target="_blank")
                   img(src="https://www.google.com/s2/favicons?domain=http://we.alearn.org.tw/")
-                  | 自學2.0 
+                  | 自學2.0
                   br
                   | (登入自學2.0有聊聊視窗可以詢問)
             .description(v-show="soc == 'line'")
-              | Line群組: 
+              | Line群組:
               .ui.list
                 .item
                   img.ui.image(src = "../assets/line_QR_autolearn.jpg")
                   br
                   | line加好友 〉 行動條碼 〉 掃描此條碼
-                  
+
             .ui.divider
             .description(v-show="soc == 'facebook'")
               | 臉書專頁私訊:
@@ -98,7 +98,8 @@
           .content
             .header 電話
             .description
-              | 教育局的電話專線，以及本會志工老師
+              | 教育局的電話專線
+              // | ，以及本會志工老師
           .image
             img(src = "../assets/phone.png")
           .content
@@ -109,9 +110,9 @@
                 | 各縣市教育局承辦人-上班時間均可
               br
               span (領域: 自學申請、法規流程、行政細節)
-              br
-              .ui.list
-                .item    
+              // br
+              // .ui.list
+                .item
                   img.ui.image.avatar(src = "../assets/yi-ting.jpg")
                   a(@click="showPhone = true") 蔡伊婷老師-週五晚上7-9點
                   br
@@ -196,4 +197,3 @@ p {
 }
 
 </style>
- 
