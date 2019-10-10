@@ -99,7 +99,7 @@
             .header 電話
             .description
               | 教育局的電話專線
-              // | ，以及本會志工老師
+              | ，以及本會志工老師
           .image
             img(src = "../assets/phone.png")
           .content
@@ -110,10 +110,20 @@
                 | 各縣市教育局承辦人-上班時間均可
               br
               span (領域: 自學申請、法規流程、行政細節)
-              // br
-              // .ui.list
+               br
+               .ui.list
                 .item
-                  img.ui.image.avatar(src = "../assets/yi-ting.jpg")
+                  img.ui.image.avatar(src = "../assets/ling-yu.jpg")
+                  a(@click="showPhone = true") 黃鈴諭老師-週一、五下午
+                  br
+                  span (領域: 自學申請、法規流程、資源轉介)
+                  br
+                  span(v-show="showPhone")
+                    br
+                    | 電話號碼(週一、五下午方便):
+                    br
+                    | 0919-860-968
+              //    img.ui.image.avatar(src = "../assets/yi-ting.jpg")
                   a(@click="showPhone = true") 蔡伊婷老師-週五晚上7-9點
                   br
                   span (領域: 自學申請、法規流程、資源轉介)
