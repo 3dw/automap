@@ -47,6 +47,7 @@
     main
       a.item(href="/static/img/自主學習發票捐贈.png")
         | 發票捐贈(購物時出示)：
+        br
         img(src="/static/img/自主學習發票捐贈.png")
       transition(name='fade', mode='out-in')
         router-view(:myKey="myKey")
