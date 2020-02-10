@@ -10,7 +10,7 @@
           button.ui.button(@click="myC = undefined") 全部
     .ui.divider
     br   
-    #main.ui.two.column.doubling.stackable.relaxed.grid.container
+    #main.ui.four.column.doubling.stackable.relaxed.grid.container
       .column(v-for="(f, index) in faqs", v-show="(!myC || f.c == myC) && (!myKey || f.q.indexOf(myKey)>-1)")
         .inner.bordered.bottom.right.left
 
