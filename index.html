@@ -15,13 +15,13 @@
           if (file.match(/\.(js|css)$/)) { %>
     <link rel="<%= chunk.initial?'preload':'prefetch' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>"><% }}} %>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-26178243-4"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-26178243-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'UA-26178243-4');
+      gtag('config', 'UA-26178243-2');
     </script>
   </head>
   <body>
