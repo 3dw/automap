@@ -10,6 +10,17 @@ import './firebase'
 import VueFire from 'vuefire'
 import VueMarkdown from 'vue-markdown'
 import VueLocalStorage from 'vue-localstorage'
+import VueGtag from 'vue-gtag'
+
+Vue.use(VueGtag, {
+  config: {
+    id: 'UA-26178243-4',
+    params: {
+      send_page_view: true
+    }
+  },
+  router
+})
 
 Vue.use(VueMarkdown)
 Vue.use(VueLocalStorage)
