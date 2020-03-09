@@ -6,7 +6,6 @@ import Short from '@/components/Short'
 import Contact from '@/components/Contact'
 import Inner from '@/components/Inner'
 import Donate from '@/components/Donate'
-import Doner from '@/components/Doner'
 import App from '@/components/App'
 import Khr10 from '@/components/Khr10'
 import Style from '@/components/Style'
@@ -46,11 +45,6 @@ export default new Router({
       path: '/donate',
       name: 'Donate',
       component: Donate
-    },
-    {
-      path: '/doner/:step',
-      name: 'Doner',
-      component: Doner
     },
     {
       path: '/app',

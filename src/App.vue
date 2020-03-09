@@ -8,7 +8,7 @@
       router-link.item(to="/contact", exact='')
         | 諮詢
       router-link.item(to="/donate", exect="")
-        | 樂捐
+        | 贊助
       router-link.item(to="/app", exect="")
         | App
     nav.ui.fixed.top.labeled.icon.inverted.menu.fat-only
@@ -37,7 +37,7 @@
       .right.menu.fat-only
         router-link.item(to="/donate", exect="")
           i.gift.icon
-          | 樂捐支持
+          | 贊助會員
         router-link.item(to="/books", exect="")
           i.book.icon
           | 出版品義賣
@@ -47,7 +47,7 @@
     main
       transition(name='fade', mode='out-in')
         router-view(:myKey="myKey")
-      a.item(href="/static/img/自主學習發票捐贈.png")
+      a.big.downer.item(href="/static/img/自主學習發票捐贈.png")
         | 發票捐贈(購物時出示)：
         br
         img(src="/static/img/自主學習發票捐贈.png")
@@ -279,6 +279,16 @@ a, button, .clickable {
   height: 20px;
   border-radius: 50%;
   background-color: red;
+}
+
+.big {
+  font-size: 2em;
+  margin: 1em 0;
+}
+
+.downer {
+  position: relative;
+  top: 1.5em;
 }
 
 </style>

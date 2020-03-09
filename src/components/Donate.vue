@@ -1,49 +1,43 @@
 <template lang="jade">
   .hello
-    donate-menu
-    .ui.two.column.doubling.grid
+    .ui.two.column.doubling.grid.container
       .one.column.row
         .column
-          h1.ui.center.aligned.header 創新 × 公益
-            .sub.header 歡迎捐贈發票→電子發票捐贈愛心碼：9806
+          //h1.ui.center.aligned.header 歡迎捐贈發票
+            .sub.header 電子發票捐贈愛心碼：9806
+          h1.ui.center.aligned.header 本會開始招募贊助會員，請
+            a(href="https://sites.google.com/view/autoalearn/關於本會/成為贊助會員") 參考這裡
+            .sub.header 以下是本會的公益事項，如果您願意支持我們，請
+              a(href="https://sites.google.com/view/autoalearn/關於本會/成為贊助會員")  加入我們
       .column(v-for="(o, index) in objs")
         .ui.stacked.segment
           h3.ui.center.aligned.icon.header
-            a(@click="showIndex = index")
+            .ui.green(@click="showIndex = index")
               i.circular.icon(v-bind:class="o.i")
               .content {{o.t}}
                 .sub.header {{o.p1}}
-                  i.chevron.down.icon
           .ui.divider
-          .ui(v-show="showIndex == index")
-            p(v-for="p in o.ps") {{p}}
-            .ui.divider
-            .ui.bulleted.list
-              .item 募款緣由：{{o.rs[0]}}
-              .item 募款對象：{{o.rs[1]}}
-              .item 捐款去向：{{o.rs[2]}}   
+          .ui(v-show="true || showIndex == index")
+            p(v-for="p in o.ps") {{p}}  
           .ui.divider
           .ui.three.item.menu
             a.item(:href="o.url" target="_blank")
               i.globe.icon
-              | 認識
+              | 瞭解更多
             a.item(href="mailto:alearn13994229@gmail.com")
               i.mail.outline.icon
-              | 意見
-            router-link.item(to="/doner/gift")
-              i.gift.icon
-              | 樂捐
+              | 提供意見
+            a.item(href="https://sites.google.com/view/autoalearn/關於本會/成為贊助會員")
+              i.user.add.icon
+              | 贊助會員
  
 </template>
 
 <script>
 
-import donateMenu from './donateMenu'
-
 export default {
   name: 'donate',
   components: {
-    donateMenu
   },
   data () {
     return {
@@ -108,7 +102,17 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-a {
-  font-size: 1.5rem !important;
+p {
+  font-size: 18px;
 }
+
+p::first-letter {
+  font-size: 1.2em;
+  margin-left: 1em;
+}
+
+.green {
+  color: green;
+}
+
 </style>
