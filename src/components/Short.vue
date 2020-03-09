@@ -2,10 +2,6 @@
   .hello
     h1 認識自學
     .ui.grid
-      .ui.row
-        .column
-          h2 非學校型態實驗教育學生概況
-          img#main(src = "/static/img/非學校型態實驗教育學生概況.png")
       .ui.two.column.doubling.row
         .column
           section.ui.segment
@@ -60,6 +56,10 @@
               a.item(href="https://docs.google.com/forms/d/e/1FAIpQLSdI57nznV3O1crEuyCUwg7cWhwnaqzVs5y2Zwv0v3du_ql7ew/viewform", target="_blank")
                 img(src="http://www.google.com/s2/favicons?domain=https://docs.google.com/forms/d/e/1FAIpQLSdI57nznV3O1crEuyCUwg7cWhwnaqzVs5y2Zwv0v3du_ql7ew/viewform")
                 | 開放教材普查
+      .ui.row
+        .column
+          h2 非學校型態實驗教育學生概況
+          img#main(src = "/static/img/非學校型態實驗教育學生概況.png")
 
 
                 
@@ -72,8 +72,8 @@ export default {
   data () {
     return {
       shorts: [
-        {n: '全球化與自主學習', p: '唐光華', url: 'https://paper.dropbox.com/doc/--AQBcedy5uB92xxIu5D2rmgtpAg-N7UMI4fSy0g1c72X7q8Fp'},
-        {n: '如何做學習計畫', p: '朱佳仁', url: 'https://paper.dropbox.com/doc/5UjmL5UYMDnep8mNkEMt0'},
+        // {n: '全球化與自主學習', p: '唐光華', url: 'https://paper.dropbox.com/doc/--AQBcedy5uB92xxIu5D2rmgtpAg-N7UMI4fSy0g1c72X7q8Fp'},
+        // {n: '如何做學習計畫', p: '朱佳仁', url: 'https://paper.dropbox.com/doc/5UjmL5UYMDnep8mNkEMt0'},
         // {n: '談教師成長', p: '唐宗浩', url: 'https://paper.dropbox.com/doc/rIvhXRXPZKuuNfMz6GPl7'},
         {n: '如何成為未來職場需要的自由人才', p: '唐鳳', url: 'https://paper.dropbox.com/doc/RbEVa09jhkx3D0wdVYcp2'},
         {n: '人工智慧與未來學習', p: '唐鳳', url: 'https://www.youtube.com/embed/6lTVUp5xprA'}
