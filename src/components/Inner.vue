@@ -64,7 +64,7 @@
               | Line群組:
               .ui.list
                 .item
-                  img.ui.image(src = "../assets/line_QR_autolearn.jpg")
+                  img.ui.image(src = "../assets/line_QR.jpg")
                   br
                   | line加好友 〉 行動條碼 〉 掃描此條碼
 
