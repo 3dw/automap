@@ -18,7 +18,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/faq',
       name: 'Hello',
       component: Hello
     },
@@ -73,7 +73,7 @@ export default new Router({
       component: Books
     },
     {
-      path: '/bot',
+      path: '/',
       name: 'Bot',
       component: Bot
     }

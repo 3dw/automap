@@ -2,7 +2,7 @@
   #app
     nav.ui.fixed.top.inverted.menu.thin-only
       router-link.item(to="/", exact='') 
-        | FAQ
+        | 聊聊
       router-link.item(to="/short", exact='') 
         | 認識
       router-link.item(to="/contact", exact='')
@@ -12,10 +12,10 @@
       router-link.item(to="/app", exect="")
         | App
     nav.ui.fixed.top.labeled.icon.inverted.menu.fat-only
-      router-link.item(to="/bot", exact='') 
+      router-link.item(to="/", exact='') 
         i.comments.icon
         | 聊天機器人
-      router-link.item(to="/", exact='') 
+      router-link.item(to="/faq", exact='') 
         i.home.icon
         | 自學問答集
       router-link.item(to="/short", exact='')
@@ -49,7 +49,7 @@
           | 出版品義賣
         .item
           iframe(src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fmap.alearn.org.tw&layout=button_count&size=small&mobile_iframe=true&appId=485195848253155&width=100&height=20" width="100" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media")
-    chatbox(:id="id", :user="user", :photoURL="photoURL", @loginFB="loginFB", @loginGoogle="loginGoogle")
+    //chatbox(:id="id", :user="user", :photoURL="photoURL", @loginFB="loginFB", @loginGoogle="loginGoogle")
     main
       transition(name='fade', mode='out-in')
         router-view(:myKey="myKey")

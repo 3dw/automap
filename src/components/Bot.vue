@@ -2,20 +2,20 @@
   .hello
     h1
     .ui.comments.container
-      .comment(v-for = "t in talks")
+      .comment#me(v-for = "t in talks")
         hr
         .avatar
           i.user.icon(v-if="t[0].user")
           i.comments.icon(v-else)
         vue-markdown(v-if="t[0].text") {{ t[0].text }}
         br
-        .ui.buttons(v-if = "t[0].buttons")
-          a.ui.button(v-for = "b in t[0].buttons" @click="say(b.payload)") {{ b.title }}
+        .ui(v-if = "t[0].buttons")
+          a.ui.green.button(v-for = "b in t[0].buttons" @click="say(b.payload)") {{ b.title }}
     hr
     .ui.form.container
       .ui.field
-        input(v-model="userSay" list="intents" placeholder="您的問題" @keyup.enter="say(userSay)")
-        a.ui.button(@click="say(userSay)") 送出
+        input#say(v-autofocus='' v-model="userSay" list="intents" placeholder="您的問題..." @keyup.enter="say(userSay)")
+        a.ui.blue.button(@click="say(userSay)") 送出
     datalist#intents
       option(v-for = "i in intents") {{ i }}
  
@@ -57,7 +57,7 @@ export default {
         this.talks.push(this.responses['utter_default'])
       }
       this.userSay = ''
-      console.log(this.talks)
+      setTimeout(() => { window.scrollTo(0, document.body.scrollHeight) }, 100)
       this.$forceUpdate()
     }
   },
@@ -85,8 +85,15 @@ export default {
 .item {
 }
 
-.comment {
+input#say {
+  width: 320px;
+}
+
+.comment#me {
   max-width: 600px;
+  padding: 3px;
+  background-color: #ccc;
+  border-radius: 15px;
 }
 
 </style>
