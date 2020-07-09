@@ -47,6 +47,7 @@ export default {
         user: true,
         text: str
       }])
+      setTimeout(() => { window.scrollTo(0, document.body.scrollHeight) }, 100)
       this.listen(str)
     },
     listen: function (str) {
@@ -57,7 +58,6 @@ export default {
         this.talks.push(this.responses['utter_default'])
       }
       this.userSay = ''
-      setTimeout(() => { window.scrollTo(0, document.body.scrollHeight) }, 100)
       this.$forceUpdate()
     }
   },
@@ -81,7 +81,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 .item {
 }
 
@@ -96,4 +96,7 @@ input#say {
   border-radius: 15px;
 }
 
+.comment#me p {
+  font-size: 18px;
+}
 </style>
