@@ -31,6 +31,9 @@
           router-link.item(to='/style', exact='')
             i.tasks.icon
             | 學習風格自我測試
+          router-link.item(to='/auto4', exact='')
+            i.users.icon
+            | 學習自律四階段
           router-link.item(to="/app", exect="")
             i.mobile.icon
             | 自學手冊App  
