@@ -6,7 +6,7 @@
         hr
         .avatar
           i.user.icon(v-if="t[0].user")
-          i.comments.icon(v-else)
+          i.phone.volume.icon(v-else)
         vue-markdown(v-if="t[0].text") {{ t[0].text }}
         br
         .ui(v-if = "t[0].buttons")
