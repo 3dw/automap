@@ -12,11 +12,14 @@
       router-link.item(to="/app", exect="")
         | App
     nav.ui.fixed.top.labeled.icon.inverted.menu.fat-only
+      router-link.item(to="/bot", exact='') 
+        i.comments.icon
+        | 聊天機器人
       router-link.item(to="/", exact='') 
         i.home.icon
         | 自學問答集
-      router-link.item(to="/short", exact='') 
-        i.comments.icon
+      router-link.item(to="/short", exact='')
+        i.info.icon
         | 認識自學
       router-link.item(to="/contact", exact='')
         i.assistive.listening.systems.icon
@@ -50,7 +53,7 @@
     main
       transition(name='fade', mode='out-in')
         router-view(:myKey="myKey")
-      a.big.downer.item(href="/static/img/自主學習發票捐贈.png")
+      //a.big.downer.item(href="/static/img/自主學習發票捐贈.png")
         | 發票捐贈(購物時出示)：
         br
         img(src="/static/img/自主學習發票捐贈.png")

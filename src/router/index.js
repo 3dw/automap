@@ -11,6 +11,7 @@ import Khr10 from '@/components/Khr10'
 import Style from '@/components/Style'
 import Auto4 from '@/components/Auto4'
 import Books from '@/components/Books'
+import Bot from '@/components/Bot'
 
 Vue.use(Router)
 
@@ -70,6 +71,11 @@ export default new Router({
       path: '/books',
       name: 'Books',
       component: Books
+    },
+    {
+      path: '/bot',
+      name: 'Bot',
+      component: Bot
     }
   ]
 })
