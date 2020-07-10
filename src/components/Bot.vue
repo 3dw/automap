@@ -2,7 +2,7 @@
   .hello
     h1
     .ui.comments.container
-      .comment#me(v-for = "t in talks")
+      .comment#talk(v-for = "t in talks")
         hr
         .avatar
           i.user.icon(v-if="t[0].user")
@@ -90,14 +90,14 @@ input#say {
   width: 320px;
 }
 
-.comment#me {
+.comment#talk {
   max-width: 600px;
   padding: 3px;
   background-color: #ccc;
   border-radius: 15px;
 }
 
-.comment#me p {
+.comment#talk p {
   font-size: 18px;
 }
 </style>
