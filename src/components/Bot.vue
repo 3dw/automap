@@ -9,7 +9,7 @@
           i.phone.volume.icon(v-else)
         vue-markdown(v-if="t[0].text") {{ t[0].text }}
         br
-        .ui(v-if = "t[0].buttons")
+        .ui
           a.ui.green.button(v-for = "b in t[0].buttons" @click="say(b.payload)") {{ b.title }}
           a.ui.red.basic.button(v-if="!t[0].user", href="https://forms.gle/BK1HUgBzkM6MYVKT9", target="_blank") 錯誤回報
     hr
