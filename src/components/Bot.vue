@@ -47,6 +47,11 @@ export default {
         user: true,
         text: str
       }])
+      this.$gtag.event('say', {
+        'event_category': 'say',
+        'event_label': 'say' + str,
+        'value': 10
+      })
       setTimeout(() => { window.scrollTo(0, document.body.scrollHeight) }, 100)
       this.listen(str)
     },
