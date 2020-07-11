@@ -12,7 +12,7 @@
       br
       | 閱讀後，如果需要問人，歡迎與我們聯絡：
       .ui.divider
-      .ui.four.doubling.cards
+      .ui.four.stackable.cards
         .ui.card(v-show = "step !== 'consult'")
           .content
             .header 共同筆記
