@@ -114,6 +114,12 @@ input#say {
   top: 0;
 }
 
+@media screen and (max-width: 820px) {
+  .comment#talk .avatar {
+    position: static;
+  }
+}
+
 .comment#talk .avatar.bot {
   left: -2em;
 }
