@@ -2,9 +2,8 @@
   .hello
     h1
     .ui.comments.container
-      .comment#talk(v-for = "t in talks")
-        hr
-        .avatar
+      .comment#talk(v-for = "t in talks", :class="t[0].user ? 'user' : 'bot'")
+        .avatar(:class="t[0].user ? 'user' : 'bot'")
           i.user.icon(v-if="t[0].user")
           i.phone.volume.icon(v-else)
         vue-markdown(v-if="t[0].text") {{ t[0].text }}
@@ -91,13 +90,35 @@ input#say {
 }
 
 .comment#talk {
+  position: relative;
   max-width: 600px;
-  padding: 3px;
-  background-color: #ccc;
-  border-radius: 15px;
+  padding: 3px 8px;
+}
+
+.comment#talk.bot {
+  background-color: #cfc;
+  border-radius: 0 15px 15px 15px;
+}
+
+.comment#talk.user {
+  background-color: #ccf;
+  border-radius: 15px 0 15px 15px;
 }
 
 .comment#talk p {
   font-size: 18px;
+}
+
+.comment#talk .avatar {
+  position: absolute;
+  top: 0;
+}
+
+.comment#talk .avatar.bot {
+  left: -2em;
+}
+
+.comment#talk .avatar.user {
+  right: -2em;
 }
 </style>
