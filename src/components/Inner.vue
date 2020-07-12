@@ -146,7 +146,7 @@ export default {
   data () {
     return {
       step: 'start',
-      soc: 'auto20',
+      soc: 'facebook',
       showPhone: false,
       intro: {
         start: {
