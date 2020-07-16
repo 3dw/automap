@@ -14,6 +14,7 @@
     hr
     .ui.form.container
       .ui.field
+        i.user.icon
         input#say(v-autofocus='' v-model="userSay" list="intents" placeholder="您的問題..." @keyup.enter="say(userSay)")
         a.ui.blue.button(@click="say(userSay)") 送出
     datalist#intents
