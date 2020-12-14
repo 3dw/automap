@@ -51,15 +51,16 @@
           iframe(src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fmap.alearn.org.tw&layout=button_count&size=small&mobile_iframe=true&appId=485195848253155&width=100&height=20" width="100" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media")
     //chatbox(:id="id", :user="user", :photoURL="photoURL", @loginFB="loginFB", @loginGoogle="loginGoogle")
     main
-      transition(name='fade', mode='out-in')
-        router-view(:myKey="myKey")
+      router-view(:myKey="myKey")
       //a.big.downer.item(href="/static/img/自主學習發票捐贈.png")
         | 發票捐贈(購物時出示)：
         br
         img(src="/static/img/自主學習發票捐贈.png")
+      ad
 </template>
 
 <script>
+import Ad from './components/Ad-Be'
 import { handsRef } from './firebase'
 import firebase from 'firebase/app'
 import mix from './mixins/mix.js'
@@ -68,7 +69,7 @@ import Chatbox from './components/Chatbox'
 export default {
   name: 'app',
   mixins: [mix],
-  components: { Chatbox },
+  components: { Chatbox, Ad },
   data () {
     return {
       myKey: '',
@@ -151,65 +152,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
-
-@mixin keyframes($animation-name) {
-    @-webkit-keyframes #{$animation-name} {
-        @content;
-    }
-    @-moz-keyframes #{$animation-name} {
-        @content;
-    }  
-    @-ms-keyframes #{$animation-name} {
-        @content;
-    }
-    @-o-keyframes #{$animation-name} {
-        @content;
-    }  
-    @keyframes #{$animation-name} {
-        @content;
-    }
-}
-
-@mixin animation($str) {
-  -webkit-animation: #{$str};
-  -moz-animation: #{$str};
-  -ms-animation: #{$str};
-  -o-animation: #{$str};
-  animation: #{$str};      
-}
-
-@mixin transition($args...) {
-  -webkit-transition: $args;
-  -moz-transition: $args;
-  -ms-transition: $args;
-  -o-transition: $args;
-  transition: $args;
-}
-
-@mixin transform($transforms) {
-     -moz-transform: $transforms;
-       -o-transform: $transforms;
-      -ms-transform: $transforms;
-  -webkit-transform: $transforms;
-          transform: $transforms;
-}
-
-.fade-leave {  }
-
-.fade-leave-active {
-  @include transition(all .3s ease);
-  opacity: 0;
-}
-
-.fade-enter {
-  opacity: 0;
-  @include transform(rotateY(45deg));
-}
-
-.fade-enter-active {
-  @include transition(all .5s ease-in);
-}
+<style>
 
 body {
   margin: 0;
