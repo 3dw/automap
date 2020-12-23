@@ -24,6 +24,9 @@
       router-link.item(to="/contact", exact='')
         i.assistive.listening.systems.icon
         | 諮詢專線
+      a.item(href="https://we.alearn.org.tw", target="_blank")
+        i.users.icon
+        | 自學交友
       .ui.simple.dropdown.item.fat-only
         i.angle.double.down.icon
         | 小工具
