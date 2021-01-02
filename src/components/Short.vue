@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   .hello
     h1 認識自學
     .ui.grid

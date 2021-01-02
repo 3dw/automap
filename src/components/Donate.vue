@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   .hello
     .ui.two.column.doubling.grid.container
       .one.column.row

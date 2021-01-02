@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   .hello
     .ui.tall.stacked.segment
       h1.ui.center.aligned.header 歡迎，請做好準備

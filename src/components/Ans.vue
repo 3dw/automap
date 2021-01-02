@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   .hello
     section.ui.segment.container
       router-link(to="/")
@@ -67,6 +67,7 @@ export default {
       this.myQ = this.faqs[this.$route.params.id]
       // success callback
     }, response => {
+      console.log(response)
       // error callback
     })
   }

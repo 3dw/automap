@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   .hello
     section
       h1.ui.center.aligned.header 選擇一項 
@@ -82,6 +82,7 @@ export default {
       this.faqs = this.handbook.faqs
       // success callback
     }, response => {
+      console.log(response)
       // error callback
     })
   }

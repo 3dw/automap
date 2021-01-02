@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   .hello
     h1
     .ui.comments.container
@@ -10,12 +10,13 @@
         br
         .ui.vertical.buttons
           a.ui.green.button(v-for = "b in t[0].buttons" @click="say(b.payload)") {{ b.title }}
-          a.ui.red.basic.button(v-if="!t[0].user", href="https://forms.gle/BK1HUgBzkM6MYVKT9", target="_blank") 錯誤回報
+          a.ui.red.basic.button(v-if="!t[0].user", href="https://forms.gle/BK1HUgBzkM6MYVKT9", target="_blank", rel="noopener noreferrer") 錯誤回報
     hr
     .ui.form.container
       .ui.field
         i.user.icon
         input#say(v-autofocus='' v-model="userSay" list="intents" placeholder="您的問題..." @keyup.enter="say(userSay)")
+        label(for="say") _
         a.ui.blue.button(@click="say(userSay)") 送出
     datalist#intents
       option(v-for = "i in intents") {{ i }}
@@ -80,6 +81,7 @@ export default {
       // success callback
     }, response => {
       console.log('error')
+      console.log(response)
       // error callback
     })
   }
@@ -103,7 +105,7 @@ input#say {
 }
 
 .comment#talk.bot {
-  background-color: #cfc;
+  background-color: #ccf;
   border-radius: 0 15px 15px 15px;
 }
 

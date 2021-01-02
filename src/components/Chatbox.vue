@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   .chats(v-bind:class = "{ full : isFull, mini: isMini }")
     #menu.ui.inverted.big.menu
       .item.ui.form(v-show="isFull")

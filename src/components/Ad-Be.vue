@@ -1,8 +1,8 @@
 <template lang="pug">
 .hello
   #ad
-    a(href="https://hack.bestian.tw", target="_blank")
-      img.ad(src="/static/ad-be.jpg")
+    a(href="https://hack.bestian.tw", target="_blank", rel="noopener noreferrer")
+      img.ad(src="/static/ad-be.jpg", alt="Bestian")
       | 本站由Bestian製作，歡迎學習架網站
 </template>
 

@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   .hello
     .ui.tall.stacked.segment
       h1.ui.header {{intro[step].title}}
@@ -76,7 +76,7 @@
                   a(href="https://www.facebook.com/%E8%87%AA%E4%B8%BB%E5%AD%B8%E7%BF%92%E4%BF%83%E9%80%B2%E6%9C%83-208398025852902/")
                     i.facebook.icon
                     | 自主學習促進會
-               .item
+                .item
                   a(href="https://www.facebook.com/homeschooltw/")
                     i.facebook.icon
                     | 台灣在家自學聯盟
@@ -135,7 +135,7 @@
                     | 0919-979-804
         .ui.card.print-only
           .image.qr
-              img(src = "http://chart.apis.google.com/chart?chs=200x200&cht=qr&chld=|1&chl=http%3A%2F%2Fmap.alearn.org.tw%2F")
+            img(src = "http://chart.apis.google.com/chart?chs=200x200&cht=qr&chld=|1&chl=http%3A%2F%2Fmap.alearn.org.tw%2F")
             .content
               .center.aligned.header 自學地圖
 </template>

@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   .hello
     h1.ui.header 自主學習出版品
     .ui.segment.container

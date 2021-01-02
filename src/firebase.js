@@ -1,7 +1,8 @@
-import { initializeApp } from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/database';
 
 // Initialize Firebase
-const app = initializeApp({
+const app = firebase.initializeApp({
   apiKey: 'AIzaSyDd4sKc1eN4qtprCxiKLWy8D_wK7rJURAI',
   authDomain: 'shackhand-autolearn.firebaseapp.com',
   databaseURL: 'https://shackhand-autolearn.firebaseio.com',

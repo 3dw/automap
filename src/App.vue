@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   #app
     nav.ui.fixed.top.inverted.menu.thin-only
       router-link.item(to="/", exact='') 
@@ -24,7 +24,7 @@
       router-link.item(to="/contact", exact='')
         i.assistive.listening.systems.icon
         | 諮詢專線
-      a.item(href="https://we.alearn.org.tw", target="_blank")
+      a.item(href="https://we.alearn.org.tw", target="_blank", rel="noopener noreferrer")
         i.users.icon
         | 自學交友
       .ui.simple.dropdown.item.fat-only
@@ -228,7 +228,7 @@ a, button, .clickable {
 }
 
 .router-link-active, .router-link-active::after {
-  background-color: #acf !important;
+  background-color: #19c !important;
 }
 
 .invisible {

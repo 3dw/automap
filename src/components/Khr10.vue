@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   .hello
     .ui.ogrange.piled.segment.container
       h3.ui.header
