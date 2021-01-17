@@ -272,4 +272,10 @@ a, button, .clickable {
   font-weight: normal !important;
 }
 
+img.history {
+  width: 180px !important;
+  float: left !important;
+  margin-right: 1em !important;
+}
+
 </style>
