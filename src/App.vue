@@ -209,7 +209,7 @@ a, button, .clickable {
   cursor: pointer !important;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   .fat-only {
     display: none !important;
   }
@@ -224,7 +224,7 @@ a, button, .clickable {
   }
 }
 
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 801px) {
   .thin-only {
     display: none !important;
   }
@@ -276,6 +276,12 @@ img.history {
   width: 180px !important;
   float: left !important;
   margin-right: 1em !important;
+}
+
+@media screen and (max-width: 420px) {
+  img.history {
+    width: 100px !important;
+  }
 }
 
 </style>

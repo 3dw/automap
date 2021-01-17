@@ -94,4 +94,11 @@ a {
   margin: 0 auto;
 }
 
+@media screen and (max-width: 420px) {
+  .timeline {
+    position: relative;
+    left: -2.6em;
+  }
+}
+
 </style>
