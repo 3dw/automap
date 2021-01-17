@@ -1,5 +1,6 @@
 <template lang="pug">
   .hello
+    vue-headful(title="諮詢專線 - 自學地圖", description="本會的諮詢專線")
     .ui.tall.stacked.segment
       h1.ui.center.aligned.header 歡迎，請做好準備
       h3.ui.center.aligned.header 選擇您想諮詢的項目

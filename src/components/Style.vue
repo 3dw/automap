@@ -1,5 +1,6 @@
 <template lang="pug">
   .hello
+    vue-headful(title="學習風格 - 自學地圖", description="學習風格有千百種以上，要細分有很多角度。本測試採取的是「👀視👂聽📖讀作🙌」框架")
     .ui.container
       .slide(v-show = "!step")
         .ui.attached.segment

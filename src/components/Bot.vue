@@ -1,5 +1,6 @@
 <template lang="pug">
   .hello
+    vue-headful(title="聊天機器人 - 自學地圖", description="自學聊天機器人")
     h1
     .ui.comments.container
       .comment#talk(v-for = "t in talks", :class="t[0].user ? 'user' : 'bot'")

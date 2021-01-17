@@ -1,5 +1,6 @@
 <template lang="pug">
   .hello
+    vue-headful(title="一萬小時原則 - 自學地圖", description="一萬小時原則")
     .ui.ogrange.piled.segment.container
       h3.ui.header
         i.bicycle.icon

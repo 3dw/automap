@@ -1,5 +1,6 @@
 <template lang="pug">
   .hello
+    vue-headful(title="贊助會員 - 自學地圖", description="本會開始招募贊助會員")
     .ui.two.column.doubling.grid.container
       .one.column.row
         .column

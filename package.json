@@ -19,6 +19,7 @@
     "vue": "^2.6.11",
     "vue-autofocus-directive": "^1.0.4",
     "vue-gtag": "^1.10.0",
+    "vue-headful": "^2.1.0",
     "vue-localstorage": "^0.6.2",
     "vue-markdown": "^2.2.4",
     "vue-resource": "^1.5.1",

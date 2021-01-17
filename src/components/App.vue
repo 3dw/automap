@@ -1,5 +1,6 @@
 <template lang="pug">
   .hello
+    vue-headful(title="自學手冊手機版 - 自學地圖", description="本會的自學手冊手機版")
     .ui.container
       .ui.stacked.segment
         h1.ui.dividing.header

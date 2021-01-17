@@ -1,5 +1,6 @@
 <template lang="pug">
   .chats(v-bind:class = "{ full : isFull, mini: isMini }")
+    vue-headful(title="聊天室 - 自學地圖", description="自學聊天室")
     #menu.ui.inverted.big.menu
       .item.ui.form(v-show="isFull")
         .ui.input

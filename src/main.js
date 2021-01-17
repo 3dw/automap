@@ -11,6 +11,8 @@ import VueLocalStorage from 'vue-localstorage'
 import autofocus from 'vue-autofocus-directive'
 import VueGtag from 'vue-gtag'
 import '../node_modules/timeline-vuejs/dist/timeline-vuejs.css'
+import vueHeadful from 'vue-headful' 
+Vue.component('vue-headful', vueHeadful)
 
 Vue.config.productionTip = false
 

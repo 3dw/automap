@@ -1,5 +1,6 @@
 <template lang="pug">
   .hello
+    vue-headful(title="學習自律四階段 - 自學地圖", description="從他律到自主的過程，一般會經過解放散漫、自我中心、眼高手低和自主成熟這四個階段。")
     .ui.segment.container
       h1 學習自律四階段
 

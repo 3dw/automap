@@ -1,5 +1,6 @@
 <template lang="pug">
   .hello
+    vue-headful(title="自主學習出版品 - 自學地圖", description="自主學習相關出版品")
     h1.ui.header 自主學習出版品
     .ui.segment.container
       .ui.grid

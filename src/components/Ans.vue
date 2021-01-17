@@ -1,5 +1,6 @@
 <template lang="pug">
   .hello
+    vue-headful(title="自學問答 - 自學地圖", description="自學問答集")
     section.ui.segment.container
       router-link(to="/")
         h1.ui.header.center.aligned

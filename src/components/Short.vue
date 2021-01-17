@@ -1,5 +1,6 @@
 <template lang="pug">
   .hello
+    vue-headful(title="認識自學 - 自學地圖", description="自學短講")
     h1 認識自學
     .ui.grid
       .ui.two.column.doubling.row

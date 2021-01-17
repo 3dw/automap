@@ -262,4 +262,14 @@ a, button, .clickable {
   top: 1.5em;
 }
 
+.timeline-item .title-item {
+  font-size: 22px !important;
+}
+
+.timeline-item .description-item {
+  font-size: 18px !important;
+  color: #333 !important;
+  font-weight: normal !important;
+}
+
 </style>
