@@ -10,6 +10,7 @@ import VueMarkdown from 'vue-markdown'
 import VueLocalStorage from 'vue-localstorage'
 import autofocus from 'vue-autofocus-directive'
 import VueGtag from 'vue-gtag'
+import '../node_modules/timeline-vuejs/dist/timeline-vuejs.css'
 
 Vue.config.productionTip = false
 

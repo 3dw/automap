@@ -12,6 +12,7 @@ import Style from '@/components/Style'
 import Auto4 from '@/components/Auto4'
 import Books from '@/components/Books'
 import Bot from '@/components/Bot'
+import History from '@/components/History'
 
 Vue.use(Router)
 
@@ -76,6 +77,11 @@ export default new Router({
       path: '/',
       name: 'Bot',
       component: Bot
+    },
+    {
+      path: '/history',
+      name: 'History',
+      component: History
     }
   ]
 })

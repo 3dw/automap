@@ -44,6 +44,9 @@
             i.mobile.icon
             | 自學手冊App  
       .right.menu.fat-only
+        router-link.item(to="/history", exect="")
+          i.book.icon
+          | 本會簡史
         router-link.item(to="/donate", exect="")
           i.gift.icon
           | 贊助會員
