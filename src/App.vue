@@ -284,4 +284,8 @@ img.history {
   }
 }
 
+.timeline .wrapper-item .section-year .year {
+  font-size: 20px !important;
+}
+
 </style>
