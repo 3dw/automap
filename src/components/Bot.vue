@@ -111,7 +111,7 @@ input#say {
 }
 
 .comment#talk.user {
-  background-color: #ccf;
+  background-color: #cfc;
   border-radius: 15px 0 15px 15px;
 }
 
@@ -136,5 +136,11 @@ input#say {
 
 .comment#talk .avatar.user {
   right: -2em;
+}
+
+.ui.comments.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>
