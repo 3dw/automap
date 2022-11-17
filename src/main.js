@@ -17,7 +17,7 @@ Vue.component('vue-headful', vueHeadful)
 Vue.config.productionTip = false
 
 Vue.use(VueGtag, {
-  config: { id: 'UA-26178243-2' }
+  config: { id: 'G-PYJRP1QSGE' }
 }, router)
 
 Vue.directive('autofocus', autofocus)
