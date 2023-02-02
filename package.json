@@ -22,7 +22,7 @@
     "vue-headful": "^2.1.0",
     "vue-localstorage": "^0.6.2",
     "vue-markdown": "^2.2.4",
-    "vue-resource": "^1.5.1",
+    "vue-resource": "^1.5.3",
     "vue-router": "^3.2.0",
     "vuefire": "^2.2.5"
   },
