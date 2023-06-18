@@ -288,4 +288,15 @@ img.history {
   font-size: 20px !important;
 }
 
+.custom-text {
+  font-weight: bold;
+  font-size: 1.9em;
+  border: 1px solid #cfcfcf;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  color: #999;
+  background: #fff;
+}
+
 </style>
