@@ -9,7 +9,7 @@
           h1.ui.center.aligned.header 本會開始招募贊助會員，請
             a(href="https://sites.google.com/view/autoalearn/關於本會/成為贊助會員") 參考這裡
             .sub.header 以下是本會的公益事項，如果您願意支持我們，請
-              a(href="https://sites.google.com/view/autoalearn/關於本會/成為贊助會員")  加入我們
+              a(href="https://www.alearn.org.tw")  瞭解更多
       .column(v-for="(o, index) in objs")
         .ui.stacked.segment
           h3.ui.center.aligned.icon.header

@@ -1,18 +1,31 @@
 <template lang="pug">
 .hello
   #ad
-    a(href="https://hack.bestian.tw", target="_blank", rel="noopener noreferrer")
-      img.ad(src="/static/ad-be.jpg", alt="Bestian")
-      | 本站由Bestian製作
+    a(href="https://www.alearn.org.tw", target="_blank", rel="noopener noreferrer")
+      img.ad(src="/ad-be.jpg" :alt="sify('按此瞭解更多')")
+      | {{ sify('自主學習進促進會製作') }}
 </template>
 
 <script>
+
+import {sify} from 'chinese-conv'
+
 export default {
   name: 'Ad',
-  data () {
-    return { }
+  props: ['si'],
+  data() {
+    return { };
+  },
+  methods: {
+    sify (t) {
+      if (this.si) {
+        return sify(t)
+      } else {
+        return t
+      }
+    }
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -21,7 +34,7 @@ export default {
 #ad {
   position: fixed;
   bottom: 0;
-  left: 0;
+  right: 0;
   background-color: rgba(255,255,255,0.8);
   border-radius: 5px;
   padding: .5em .5em;

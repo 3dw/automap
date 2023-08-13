@@ -49,7 +49,7 @@
           | 本會簡史
         router-link.item(to="/donate", exect="")
           i.gift.icon
-          | 贊助會員
+          | 贊助與共創
         router-link.item(to="/books", exect="")
           i.book.icon
           | 出版品義賣
@@ -62,7 +62,7 @@
         | 發票捐贈(購物時出示)：
         br
         img(src="/static/img/自主學習發票捐贈.png")
-      ad
+      ad#ad
 </template>
 
 <script>
@@ -209,12 +209,18 @@ a, button, .clickable {
   cursor: pointer !important;
 }
 
+
 @media screen and (max-width: 800px) {
   .fat-only {
     display: none !important;
   }
   .button {
     max-width: 100% !important;
+  }
+  #ad {
+    position: fixed;
+    bottom: 0;
+    right: 0 !important;
   }
 }
 
